@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block main %}
+    <article>
+        <h1 class="title">{{ post.title }}</h1>
+        {{ post.content|safe }}
+    </article>
+{% endblock main %}

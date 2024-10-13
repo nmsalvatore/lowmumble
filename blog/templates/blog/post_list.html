@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block main %}
+    <ul>
+        {% for post in posts %}
+            <li>
+                <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M d" }}</time>
+                <a href="{% url 'post_detail' slug=post.slug %}">{{ post }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock main %}

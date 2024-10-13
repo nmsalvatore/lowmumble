@@ -1,0 +1,18 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+
+        {% block css %}{% endblock css%}
+        {% block js %}{% endblock js%}
+
+        <title>low mumble.</title>
+    </head>
+    <body>
+        {% block body %}
+        {% endblock body%}
+    </body>
+</html>

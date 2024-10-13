@@ -1,0 +1,82 @@
+header.container,
+footer.container {
+    margin: var(--space-4) auto;
+}
+
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 var(--space-2);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+header > nav > a {
+    margin-right: var(--space-1);
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+header > hr {
+    border: none;
+    border-top: 1px solid hsl(0 0% 85%);
+    margin-top: var(--space-3);
+}
+
+main {
+    flex: 1;
+}
+
+nav.admin-bar {
+    height: var(--space-4);
+    line-height: var(--space-4);
+    background: var(--color-2);
+}
+
+nav.admin-bar > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav.admin-bar a {
+    color: #fff;
+}
+
+a#blog_title {
+    text-decoration: none;
+    font-weight: 700;
+    color: inherit;
+    margin-bottom: var(--space-2);
+}
+
+a {
+    color: var(--color-1);
+}
+
+p {
+    margin-bottom: var(--space-2);
+}
+
+ul {
+    margin-left: var(--space-3);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+h1 {
+    margin-bottom: var(--space-3);
+}
+
+@media only screen and (max-width: 568px) {
+    header,
+    footer {
+        margin: var(--space-3) auto;
+    }
+}
