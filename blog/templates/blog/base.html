@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock css %}
 
 {% block body %}
     {% if user.is_superuser %}
         <nav class="admin-bar">
             <div class="container">
-                <a href="/">New Post</a>
+                <a href="{% url 'new_post' %}">New Post</a>
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
                     <button class="logout" type="submit">Log Out</button>
