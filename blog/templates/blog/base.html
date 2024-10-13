@@ -10,7 +10,10 @@
         <nav class="admin-bar">
             <div class="container">
                 <a href="/">New Post</a>
-                <a href="/">Log out</a>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="logout" type="submit">Log Out</button>
+                </form>
             </div>
         </nav>
     {% endif %}
