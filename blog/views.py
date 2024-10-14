@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.utils.text import slugify
+from django.contrib.auth.decorators import login_required
 from .models import Post
+from .forms import PostForm
 
 
 def home(request):
@@ -18,6 +21,23 @@ def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
     context = {'post': post}
     return render(request, "blog/post_detail.html", context)
+
+@login_required
+def new_post(request):
+    if request.POST:
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.content = request.POST.get("content")
+            post.slug = slugify(post.title)
+            post.is_published = True
+            post.save()
+        return redirect("post_list")
+    else:
+        form = PostForm()
+        context = {"form": form}
+        return render(request, "blog/new_post.html", context)
 
 
 def contact(request):
