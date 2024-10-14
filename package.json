@@ -1,0 +1,22 @@
+{
+    "name": "lowmumble",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "webpack": "^5.95.0",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "@tiptap/core": "^2.8.0",
+        "@tiptap/extension-placeholder": "^2.8.0",
+        "@tiptap/pm": "^2.8.0",
+        "@tiptap/starter-kit": "^2.8.0"
+    }
+}
