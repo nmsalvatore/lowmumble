@@ -70,8 +70,21 @@ ul {
     margin-bottom: var(--space-3);
 }
 
-h1 {
+h1,
+#id_title {
+    font-size: var(--space-3);
     margin-bottom: var(--space-3);
+}
+
+#new_post_form button[type="submit"] {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    text-decoration: underline;
+    float: right;
 }
 
 button.logout {
@@ -81,6 +94,19 @@ button.logout {
     color: #fff;
     font-family: inherit;
     font-size: inherit;
+}
+
+textarea#id_title {
+    font-weight: 700;
+    font-size: var(--space-3);
+    font-family: inherit;
+    width: 100%;
+    border: none;
+    resize: none;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 @media only screen and (max-width: 568px) {
