@@ -1,9 +1,22 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
+{% block page_css %}
+    {% if user.is_superuser %}
+        <link rel="stylesheet" href="{% static 'blog/css/superuser.css' %}">
+    {% endif %}
+{% endblock page_css %}
+
 {% block main %}
-    <article>
-        <h1 class="title">{{ post.title }}</h1>
+    <article class="post">
+        <h1 class="post-title">{{ post.title }}</h1>
         {{ post.content|safe }}
     </article>
+
+    {% if user.is_superuser %}
+        <nav class="superuser-options">
+            <a href="{% url 'delete_post' slug=post.slug %}">Delete</a>
+            <a href="{% url 'edit_post' slug=post.slug %}">Edit</a>
+        </nav>
+    {% endif %}
 {% endblock main %}

@@ -1,0 +1,11 @@
+nav.superuser-options {
+    text-align: right;
+
+    a {
+        margin-right: 1ch;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

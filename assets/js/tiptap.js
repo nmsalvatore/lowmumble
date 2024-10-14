@@ -23,4 +23,26 @@ document.addEventListener("DOMContentLoaded", () => {
             newPostForm.submit();
         });
     }
+
+    const editPostForm = document.querySelector("#edit_post_form");
+    if (editPostForm) {
+        const editor = new Editor({
+            element: document.querySelector(".editor"),
+            extensions: [
+                StarterKit,
+                Placeholder.configure({
+                    placeholder: "Say something",
+                }),
+            ],
+            content: postContent,
+        });
+
+        editPostForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const contentInput = document.getElementById("editor_content");
+            const content = editor.getHTML();
+            contentInput.value = content;
+            editPostForm.submit();
+        });
+    }
 });

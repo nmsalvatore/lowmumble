@@ -4,9 +4,10 @@
     --space-3: 2rem;
     --space-4: 3rem;
     --space-5: 5rem;
-
-    --color-1: hsl(0 0% 15%);
-    --color-2: hsl(0 0% 15%);
+    --color-1: hsl(0 50% 20%);
+    --color-2: hsl(0 30% 50%);
+    --color-3: hsl(0 20% 96%);
+    --color-4: hsl(0 10% 98%);
 }
 
 * {
@@ -21,6 +22,8 @@ body {
 }
 
 html {
+    background: var(--color-4);
+    color: var(--color-1);
     font-family: Courier, monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

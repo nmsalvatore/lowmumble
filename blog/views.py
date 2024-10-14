@@ -22,6 +22,7 @@ def post_detail(request, slug):
     context = {'post': post}
     return render(request, "blog/post_detail.html", context)
 
+
 @login_required
 def new_post(request):
     if request.POST:
@@ -37,7 +38,33 @@ def new_post(request):
     else:
         form = PostForm()
         context = {"form": form}
-        return render(request, "blog/new_post.html", context)
+        return render(request, "blog/post_new.html", context)
+
+
+@login_required
+def edit_post(request, slug):
+    post = Post.objects.get(slug=slug)
+
+    if request.POST:
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.content = request.POST.get('content')
+            post.slug = slugify(post.title)
+            post.save()
+        return redirect("post_detail", slug=slug)
+    else:
+        form = PostForm(instance=post)
+        context = {"post": post, "form": form}
+        return render(request, "blog/post_edit.html", context)
+
+
+@login_required
+def delete_post(request, slug):
+    post = Post.objects.get(slug=slug)
+    post.delete()
+    return redirect("post_list")
 
 
 def contact(request):

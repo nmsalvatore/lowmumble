@@ -1,6 +1,6 @@
 header.container,
 footer.container {
-    margin: var(--space-4) auto;
+    margin: var(--space-5) auto var(--space-4);
 }
 
 .container {
@@ -25,7 +25,7 @@ header > nav > a {
 
 header > hr {
     border: none;
-    border-top: 1px solid hsl(0 0% 85%);
+    border-top: 1px solid var(--color-3);
     margin-top: var(--space-3);
 }
 
@@ -36,7 +36,7 @@ main {
 nav.admin-bar {
     height: var(--space-4);
     line-height: var(--space-4);
-    background: var(--color-2);
+    background: var(--color-3);
 }
 
 nav.admin-bar > .container {
@@ -46,37 +46,65 @@ nav.admin-bar > .container {
 }
 
 nav.admin-bar a {
-    color: #fff;
+    color: var(--color-2);
 }
 
 a#blog_title {
     text-decoration: none;
     font-weight: 700;
+    font-size: 1.25rem;
     color: inherit;
     margin-bottom: var(--space-2);
 }
 
 a {
-    color: var(--color-1);
+    color: var(--color-2);
 }
 
-p {
+p:not(li p) {
     margin-bottom: var(--space-2);
 }
 
-ul {
-    margin-left: var(--space-3);
+ul:not(ul.all-posts) {
+    margin-left: var(--space-2);
     margin-top: var(--space-3);
     margin-bottom: var(--space-3);
 }
 
-h1,
-#id_title {
-    font-size: var(--space-3);
-    margin-bottom: var(--space-3);
+main > ul li {
+    display: grid;
+    grid-template-columns: auto 8ch 1fr;
+
+    &::before {
+        content: "•";
+        margin-right: 1ch;
+    }
 }
 
-#new_post_form button[type="submit"] {
+h1.post-title,
+h1.home-title,
+#id_title {
+    margin-bottom: var(--space-3);
+    font-size: var(--space-3);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    &:not(h1.post-title) {
+        &:not(h1.home-title) {
+            margin-top: var(--space-3);
+            margin-bottom: var(--space-3);
+            font-size: 1.5rem;
+        }
+    }
+}
+
+#new_post_form button[type="submit"],
+#edit_post_form button[type="submit"] {
     background: none;
     border: none;
     cursor: pointer;
@@ -85,6 +113,16 @@ h1,
     color: inherit;
     text-decoration: underline;
     float: right;
+}
+
+article.post {
+    margin-bottom: var(--space-3);
+}
+
+pre:has(code) {
+    background: var(--color-3);
+    padding: var(--space-3);
+    margin: var(--space-3) 0;
 }
 
 button.logout {
@@ -98,7 +136,7 @@ button.logout {
 
 textarea#id_title {
     font-weight: 700;
-    font-size: var(--space-3);
+    font-size: var(--space-2);
     font-family: inherit;
     width: 100%;
     border: none;
@@ -110,8 +148,8 @@ textarea#id_title {
 }
 
 @media only screen and (max-width: 568px) {
-    header,
-    footer {
+    header.container,
+    footer.container {
         margin: var(--space-3) auto;
     }
 }

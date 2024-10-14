@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/tiptap.css' %}">
+{% endblock page_css %}
+
+{% block js %}
+    <script defer>const postContent = '{{ post.content|escapejs }}'</script>
+    <script type="module" src="{% static 'blog/js/tiptap.bundle.js' %}"></script>
+    <script src="{% static 'blog/js/listeners.js' %}" defer></script>
+{% endblock js %}
+
+{% block main %}
+    <form id="edit_post_form" method="post">
+        {% csrf_token %}
+        {{ form.title }}
+        <div class="editor"></div>
+        <input type="hidden" name="content" id="editor_content">
+        <button type="submit">Update</button>
+    </form>
+{% endblock main %}
