@@ -11,5 +11,6 @@
 }
 
 .editor {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-5);
+    line-height: 1.5;
 }

@@ -4,10 +4,10 @@
     --space-3: 2rem;
     --space-4: 3rem;
     --space-5: 5rem;
-    --color-1: hsl(0 50% 20%);
-    --color-2: hsl(0 30% 50%);
-    --color-3: hsl(0 20% 96%);
-    --color-4: hsl(0 10% 98%);
+    --color-1: hsl(210 30% 15%);
+    --color-2: hsl(210 15% 30%);
+    --color-3: hsl(120 15% 50%);
+    --color-4: hsl(120 30% 95%);
 }
 
 * {
@@ -22,9 +22,8 @@ body {
 }
 
 html {
-    background: var(--color-4);
-    color: var(--color-1);
-    font-family: Courier, monospace;
+    color: var(--color-2);
+    font-family: "IBM Plex Mono", monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -40,5 +39,6 @@ h3,
 h4,
 h5,
 h6 {
+    color: var(--color-1);
     font-size: inherit;
 }

@@ -25,7 +25,7 @@ header > nav > a {
 
 header > hr {
     border: none;
-    border-top: 1px solid var(--color-3);
+    border-top: 2px solid var(--color-4);
     margin-top: var(--space-3);
 }
 
@@ -36,7 +36,7 @@ main {
 nav.admin-bar {
     height: var(--space-4);
     line-height: var(--space-4);
-    background: var(--color-3);
+    background: var(--color-1);
 }
 
 nav.admin-bar > .container {
@@ -46,19 +46,28 @@ nav.admin-bar > .container {
 }
 
 nav.admin-bar a {
-    color: var(--color-2);
+    color: var(--color-4);
+}
+
+nav.admin-bar button.logout {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--color-4);
+    font-family: inherit;
+    font-size: 0.9rem;
 }
 
 a#blog_title {
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.25rem;
-    color: inherit;
+    font-size: 1.15rem;
+    color: var(--color-1);
     margin-bottom: var(--space-2);
 }
 
 a {
-    color: var(--color-2);
+    color: var(--color-3);
 }
 
 p:not(li p) {
@@ -66,9 +75,14 @@ p:not(li p) {
 }
 
 ul:not(ul.all-posts) {
-    margin-left: var(--space-2);
-    margin-top: var(--space-3);
-    margin-bottom: var(--space-3);
+    margin-left: var(--space-3);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+li ul:not(ul.all-posts) {
+    margin-top: var(--space-1);
+    margin-bottom: var(--space-1);
 }
 
 main > ul li {
@@ -96,8 +110,8 @@ h5,
 h6 {
     &:not(h1.post-title) {
         &:not(h1.home-title) {
-            margin-top: var(--space-3);
-            margin-bottom: var(--space-3);
+            margin-top: var(--space-4);
+            margin-bottom: var(--space-2);
             font-size: 1.5rem;
         }
     }
@@ -105,38 +119,37 @@ h6 {
 
 #new_post_form button[type="submit"],
 #edit_post_form button[type="submit"] {
-    background: none;
-    border: none;
+    background: var(--color-2);
+    border: 1px solid var(--color-2);
     cursor: pointer;
     font-size: inherit;
     font-family: inherit;
-    color: inherit;
-    text-decoration: underline;
+    color: var(--color-4);
     float: right;
+    padding: var(--space-1);
 }
 
-article.post {
+article.post,
+article.intro {
     margin-bottom: var(--space-3);
+    line-height: 1.5;
 }
 
 pre:has(code) {
-    background: var(--color-3);
+    background: var(--color-4);
     padding: var(--space-3);
     margin: var(--space-3) 0;
-}
-
-button.logout {
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: #fff;
     font-family: inherit;
-    font-size: inherit;
+
+    code {
+        font-family: inherit;
+        font-size: 0.9rem;
+    }
 }
 
 textarea#id_title {
+    background: none;
     font-weight: 700;
-    font-size: var(--space-2);
     font-family: inherit;
     width: 100%;
     border: none;
