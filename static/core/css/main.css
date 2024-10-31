@@ -4,10 +4,10 @@
     --space-3: 2rem;
     --space-4: 3rem;
     --space-5: 5rem;
-    --color-1: hsl(210 30% 15%);
-    --color-2: hsl(210 15% 30%);
-    --color-3: hsl(120 15% 50%);
-    --color-4: hsl(120 30% 95%);
+    --color-1: hsl(210 30% 30%);
+    --color-2: hsl(210 15% 40%);
+    --color-3: hsl(210 15% 50%);
+    --color-4: hsl(210 30% 95%);
 }
 
 * {
