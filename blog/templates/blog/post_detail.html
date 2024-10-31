@@ -1,11 +1,13 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
+
 {% block page_css %}
     {% if user.is_superuser %}
         <link rel="stylesheet" href="{% static 'blog/css/superuser.css' %}">
     {% endif %}
 {% endblock page_css %}
+
 
 {% block main %}
     <article class="post">
