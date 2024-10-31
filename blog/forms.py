@@ -6,11 +6,21 @@ from .models import Post
 class PostForm(ModelForm):
     class Meta:
         model = Post
-        fields = ['title']
-        labels = {'title': ''}
-        widgets = {'title': forms.Textarea(attrs={
+        fields = ["title", "tags"]
+
+    title = forms.CharField(
+        widget=forms.Textarea(attrs={
             "cols": False,
             "rows": 1,
             "placeholder": "Title",
-            "autofocus": True,
-        })}
+            "autofocus": True
+        })
+    )
+
+    tags = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={
+            "class": "form-control",
+            "placeholder": "Enter tags separated by commas (e.g., python, django, web)"
+        })
+    )
