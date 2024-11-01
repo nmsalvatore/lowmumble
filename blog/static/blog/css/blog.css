@@ -60,14 +60,25 @@ nav.admin-bar button.logout {
 
 a#blog_title {
     text-decoration: none;
-    font-weight: 700;
     font-size: 1.15rem;
+    font-weight: 700;
     color: var(--color-1);
     margin-bottom: var(--space-2);
 }
 
 a {
     color: var(--color-3);
+}
+
+time,
+strong,
+a {
+    font-weight: 600;
+}
+
+time,
+strong {
+    color: var(--color-1);
 }
 
 p:not(li p) {
