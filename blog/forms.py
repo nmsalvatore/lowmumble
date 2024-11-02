@@ -21,6 +21,6 @@ class PostForm(ModelForm):
         required=False,
         widget=forms.TextInput(attrs={
             "class": "form-control",
-            "placeholder": "Enter tags separated by commas (e.g., python, django, web)"
+            "placeholder": "Enter tag"
         })
     )

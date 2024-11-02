@@ -4,6 +4,7 @@
 
 {% block page_css %}
     <link rel="stylesheet" href="{% static 'blog/css/tiptap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/post_form.css' %}">
 {% endblock page_css %}
 
 
@@ -18,6 +19,11 @@
     <form id="edit_post_form" method="post">
         {% csrf_token %}
         {{ form.title }}
+        <div class="tag-container">
+            <span class="current-tags"></span>
+            {{ form.tags }}
+            <input type="hidden" name="formatted_tags" id="formatted_tags">
+        </div>
         <div class="editor"></div>
         <input type="hidden" name="content" id="editor_content">
         <button type="submit">Update</button>
