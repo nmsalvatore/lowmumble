@@ -160,6 +160,7 @@ pre:has(code) {
 
 textarea#id_title {
     background: none;
+    color: var(--color-1);
     font-weight: 700;
     font-family: inherit;
     width: 100%;
