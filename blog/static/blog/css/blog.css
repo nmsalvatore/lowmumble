@@ -121,7 +121,7 @@ h5,
 h6 {
     &:not(h1.post-title) {
         &:not(h1.home-title) {
-            margin-top: var(--space-4);
+            margin-top: var(--space-3);
             margin-bottom: var(--space-2);
             font-size: 1.5rem;
         }
