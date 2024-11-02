@@ -193,7 +193,9 @@ textarea#id_title {
 }
 
 #id_tags {
+    background: inherit;
     border: none;
+    color: inherit;
     font-family: inherit;
     font-size: inherit;
     height: 32px;
