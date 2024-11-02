@@ -98,7 +98,7 @@ main > ul li {
 h1.post-title,
 h1.home-title,
 #id_title {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
     font-size: var(--space-3);
 }
 
@@ -158,6 +158,10 @@ textarea#id_title {
     &:focus {
         outline: none;
     }
+}
+
+.tag-container {
+    margin-bottom: var(--space-4);
 }
 
 .tag {
