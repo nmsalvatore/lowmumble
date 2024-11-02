@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
-from .models import Post
+from .models import Tag, Post
 from .forms import PostForm
 
 
@@ -34,6 +34,7 @@ def new_post(request):
             post.slug = slugify(post.title)
             post.is_published = True
             post.save()
+            save_formatted_tags(request, post)
         return redirect("post_list")
     else:
         form = PostForm()
@@ -53,6 +54,7 @@ def edit_post(request, slug):
             post.content = request.POST.get('content')
             post.slug = slugify(post.title)
             post.save()
+            save_formatted_tags(request, post)
         return redirect("post_detail", slug=slug)
     else:
         form = PostForm(instance=post)
@@ -69,3 +71,15 @@ def delete_post(request, slug):
 
 def contact(request):
     return render(request, "blog/contact.html")
+
+
+def save_formatted_tags(request, post):
+    formatted_tags = request.POST.get("formatted_tags")
+    if formatted_tags:
+        tag_names = formatted_tags.split(",")
+        for tag_name in tag_names:
+            tag, created = Tag.objects.get_or_create(
+                name=tag_name,
+                defaults={"slug": slugify(tag_name)}
+            )
+            post.tags.add(tag)

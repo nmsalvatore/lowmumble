@@ -12,6 +12,11 @@
 {% block main %}
     <article class="post">
         <h1 class="post-title">{{ post.title }}</h1>
+        <div class="tag-container">
+            {% for tag in post.tags.all %}
+                <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
         {{ post.content|safe }}
     </article>
 

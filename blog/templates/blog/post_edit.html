@@ -4,7 +4,6 @@
 
 {% block page_css %}
     <link rel="stylesheet" href="{% static 'blog/css/tiptap.css' %}">
-    <link rel="stylesheet" href="{% static 'blog/css/post_form.css' %}">
 {% endblock page_css %}
 
 
@@ -20,9 +19,13 @@
         {% csrf_token %}
         {{ form.title }}
         <div class="tag-container">
-            <span class="current-tags"></span>
-            {{ form.tags }}
-            <input type="hidden" name="formatted_tags" id="formatted_tags">
+            <span class="current-tags">
+                {% for tag in post.tags.all %}
+                    <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </span>
+            <input type="text" name="tags" class="form-control" placeholder="Enter tag" id="id_tags">
+            <input type="hidden" name="formatted_tags" id="formatted_tags" value="{{ post.tags.all|join:',' }}">
         </div>
         <div class="editor"></div>
         <input type="hidden" name="content" id="editor_content">
