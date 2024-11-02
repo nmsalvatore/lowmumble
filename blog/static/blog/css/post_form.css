@@ -8,6 +8,7 @@ div:has(.tags) {
 }
 
 #id_tags {
+    background: inherit;
     border: none;
     font-family: inherit;
     font-size: inherit;
