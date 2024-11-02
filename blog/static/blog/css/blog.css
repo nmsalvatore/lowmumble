@@ -161,15 +161,34 @@ textarea#id_title {
 }
 
 .tag-container {
+    display: flex;
     margin-bottom: var(--space-3);
+}
+
+.current-tags:has(.tag) {
+    display: flex;
+    margin-right: var(--space-1);
 }
 
 .tag {
     background: var(--color-3);
     border-radius: 0.25rem;
     color: white;
-    padding: 0.25rem 0.5rem;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 var(--space-1);
     margin-right: var(--space-1);
+}
+
+#id_tags {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    height: 32px;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 @media only screen and (max-width: 568px) {
