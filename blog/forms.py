@@ -21,7 +21,7 @@ class PostForm(ModelForm):
         required=False,
         widget=forms.TextInput(attrs={
             "class": "form-control",
-            "placeholder": "Enter tag",
+            "placeholder": "Add tag",
             "autocomplete": "off"
         })
     )
