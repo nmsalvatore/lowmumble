@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             extensions: [
                 StarterKit,
                 Placeholder.configure({
-                    placeholder: "Say something",
+                    placeholder: "Write something",
                 }),
             ],
         });
