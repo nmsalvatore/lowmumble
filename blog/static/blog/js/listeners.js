@@ -3,9 +3,9 @@ setTagParsing();
 
 let tags = [];
 
-const formattedTags = document.getElementById("formatted_tags").value;
+const formattedTags = document.getElementById("formatted_tags");
 if (formattedTags) {
-    tags = tags.concat(formattedTags);
+    tags = tags.concat(formattedTags.value.split(","));
 }
 
 function setTagParsing() {
