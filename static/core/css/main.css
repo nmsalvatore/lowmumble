@@ -26,7 +26,7 @@ html {
     background: var(--color-5);
     color: var(--color-2);
     font-family: "IBM Plex Mono", monospace;
-    font-weight: 400;
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
