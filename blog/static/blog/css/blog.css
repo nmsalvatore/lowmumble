@@ -15,8 +15,17 @@ header {
     flex-direction: column;
 }
 
+header > nav {
+    display: flex;
+}
+
 header > nav > a {
     margin-right: var(--space-1);
+    padding: 0.25rem 0.5rem;
+    background: var(--color-4);
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 500;
 
     &:last-child {
         margin-right: 0;
@@ -57,8 +66,17 @@ nav.admin-bar button.logout {
     color: var(--color-4);
     font-family: inherit;
     font-size: 0.85rem;
-    font-weight: inherit;
+    font-weight: 500;
     padding: 0.25rem 0.5rem;
+}
+
+nav.admin-bar a.new-post {
+    background: var(--color-4);
+    border-radius: 0.25rem;
+    color: var(--color-1);
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
 }
 
 a#blog_title {
@@ -88,25 +106,30 @@ p:not(li p) {
     margin-bottom: var(--space-2);
 }
 
-ul:not(ul.all-posts) {
+ul:not(ul.post-list) {
     margin-left: var(--space-3);
     margin-top: var(--space-2);
     margin-bottom: var(--space-2);
 }
 
-li ul:not(ul.all-posts) {
+li ul:not(ul.post-list) {
     margin-top: var(--space-1);
     margin-bottom: var(--space-1);
 }
 
-main > ul li {
-    display: grid;
-    grid-template-columns: auto 8ch 1fr;
+.post-list:not(.intro .post-list) {
+    margin-left: var(--space-2);
+    line-height: 1.6;
+}
 
-    &::before {
-        content: "•";
-        margin-right: 1ch;
-    }
+.intro .post-list {
+    margin-left: var(--space-3);
+    margin-bottom: var(--space-2);
+}
+
+.post-list .post-wrapper {
+    display: grid;
+    grid-template-columns: 8ch 1fr;
 }
 
 h1.post-title,
@@ -133,19 +156,45 @@ h6 {
 
 #new_post_form button[type="submit"],
 #edit_post_form button[type="submit"] {
-    background: var(--color-2);
-    border: 1px solid var(--color-2);
+    background: var(--color-1);
+    border-radius: 0.25rem;
     cursor: pointer;
     font-size: inherit;
     font-family: inherit;
     color: var(--color-4);
     float: right;
-    padding: var(--space-1);
+    padding: 0.25rem var(--space-1);
+}
+
+nav.superuser-options {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+        border-radius: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        margin-right: var(--space-1);
+        text-decoration: none;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    a.delete {
+        border: 1px solid var(--color-3);
+        color: var(--color-1);
+    }
+
+    a.edit {
+        background: var(--color-1);
+        color: var(--color-5);
+    }
 }
 
 article.post,
 article.intro {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-5);
     line-height: 1.6;
 }
 
@@ -177,12 +226,22 @@ textarea#id_title {
 
 .tag-container {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: var(--space-3);
+
+    > .tag {
+        cursor: pointer;
+    }
+}
+
+.tag-container:not(.tag-container:has(.current-tags)) {
+    gap: var(--space-1);
 }
 
 .current-tags:has(.tag) {
     display: flex;
-    margin-right: var(--space-1);
+    gap: var(--space-1);
+    margin-right: var(--space-2);
 }
 
 .tag {
@@ -191,9 +250,9 @@ textarea#id_title {
     color: white;
     cursor: default;
     font-size: 0.85rem;
+    font-weight: 500;
     height: 32px;
     line-height: 32px;
-    margin-right: var(--space-1);
     padding: 0 var(--space-1);
 
     &:focus {
