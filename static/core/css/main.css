@@ -44,3 +44,8 @@ h6 {
     font-size: inherit;
     font-weight: 700;
 }
+
+input::placeholder,
+textarea::placeholder {
+    color: hsl(210 5% 70%);
+}
