@@ -13,7 +13,8 @@ def home(request):
 
 def post_list(request):
     posts = Post.objects.all().order_by("-updated_on")
-    context = {"posts": posts}
+    tags = Tag.objects.all()
+    context = {"posts": posts, "tags": tags}
     return render(request, "blog/post_list.html", context)
 
 

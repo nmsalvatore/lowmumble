@@ -3,11 +3,18 @@
 
 
 {% block main %}
-    <ul class="all-posts">
+    <section class="tag-container">
+        {% for tag in tags %}
+            <span class="tag">{{ tag }}</span>
+        {% endfor %}
+    </section>
+    <ul class="post-list">
         {% for post in posts %}
             <li>
-                <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M d" }}</time>
-                <a href="{% url 'post_detail' slug=post.slug %}">{{ post }}</a>
+                <div class="post-wrapper">
+                    <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j" }}</time>
+                    <a href="{% url 'post_detail' slug=post.slug %}">{{ post }}</a>
+                </div>
             </li>
         {% endfor %}
     </ul>
