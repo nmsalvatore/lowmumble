@@ -1,7 +1,12 @@
 setTitleInputSize();
 setTagParsing();
 
-const tags = [];
+let tags = [];
+
+const formattedTags = document.getElementById("formatted_tags").value;
+if (formattedTags) {
+    tags = tags.concat(formattedTags);
+}
 
 function setTagParsing() {
     const currentTags = document.querySelector(".current-tags");
