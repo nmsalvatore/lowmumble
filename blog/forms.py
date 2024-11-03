@@ -13,7 +13,7 @@ class PostForm(ModelForm):
             "cols": False,
             "rows": 1,
             "placeholder": "Title",
-            "autofocus": True
+            "autofocus": True,
         })
     )
 
@@ -21,6 +21,7 @@ class PostForm(ModelForm):
         required=False,
         widget=forms.TextInput(attrs={
             "class": "form-control",
-            "placeholder": "Enter tag"
+            "placeholder": "Enter tag",
+            "autocomplete": "off"
         })
     )
