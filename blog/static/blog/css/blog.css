@@ -164,7 +164,7 @@ pre:has(code) {
 textarea#id_title {
     background: none;
     color: var(--color-1);
-    font-weight: 700;
+    font-weight: 600;
     font-family: inherit;
     width: 100%;
     border: none;
@@ -189,10 +189,16 @@ textarea#id_title {
     background: var(--color-3);
     border-radius: 0.25rem;
     color: white;
+    cursor: default;
+    font-size: 0.85rem;
     height: 32px;
     line-height: 32px;
-    padding: 0 var(--space-1);
     margin-right: var(--space-1);
+    padding: 0 var(--space-1);
+
+    &:focus {
+        outline: 2px solid var(--color-2);
+    }
 }
 
 #id_tags {
