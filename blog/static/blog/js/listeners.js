@@ -1,5 +1,5 @@
 setTitleInputSize();
-setTagParsing();
+setTagListeners();
 
 let tags = [];
 
@@ -8,10 +8,39 @@ if (formattedTags) {
     tags = tags.concat(formattedTags.value.split(","));
 }
 
-function setTagParsing() {
+const tagElements = document.querySelectorAll(".tag");
+for (const tagElement of tagElements) {
+    setTagDeleteListener(tagElement);
+}
+
+function setTagDeleteListener(tagElement) {
+    tagElement.addEventListener("keydown", (e) => {
+        if (e.code === "Backspace") {
+            e.preventDefault();
+
+            const nextTagElement = tagElement.previousElementSibling;
+            const tagText = tagElement.textContent;
+
+            tagElement.remove();
+            const tagIndex = tags.indexOf(tagText);
+            tags.splice(tagIndex, 1);
+            console.log(tags);
+
+            if (nextTagElement) {
+                nextTagElement.focus();
+            } else {
+                const tagInput = document.getElementById("id_tags");
+                tagInput.focus();
+            }
+        }
+    });
+}
+
+function setTagListeners() {
     const currentTags = document.querySelector(".current-tags");
     const tagInput = document.getElementById("id_tags");
     const formattedTags = document.getElementById("formatted_tags");
+
     tagInput.addEventListener("keydown", (e) => {
         if (e.code === "Enter") {
             e.preventDefault();
@@ -22,13 +51,23 @@ function setTagParsing() {
             tags.push(tagText);
             formattedTags.value = tags.join(",");
         }
+
+        if (e.code === "Backspace" && !tagInput.value) {
+            e.preventDefault();
+            const tagElement = currentTags.lastElementChild;
+            if (tagElement) {
+                tagElement.focus();
+            }
+        }
     });
 
     function createTagElement(text) {
-        const tag = document.createElement("span");
-        tag.className = "tag";
-        tag.innerText = text;
-        return tag;
+        const tagElement = document.createElement("span");
+        tagElement.className = "tag";
+        tagElement.setAttribute("tabindex", "0");
+        tagElement.innerText = text;
+        setTagDeleteListener(tagElement);
+        return tagElement;
     }
 }
 
