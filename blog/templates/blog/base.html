@@ -12,7 +12,9 @@
     {% if user.is_superuser %}
         <nav class="admin-bar">
             <div class="container">
-                <a href="{% url 'new_post' %}">New Post</a>
+                <div>
+                    <a class="new-post" href="{% url 'new_post' %}">+ New Post</a>
+                </div>
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
                     <button class="logout" type="submit">Log Out</button>
