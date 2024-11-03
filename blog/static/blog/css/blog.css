@@ -51,11 +51,14 @@ nav.admin-bar a {
 
 nav.admin-bar button.logout {
     cursor: pointer;
-    background: none;
+    background: var(--color-2);
     border: none;
+    border-radius: 0.25rem;
     color: var(--color-4);
     font-family: inherit;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: inherit;
+    padding: 0.25rem 0.5rem;
 }
 
 a#blog_title {
