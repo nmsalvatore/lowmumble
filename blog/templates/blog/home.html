@@ -4,10 +4,10 @@
 
 {% block main %}
     <article class="intro">
-        <h1 class="home-title">Hello.</h1>
-        <p>My name is Nick.</p>
-        <p>I have a lot of thoughts about a lot of things and I use this space to work those thoughts out. I’m sure I get things wrong sometimes, but that’s part of the fun.</p>
-        <p>Here are some of my recent thoughts.</p>
+        <h1 class="home-title">A simple tag-based blog.</h1>
+        <p>Hello. I'm Nick.</p>
+        <p>I built this little blog because I wanted a loose, yet public, writing system with a simple UI where I could organize my very unorganized brain. I feel pretty good about what I have so far. Hopefully you're ok with it.</p>
+        <p>Here are some of my recent favorites.</p>
         <ul class="post-list">
             {% for post in posts %}
                 <li>
@@ -18,6 +18,6 @@
                 </li>
             {% endfor %}
         </ul>
-        <p>I appreciate you reading, even if you don’t appreciate my writing.</p>
+        <p>I appreciate you visiting.</p>
     </article>
 {% endblock main %}
