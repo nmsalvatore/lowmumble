@@ -8,14 +8,18 @@
             <span class="tag">{{ tag }}</span>
         {% endfor %}
     </section>
-    <ul class="post-list">
-        {% for post in posts %}
-            <li>
-                <div class="post-wrapper">
-                    <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j" }}</time>
-                    <a href="{% url 'post_detail' slug=post.slug %}">{{ post }}</a>
-                </div>
-            </li>
-        {% endfor %}
-    </ul>
+
+    {% for year, posts in years_with_posts %}
+        <h2>{{ year }}</h2>
+        <ul class="post-list">
+            {% for post in posts %}
+                <li>
+                    <div class="post-wrapper">
+                        <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j" }}</time>
+                        <a href="{% url 'post_detail' slug=post.slug %}">{{ post }}</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
 {% endblock main %}

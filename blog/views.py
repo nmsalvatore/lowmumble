@@ -1,3 +1,4 @@
+from collections import defaultdict
 from django.shortcuts import render, redirect
 from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
@@ -13,8 +14,15 @@ def home(request):
 
 def post_list(request):
     posts = Post.objects.all().order_by("-updated_on")
+    posts_by_year = defaultdict(list)
+
+    for post in posts:
+        year = post.created_on.year
+        posts_by_year[year].append(post)
+
+    sorted_years = sorted(posts_by_year.items(), reverse=True)
     tags = Tag.objects.all()
-    context = {"posts": posts, "tags": tags}
+    context = {"years_with_posts": sorted_years, "tags": tags}
     return render(request, "blog/post_list.html", context)
 
 
