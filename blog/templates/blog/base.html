@@ -26,9 +26,9 @@
     <header class="container">
         <a id="blog_title" href="{% url 'home' %}">low mumble.</a>
         <nav>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'post_list' %}">Posts</a>
-            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="{% url 'post_list' %}" class="{% if '/posts' in request.path %}active{% endif %}">Posts</a>
+            <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a>
         </nav>
         <hr>
     </header>

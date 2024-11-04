@@ -32,6 +32,11 @@ header > nav > a {
     }
 }
 
+header > nav > a.active {
+    background: var(--color-2);
+    color: var(--color-5);
+}
+
 header > hr {
     border: none;
     border-top: 2px solid var(--color-4);
