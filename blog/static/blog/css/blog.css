@@ -233,6 +233,10 @@ textarea#id_title {
     > .tag {
         cursor: pointer;
     }
+
+    &:has(+ h2) {
+        margin-bottom: var(--space-4);
+    }
 }
 
 .tag-container:not(.tag-container:has(.current-tags)) {
