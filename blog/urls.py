@@ -6,7 +6,7 @@ urlpatterns = [
     path("posts/", post_list, name="post_list"),
     path("posts/new/", new_post, name="new_post"),
     path("posts/<str:slug>/", post_detail, name="post_detail"),
-    path("post/edit/<str:slug>/", edit_post, name="edit_post"),
-    path("post/delete/<str:slug>/", delete_post, name="delete_post"),
+    path("posts/edit/<str:slug>/", edit_post, name="edit_post"),
+    path("posts/delete/<str:slug>/", delete_post, name="delete_post"),
     path("contact/", contact, name="contact"),
 ]
