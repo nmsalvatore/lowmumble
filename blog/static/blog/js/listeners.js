@@ -4,7 +4,7 @@ setTagListeners();
 let tags = [];
 
 const formattedTags = document.getElementById("formatted_tags");
-if (formattedTags) {
+if (formattedTags.value !== "") {
     tags = tags.concat(formattedTags.value.split(","));
 }
 
@@ -24,7 +24,7 @@ function setTagDeleteListener(tagElement) {
             tagElement.remove();
             const tagIndex = tags.indexOf(tagText);
             tags.splice(tagIndex, 1);
-            console.log(tags);
+            formattedTags.value = tags.join(",");
 
             if (nextTagElement) {
                 nextTagElement.focus();
@@ -39,7 +39,6 @@ function setTagDeleteListener(tagElement) {
 function setTagListeners() {
     const currentTags = document.querySelector(".current-tags");
     const tagInput = document.getElementById("id_tags");
-    const formattedTags = document.getElementById("formatted_tags");
 
     tagInput.addEventListener("keydown", (e) => {
         if (e.code === "Enter") {
