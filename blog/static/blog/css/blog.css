@@ -20,10 +20,9 @@ header > nav {
 }
 
 header > nav > a {
-    margin-right: var(--space-1);
-    padding: 0.25rem 0.5rem;
-    background: var(--color-4);
-    border-radius: 0.25rem;
+    margin-right: var(--space-2);
+    padding-bottom: var(--space-2);
+    color: var(--color-3);
     text-decoration: none;
     font-weight: 500;
 
@@ -33,14 +32,17 @@ header > nav > a {
 }
 
 header > nav > a.active {
-    background: var(--color-2);
-    color: var(--color-5);
+    color: var(--color-2);
+    border-bottom: 2px solid var(--color-3);
+    z-index: 1;
 }
 
 header > hr {
     border: none;
     border-top: 2px solid var(--color-4);
-    margin-top: var(--space-3);
+    position: relative;
+    top: -2px;
+    z-index: 0;
 }
 
 main {
@@ -65,7 +67,7 @@ nav.admin-bar a {
 
 nav.admin-bar button.logout {
     cursor: pointer;
-    background: var(--color-2);
+    background: none;
     border: none;
     border-radius: 0.25rem;
     color: var(--color-4);
@@ -134,7 +136,7 @@ li ul:not(ul.post-list) {
 
 .post-list .post-wrapper {
     display: grid;
-    grid-template-columns: 8ch 1fr;
+    grid-template-columns: 9ch 1fr;
 }
 
 h1.post-title,
@@ -208,11 +210,10 @@ pre:has(code) {
     background: var(--color-4);
     padding: var(--space-3);
     margin: var(--space-3) 0;
-    font-family: inherit;
 
     code {
         font-family: inherit;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -254,20 +255,33 @@ textarea#id_title {
     margin-right: var(--space-2);
 }
 
+a.tag {
+    text-decoration: none;
+}
+
+a.tag.selected,
+span.tag,
+article.post a.tag {
+    background: var(--color-3);
+    color: var(--color-5);
+    opacity: 1;
+}
+
+span.tag:focus {
+    outline: 2px solid var(--color-1);
+}
+
 .tag {
     background: var(--color-3);
     border-radius: 0.25rem;
-    color: white;
+    color: var(--color-5);
     cursor: default;
     font-size: 0.85rem;
     font-weight: 500;
     height: 32px;
     line-height: 32px;
     padding: 0 var(--space-1);
-
-    &:focus {
-        outline: 2px solid var(--color-2);
-    }
+    opacity: 0.4;
 }
 
 #id_tags {
@@ -280,6 +294,22 @@ textarea#id_title {
 
     &:focus {
         outline: none;
+    }
+}
+
+div:has(.created-on) {
+    font-style: italic;
+    margin-bottom: var(--space-3);
+    color: var(--color-1);
+
+    .created-on,
+    .updated-on {
+        font-size: 0.85rem;
+        margin: 0;
+
+        > time {
+            font-weight: 400;
+        }
     }
 }
 
