@@ -2,18 +2,21 @@ from collections import defaultdict
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
 from django.db.models import Count
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Tag, Post
 from .forms import PostForm
 
 
 def home(request):
+    request.session["back_path"] = request.get_full_path()
     posts = Post.objects.all().order_by("-created_on")[:5]
     context = {"posts": posts}
     return render(request, "blog/home.html", context)
 
 
 def post_list(request):
+    request.session["back_path"] = request.get_full_path()
     tag_slug = request.GET.get("tag")
     posts = Post.objects.all().order_by("-created_on")
 
@@ -45,8 +48,9 @@ def post_list(request):
 
 
 def post_detail(request, slug):
+    back_path = request.session.get("back_path", reverse("post_list"))
     post = Post.objects.get(slug=slug)
-    context = {'post': post}
+    context = {"post": post, "back_path": back_path}
     return render(request, "blog/post_detail.html", context)
 
 

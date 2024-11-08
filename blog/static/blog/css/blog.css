@@ -313,6 +313,19 @@ div:has(.created-on) {
     }
 }
 
+a.back {
+    display: flex;
+    align-items: center;
+    color: var(--color-2);
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+
+    img {
+        height: var(--space-2);
+        margin-right: var(--space-1);
+    }
+}
+
 @media only screen and (max-width: 568px) {
     header.container,
     footer.container {
