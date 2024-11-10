@@ -6,7 +6,7 @@
     --space-5: 5rem;
     --color-1: hsl(210 30% 30%);
     --color-2: hsl(210 20% 40%);
-    --color-3: hsl(210 15% 55%);
+    --color-3: hsl(210 20% 60%);
     --color-4: hsl(210 30% 93%);
     --color-5: hsl(210 30% 98%);
 }
@@ -23,7 +23,6 @@ body {
 }
 
 html {
-    background: var(--color-5);
     color: var(--color-2);
     font-family: "IBM Plex Mono", monospace;
     font-weight: 400;
@@ -42,7 +41,7 @@ h5,
 h6 {
     color: var(--color-1);
     font-size: inherit;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 input::placeholder,

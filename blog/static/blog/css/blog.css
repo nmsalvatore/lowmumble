@@ -24,7 +24,7 @@ header > nav > a {
     padding-bottom: var(--space-2);
     color: var(--color-3);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
 
     &:last-child {
         margin-right: 0;
@@ -33,7 +33,7 @@ header > nav > a {
 
 header > nav > a.active {
     color: var(--color-2);
-    border-bottom: 2px solid var(--color-3);
+    border-bottom: 2px solid var(--color-2);
     z-index: 1;
 }
 
@@ -89,7 +89,7 @@ nav.admin-bar a.new-post {
 a#blog_title {
     text-decoration: none;
     font-size: 1.15rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--color-1);
     margin-bottom: var(--space-2);
 }
@@ -98,10 +98,8 @@ a {
     color: var(--color-3);
 }
 
-time,
-strong,
-a {
-    font-weight: 500;
+strong {
+    font-weight: 600;
 }
 
 time,
@@ -143,7 +141,7 @@ h1.post-title,
 h1.home-title,
 #id_title {
     margin-bottom: var(--space-2);
-    font-size: var(--space-3);
+    font-size: 1.5rem;
 }
 
 h1,
@@ -156,7 +154,7 @@ h6 {
         &:not(h1.home-title) {
             margin-top: var(--space-3);
             margin-bottom: var(--space-2);
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
     }
 }
@@ -263,7 +261,6 @@ a.tag.selected,
 span.tag,
 article.post a.tag {
     background: var(--color-3);
-    color: var(--color-5);
     opacity: 1;
 }
 
@@ -274,12 +271,11 @@ span.tag:focus {
 .tag {
     background: var(--color-3);
     border-radius: 0.25rem;
-    color: var(--color-5);
+    color: white;
     cursor: default;
     font-size: 0.85rem;
-    font-weight: 500;
-    height: 32px;
-    line-height: 32px;
+    height: 24px;
+    line-height: 24px;
     padding: 0 var(--space-1);
     opacity: 0.4;
 }
@@ -290,7 +286,7 @@ span.tag:focus {
     color: inherit;
     font-family: inherit;
     font-size: inherit;
-    height: 32px;
+    height: 24px;
 
     &:focus {
         outline: none;
@@ -299,8 +295,10 @@ span.tag:focus {
 
 div:has(.created-on) {
     font-style: italic;
-    margin-bottom: var(--space-3);
+    margin-top: var(--space-4);
     color: var(--color-1);
+    border-top: 2px solid var(--color-4);
+    padding-top: var(--space-4);
 
     .created-on,
     .updated-on {
