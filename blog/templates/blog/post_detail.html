@@ -14,13 +14,15 @@
                 <a class="tag" href="{% url 'post_list' %}?tag={{ tag.slug }}">{{ tag }}</a>
             {% endfor %}
         </div>
+
+        {{ post.content|safe }}
+
         <div>
             <p class="created-on">Published on <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time></p>
             {% if post.updated_on|date:"Y-m-d" != post.created_on|date:"Y-m-d" %}
                 <p class="updated-on">Updated on <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j, Y" }}</time></p>
             {% endif %}
         </div>
-        {{ post.content|safe }}
     </article>
 
     {% if user.is_superuser %}
