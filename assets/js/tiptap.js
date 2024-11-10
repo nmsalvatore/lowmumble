@@ -1,4 +1,5 @@
 import { Editor } from "@tiptap/core";
+import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
 
@@ -9,6 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
             element: document.querySelector(".editor"),
             extensions: [
                 StarterKit,
+                Link.configure({
+                    openOnClick: false,
+                    autolink: true,
+                    defaultProtocol: "https",
+                }),
                 Placeholder.configure({
                     placeholder: "Write something",
                 }),
