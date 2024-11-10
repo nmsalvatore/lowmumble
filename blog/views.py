@@ -31,7 +31,7 @@ def post_list(request):
         posts_by_year[year].append(post)
 
     sorted_years = sorted(posts_by_year.items(), reverse=True)
-    tags = Tag.objects.annotate(
+    tags = Tag.objects.filter(posts__in=posts).annotate(
             post_count=Count('posts')
         ).order_by('-post_count', 'name')
 
