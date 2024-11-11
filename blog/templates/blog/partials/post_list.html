@@ -1,20 +1,41 @@
-<section class="tag-container">
-    <a href="{% url 'post_list' %}" hx-get="{% url 'post_list' %}" hx-push-url="true" hx-target="#content" class="tag {% if not current_tag %}selected{% endif %}">all</a>
-    {% for tag in tags %}
-        <a href="{% url 'post_list' %}?tag={{ tag.slug }}" hx-get="{% url 'post_list' %}?tag={{ tag.slug }}" hx-push-url="true" hx-target="#content" class="tag {% if current_tag == tag %}selected{% endif %}">{{ tag }}</a>
-    {% endfor %}
-</section>
+<div id="content">
+    <section class="tag-container">
+        <a
+            href="{% url 'post_list' %}"
+            hx-get="{% url 'post_list' %}"
+            hx-push-url="true"
+            hx-target="#content"
+            class="tag {% if not current_tag %}selected{% endif %}">
+            all
+        </a>
 
-{% for year, posts in years_with_posts %}
-    <h2>{{ year }}</h2>
-    <ul class="post-list">
-        {% for post in posts %}
-            <li>
-                <div class="post-wrapper">
-                    <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j" }}</time>
-                    <a href="{% url 'post_detail' slug=post.slug %}">{{ post }}</a>
-                </div>
-            </li>
+        {% for tag in tags %}
+            <a
+                href="{% url 'post_list' %}?tag={{ tag.slug }}"
+                hx-get="{% url 'post_list' %}?tag={{ tag.slug }}"
+                hx-push-url="true"
+                hx-target="#content"
+                class="tag {% if current_tag == tag %}selected{% endif %}">
+                {{ tag }}
+            </a>
         {% endfor %}
-    </ul>
-{% endfor %}
+    </section>
+
+    {% for year, posts in years_with_posts %}
+        <h2>{{ year }}</h2>
+        <ul class="post-list">
+            {% for post in posts %}
+                <li>
+                    <div class="post-wrapper">
+                        <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j" }}</time>
+                        <a
+                            href="{% url 'post_detail' slug=post.slug %}"
+                            hx-get="{% url 'post_detail' slug=post.slug %}"
+                            hx-push-url="true"
+                            hx-target="main">{{ post }}</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
