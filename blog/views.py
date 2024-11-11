@@ -8,15 +8,14 @@ from .models import Tag, Post
 from .forms import PostForm
 
 
-def home(request):
-    request.session["back_path"] = request.get_full_path()
-    posts = Post.objects.all().order_by("-created_on")[:5]
-    context = {"posts": posts}
-    return render(request, "blog/home.html", context)
+def update_navbar(request):
+    return render(request, "blog/partials/navbar.html")
 
 
 def post_list(request):
     request.session["back_path"] = request.get_full_path()
+    request.session["current_path"] = request.path
+
     tag_slug = request.GET.get("tag")
     posts = Post.objects.all().order_by("-created_on")
 
@@ -51,6 +50,10 @@ def post_detail(request, slug):
     back_path = request.session.get("back_path", reverse("post_list"))
     post = Post.objects.get(slug=slug)
     context = {"post": post, "back_path": back_path}
+
+    if request.headers.get("HX-Request"):
+        return render(request, "blog/partials/post_detail.html", context)
+
     return render(request, "blog/post_detail.html", context)
 
 
@@ -98,10 +101,6 @@ def delete_post(request, slug):
     post = Post.objects.get(slug=slug)
     post.delete()
     return redirect("post_list")
-
-
-def contact(request):
-    return render(request, "blog/contact.html")
 
 
 def save_formatted_tags(request, post):

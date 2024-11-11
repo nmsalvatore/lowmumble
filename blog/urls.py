@@ -1,12 +1,10 @@
 from django.urls import path
-from .views import home, post_list, post_detail, new_post, edit_post, delete_post, contact
+from . import views
 
 urlpatterns = [
-    path("", home, name="home"),
-    path("posts/", post_list, name="post_list"),
-    path("posts/new/", new_post, name="new_post"),
-    path("posts/<str:slug>/", post_detail, name="post_detail"),
-    path("posts/edit/<str:slug>/", edit_post, name="edit_post"),
-    path("posts/delete/<str:slug>/", delete_post, name="delete_post"),
-    path("contact/", contact, name="contact"),
+    path("", views.post_list, name="post_list"),
+    path("new/", views.new_post, name="new_post"),
+    path("<str:slug>/", views.post_detail, name="post_detail"),
+    path("edit/<str:slug>/", views.edit_post, name="edit_post"),
+    path("delete/<str:slug>/", views.delete_post, name="delete_post")
 ]
