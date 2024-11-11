@@ -12,37 +12,12 @@ footer.container {
 
 header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
 }
 
-header > nav {
-    display: flex;
-}
-
-header > nav > a {
-    margin-right: var(--space-2);
-    padding-bottom: var(--space-2);
-    color: var(--color-3);
-    text-decoration: none;
-    font-weight: 400;
-
-    &:last-child {
-        margin-right: 0;
-    }
-}
-
-header > nav > a.active {
-    color: var(--color-2);
-    border-bottom: 2px solid var(--color-2);
-    z-index: 1;
-}
-
-header > hr {
-    border: none;
-    border-top: 2px solid var(--color-4);
-    position: relative;
-    top: -2px;
-    z-index: 0;
+header img {
+    height: var(--space-3);
 }
 
 main {
@@ -82,16 +57,16 @@ nav.admin-bar a.new-post {
     border-radius: 0.25rem;
     color: var(--color-1);
     font-size: 0.85rem;
+    font-weight: 500;
     padding: 0.25rem 0.5rem;
     text-decoration: none;
 }
 
-a#blog_title {
+#blog_title {
     text-decoration: none;
-    font-size: 1.15rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--color-1);
-    margin-bottom: var(--space-2);
+    margin-left: var(--space-2);
 }
 
 a {
@@ -205,7 +180,7 @@ article.intro {
 }
 
 pre:has(code) {
-    background: var(--color-4);
+    background: var(--color-5);
     padding: var(--space-3);
     margin: var(--space-3) 0;
 
@@ -297,8 +272,8 @@ div:has(.created-on) {
     font-style: italic;
     margin-top: var(--space-4);
     color: var(--color-1);
-    border-top: 2px solid var(--color-4);
-    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-4);
+    padding-top: var(--space-3);
 
     .created-on,
     .updated-on {
@@ -316,7 +291,7 @@ a.back {
     align-items: center;
     color: var(--color-2);
     font-size: 0.85rem;
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
 
     img {
         height: var(--space-2);
@@ -327,6 +302,6 @@ a.back {
 @media only screen and (max-width: 568px) {
     header.container,
     footer.container {
-        margin: var(--space-3) auto;
+        margin: var(--space-4) auto var(--space-3);
     }
 }
