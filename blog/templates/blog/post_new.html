@@ -1,17 +1,14 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-
 {% block page_css %}
     <link rel="stylesheet" href="{% static 'blog/css/tiptap.css' %}">
 {% endblock page_css %}
-
 
 {% block js %}
     <script type="module" src="{% static 'blog/js/tiptap.bundle.js' %}"></script>
     <script src="{% static 'blog/js/listeners.js' %}" defer></script>
 {% endblock js %}
-
 
 {% block main %}
     <form id="new_post_form" method="post">
