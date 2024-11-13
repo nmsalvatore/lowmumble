@@ -7,7 +7,7 @@ footer.container {
     max-width: 720px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-3);
 }
 
 header {
@@ -75,10 +75,6 @@ a {
 
 strong {
     font-weight: 600;
-}
-
-time,
-strong {
     color: var(--color-1);
 }
 
@@ -97,19 +93,24 @@ li ul:not(ul.post-list) {
     margin-bottom: var(--space-1);
 }
 
-.post-list:not(.intro .post-list) {
-    margin-left: var(--space-2);
+.post-list {
     line-height: 1.6;
+    margin-left: var(--space-2);
 }
 
-.intro .post-list {
-    margin-left: var(--space-3);
-    margin-bottom: var(--space-2);
-}
-
-.post-list .post-wrapper {
+.post-list li {
     display: grid;
     grid-template-columns: 9ch 1fr;
+    position: relative;
+
+    &::before {
+        content: "•";
+        font-size: 20px;
+        left: -18px;
+        margin-right: var(--space-1);
+        position: absolute;
+        top: -4px;
+    }
 }
 
 h1.post-title,
@@ -302,6 +303,6 @@ a.back {
 @media only screen and (max-width: 568px) {
     header.container,
     footer.container {
-        margin: var(--space-4) auto var(--space-3);
+        margin: var(--space-4) auto;
     }
 }

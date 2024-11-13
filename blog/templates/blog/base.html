@@ -11,7 +11,11 @@
         <nav class="admin-bar">
             <div class="container">
                 <div>
-                    <a class="new-post" href="{% url 'new_post' %}">+ New Post</a>
+                    <a
+                        class="new-post"
+                        href="{% url 'new_post' %}">
+                        + New Post
+                    </a>
                 </div>
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
@@ -22,8 +26,15 @@
     {% endif %}
 
     <header class="container">
-        <img src="{% static 'icons/favicon.png' %}" alt="">
-        <span id="blog_title">low mumble.</span>
+        <img src="{% static 'icons/favicon.png' %}" alt="Low Mumble icon">
+        <a
+            href="{% url 'post_list' %}"
+            hx-get="{% url 'post_list' %}"
+            hx-push-url="true"
+            hx-target="main"
+            id="blog_title">
+            low mumble.
+        </a>
     </header>
     <main class="container">
         {% block main %}
