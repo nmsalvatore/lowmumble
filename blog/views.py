@@ -89,7 +89,7 @@ def edit_post(request, slug):
             post.slug = slugify(post.title)
             post.save()
             save_formatted_tags(request, post)
-        return redirect("post_detail", slug=slug)
+        return redirect("post_detail", slug=post.slug)
     else:
         form = PostForm(instance=post)
         context = {"post": post, "form": form}
