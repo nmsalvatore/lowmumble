@@ -6,18 +6,26 @@
 {% endblock page_css %}
 
 {% block js %}
-    <script type="module" src="{% static 'blog/js/tiptap.bundle.js' %}"></script>
-    <script src="{% static 'blog/js/listeners.js' %}" defer></script>
+    <script src="{% static 'blog/js/tiptap.bundle.js' %}"></script>
+    <script src="{% static 'blog/js/blog.bundle.js' %}"></script>
 {% endblock js %}
 
 {% block main %}
-    <form id="new_post_form" method="post">
+    <form
+        id="new_post_form"
+        method="post">
         {% csrf_token %}
+
+        {% if form.title.errors %}
+            <div class="error">
+                {{ form.title.errors }}
+            </div>
+        {% endif %}
         {{ form.title }}
         <div class="tag-container">
             <span class="current-tags"></span>
             {{ form.tags }}
-            <input type="hidden" name="formatted_tags" id="formatted_tags">
+            <input type="hidden" name="tag_data" id="tag_data">
         </div>
         <div class="editor"></div>
         <input type="hidden" name="content" id="editor_content">

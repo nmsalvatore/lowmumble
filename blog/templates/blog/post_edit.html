@@ -7,9 +7,9 @@
 {% endblock page_css %}
 
 {% block js %}
-    <script defer>const postContent = '{{ post.content|escapejs }}'</script>
-    <script type="module" src="{% static 'blog/js/tiptap.bundle.js' %}"></script>
-    <script src="{% static 'blog/js/listeners.js' %}" defer></script>
+    <script>const postContent = '{{ post.content|escapejs }}'</script>
+    <script src="{% static 'blog/js/tiptap.bundle.js' %}"></script>
+    <script src="{% static 'blog/js/blog.bundle.js' %}"></script>
 {% endblock js %}
 
 {% block main %}
@@ -23,7 +23,7 @@
                 {% endfor %}
             </span>
             <input type="text" name="tags" class="form-control" placeholder="Add tag" id="id_tags" autocomplete="off">
-            <input type="hidden" name="formatted_tags" id="formatted_tags" value="{{ post.tags.all|join:',' }}">
+            <input type="hidden" name="tag_data" id="tag_data" value="{{ post.tags.all|join:',' }}">
         </div>
         <div class="editor"></div>
         <input type="hidden" name="content" id="editor_content">
