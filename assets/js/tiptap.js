@@ -3,52 +3,48 @@ import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
 
-document.addEventListener("DOMContentLoaded", () => {
-    const newPostForm = document.querySelector("#new_post_form");
-    if (newPostForm) {
-        const editor = new Editor({
-            element: document.querySelector(".editor"),
-            extensions: [
-                StarterKit,
-                Link.configure({
-                    openOnClick: false,
-                    autolink: true,
-                    defaultProtocol: "https",
-                }),
-                Placeholder.configure({
-                    placeholder: "Write something",
-                }),
-            ],
-        });
+(() => {
+    const form = document.querySelector("form:has(.editor)");
+    const cachedPost = localStorage.getItem("cached_post");
 
-        newPostForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const contentInput = document.getElementById("editor_content");
-            const content = editor.getHTML();
-            contentInput.value = content;
-            newPostForm.submit();
-        });
+    let postContent;
+
+    try {
+        postContent = edittedContent;
+    } catch (err) {
+        postContent = cachedPost ? JSON.parse(cachedPost).content : "";
     }
 
-    const editPostForm = document.querySelector("#edit_post_form");
-    if (editPostForm) {
-        const editor = new Editor({
-            element: document.querySelector(".editor"),
-            extensions: [
-                StarterKit,
-                Placeholder.configure({
-                    placeholder: "Say something",
-                }),
-            ],
-            content: postContent,
-        });
+    const editor = new Editor({
+        element: document.querySelector(".editor"),
+        extensions: [
+            StarterKit,
+            Link.configure({
+                openOnClick: false,
+                autolink: true,
+                defaultProtocol: "https",
+            }),
+            Placeholder.configure({
+                placeholder: "Write something",
+            }),
+        ],
+        content: postContent,
+    });
 
-        editPostForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const contentInput = document.getElementById("editor_content");
-            const content = editor.getHTML();
-            contentInput.value = content;
-            editPostForm.submit();
-        });
-    }
-});
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const title = document.getElementById("id_title").value;
+        const tags = document.getElementById("tag_data").value;
+        const content = editor.getHTML();
+
+        localStorage.setItem(
+            "cached_post",
+            JSON.stringify({ title, tags, content }),
+        );
+
+        const contentInput = document.getElementById("editor_content");
+        contentInput.value = content;
+        form.submit();
+    });
+})();

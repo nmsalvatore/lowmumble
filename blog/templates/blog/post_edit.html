@@ -7,7 +7,7 @@
 {% endblock page_css %}
 
 {% block js %}
-    <script>const postContent = '{{ post.content|escapejs }}'</script>
+    <script>const edittedContent = '{{ post.content|escapejs }}'</script>
     <script src="{% static 'blog/js/tiptap.bundle.js' %}"></script>
     <script src="{% static 'blog/js/blog.bundle.js' %}"></script>
 {% endblock js %}

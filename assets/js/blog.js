@@ -5,21 +5,22 @@
 })();
 
 function setTitleInputSize() {
-    const newPostTitle = document.getElementById("id_title");
-    newPostTitle.style.height = newPostTitle.scrollHeight + "px";
-    newPostTitle.style.overflowY = "hidden";
-    newPostTitle.addEventListener("input", function () {
+    const title = document.getElementById("id_title");
+    title.style.height = title.scrollHeight + "px";
+    title.style.overflowY = "hidden";
+    title.addEventListener("input", function () {
         this.style.height = "auto";
         this.style.height = this.scrollHeight + "px";
     });
 }
 
 function checkForCachedTags() {
-    const newPostForm = document.getElementById("new_post_form");
-    if (newPostForm) {
+    const form = document.querySelector("form:has(.editor)");
+    if (form) {
         const cachedPost = getCachedPost();
         if (cachedPost) {
             const tags = !cachedPost.tags ? [] : cachedPost.tags.split(",");
+            document.querySelector(".current-tags").innerHTML = "";
             renderTags(tags);
         }
     }
