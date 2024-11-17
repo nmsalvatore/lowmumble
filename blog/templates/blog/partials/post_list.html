@@ -37,3 +37,10 @@
         {% endfor %}
     </ul>
 {% endfor %}
+
+<script id="clear_cached_post">
+    if (localStorage.getItem("cached_post")) {
+        localStorage.removeItem("cached_post");
+    }
+    document.getElementById("clear_cached_post").remove()
+</script>
