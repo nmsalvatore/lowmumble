@@ -1,15 +1,5 @@
 {% load static %}
 
-<a
-    class="back"
-    href="{{ back_path }}"
-    hx-get="{{ back_path }}"
-    hx-push-url="true"
-    hx-target="main">
-
-    <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">
-    Back
-</a>
 <article class="post">
     <h1 class="post-title">{{ post.title }}</h1>
     <div class="tag-container">

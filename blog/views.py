@@ -14,9 +14,6 @@ def update_navbar(request):
 
 
 def post_list(request):
-    request.session["back_path"] = request.get_full_path()
-    request.session["current_path"] = request.path
-
     tag_slug = request.GET.get("tag")
     posts = Post.objects.all().order_by("-created_on")
 
@@ -48,9 +45,8 @@ def post_list(request):
 
 
 def post_detail(request, slug):
-    back_path = request.session.get("back_path", reverse("post_list"))
     post = Post.objects.get(slug=slug)
-    context = {"post": post, "back_path": back_path}
+    context = {"post": post}
 
     if request.headers.get("HX-Request"):
         return render(request, "blog/partials/post_detail.html", context)
