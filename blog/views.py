@@ -2,6 +2,7 @@ from collections import defaultdict
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
 from django.db.models import Count
+from django.db import IntegrityError
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Tag, Post
@@ -62,18 +63,22 @@ def new_post(request):
     if request.POST:
         form = PostForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.content = request.POST.get("content")
-            post.slug = slugify(post.title)
-            post.is_published = True
-            post.save()
-            save_formatted_tags(request, post)
-        return redirect("post_list")
+            try:
+                post = form.save(commit=False)
+                post.author = request.user
+                post.content = request.POST.get("content")
+                post.slug = slugify(post.title)
+                post.is_published = True
+                post.save()
+                save_tag_data(request, post)
+                return redirect("post_list")
+            except IntegrityError:
+                form.add_error("title", "A blog post with this title already exists.")
     else:
         form = PostForm()
-        context = {"form": form}
-        return render(request, "blog/post_new.html", context)
+
+    context = {"form": form}
+    return render(request, "blog/post_new.html", context)
 
 
 @login_required
@@ -88,7 +93,7 @@ def edit_post(request, slug):
             post.content = request.POST.get('content')
             post.slug = slugify(post.title)
             post.save()
-            save_formatted_tags(request, post)
+            save_tag_data(request, post)
         return redirect("post_detail", slug=post.slug)
     else:
         form = PostForm(instance=post)
@@ -103,11 +108,11 @@ def delete_post(request, slug):
     return redirect("post_list")
 
 
-def save_formatted_tags(request, post):
-    formatted_tags = request.POST.get("formatted_tags")
+def save_tag_data(request, post):
+    tag_data = request.POST.get("tag_data")
     post.tags.clear()
-    if formatted_tags:
-        tag_names = formatted_tags.split(",")
+    if tag_data:
+        tag_names = tag_data.split(",")
         for tag_name in tag_names:
             tag_name = tag_name.strip()
             if tag_name:
