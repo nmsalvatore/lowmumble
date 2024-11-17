@@ -82,6 +82,17 @@ p:not(li p) {
     margin-bottom: var(--space-2);
 }
 
+ul.errorlist:not(ul.post-list) {
+    background: hsl(0 30% 60%);
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 0.85rem;
+    list-style-type: none;
+    margin-left: 0;
+    margin-bottom: var(--space-2);
+    padding: 0.25rem var(--space-1);
+}
+
 ul:not(ul.post-list) {
     margin-left: var(--space-3);
     margin-top: var(--space-2);
