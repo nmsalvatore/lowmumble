@@ -19,9 +19,8 @@ function checkForCachedTags() {
     if (newPostForm) {
         const cachedPost = getCachedPost();
         if (cachedPost) {
-            const tags = cachedPost.tags.split(",");
+            const tags = !cachedPost.tags ? [] : cachedPost.tags.split(",");
             renderTags(tags);
-            setTagListeners();
         }
     }
 }
@@ -63,7 +62,7 @@ function setTagListeners() {
         const tagDataElement = document.getElementById("tag_data");
         if (tagDataElement) {
             const tagData = tagDataElement.value;
-            const tags = tagData === "" ? [] : tagData.split(",");
+            const tags = !tagData ? [] : tagData.split(",");
             const tagText = tagInput.value;
             const tagElement = createTagElement(tagText);
             tags.push(tagText);
