@@ -88,17 +88,21 @@ def edit_post(request, slug):
     if request.POST:
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.content = request.POST.get('content')
-            post.slug = slugify(post.title)
-            post.save()
-            save_tag_data(request, post)
-        return redirect("post_detail", slug=post.slug)
+            try:
+                post = form.save(commit=False)
+                post.author = request.user
+                post.content = request.POST.get('content')
+                post.slug = slugify(post.title)
+                post.save()
+                save_tag_data(request, post)
+                return redirect("post_detail", slug=post.slug)
+            except IntegrityError:
+                form.add_error("title", "A blog post with this title already exists.")
     else:
         form = PostForm(instance=post)
-        context = {"post": post, "form": form}
-        return render(request, "blog/post_edit.html", context)
+
+    context = {"post": post, "form": form}
+    return render(request, "blog/post_edit.html", context)
 
 
 @login_required
