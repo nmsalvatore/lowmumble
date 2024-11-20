@@ -39,7 +39,8 @@
         <input type="hidden" name="content" id="editor_content">
 
         <!-- buttons -->
-        <div>
+        <div class="buttons">
+            <div class="submit-buttons">
             {% if not post.published %}
                 <button type="submit" name="update_draft">Update draft</button>
                 <button type="submit" name="publish">Publish</button>
@@ -47,6 +48,8 @@
                 <button type="submit" name="revert_to_draft">Revert to draft</button>
                 <button type="submit" name="update">Update</button>
             {% endif %}
+            </div>
+            <a class="delete" href="{% url 'delete_post' slug=post.slug %}">Delete</a>
             <input type="hidden" name="submit_action" id="submit_action">
         </div>
     </form>

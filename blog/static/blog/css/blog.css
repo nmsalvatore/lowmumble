@@ -7,7 +7,7 @@ footer.container {
     max-width: 720px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-2);
 }
 
 header {
@@ -167,10 +167,8 @@ h6 {
     }
 }
 
-#new_post_form div:has(button[type="submit"]),
-#edit_post_form div:has(button[type="submit"]) {
-    float: right;
-
+#new_post_form,
+#edit_post_form {
     button[type="submit"],
     button[type="submit"] {
         background: var(--color-1);
@@ -181,9 +179,9 @@ h6 {
         padding: 0.25rem var(--space-1);
     }
 
-    button[name="save_draft"],
-    button[name="revert_to_draft"],
-    button[name="update_draft"] {
+    button[type="submit"][name="save_draft"],
+    button[type="submit"][name="revert_to_draft"],
+    button[type="submit"][name="update_draft"] {
         background: none;
         border: 1px solid;
         color: var(--color-1);
@@ -210,7 +208,7 @@ h6 {
 
 nav.superuser-options {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 
     a {
         border-radius: 0.25rem;
@@ -223,15 +221,25 @@ nav.superuser-options {
         }
     }
 
-    a.delete {
-        border: 1px solid var(--color-3);
-        color: var(--color-1);
-    }
-
     a.edit {
         background: var(--color-1);
         color: var(--color-5);
     }
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+a.delete {
+    background: none;
+    color: indianred;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid indianred;
 }
 
 article.post,
