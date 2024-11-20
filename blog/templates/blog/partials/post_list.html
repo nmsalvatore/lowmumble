@@ -20,7 +20,7 @@
     {% endfor %}
 </section>
 
-{% if user.is_superuser %}
+{% if user.is_superuser and drafts %}
     <details>
         <summary></summary>
         <ul class="post-list drafts">
