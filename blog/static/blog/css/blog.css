@@ -104,6 +104,27 @@ li ul:not(ul.post-list) {
     margin-bottom: var(--space-1);
 }
 
+details:has(.drafts) {
+    summary::before {
+        content: "Show drafts";
+    }
+
+    summary {
+        cursor: pointer;
+        font-size: 0.85rem;
+    }
+
+    .drafts {
+        margin-top: var(--space-3);
+    }
+}
+
+details:has(.drafts)[open] {
+    summary::before {
+        content: "Hide drafts";
+    }
+}
+
 .post-list {
     line-height: 1.6;
     margin-left: var(--space-2);
@@ -146,6 +167,35 @@ h6 {
     }
 }
 
+#new_post_form div:has(button[type="submit"]),
+#edit_post_form div:has(button[type="submit"]) {
+    float: right;
+
+    button[type="submit"],
+    button[type="submit"] {
+        background: var(--color-1);
+        border-radius: 0.25rem;
+        cursor: pointer;
+        font-size: inherit;
+        font-family: inherit;
+        padding: 0.25rem var(--space-1);
+    }
+
+    button[name="save_draft"],
+    button[name="revert_to_draft"],
+    button[name="update_draft"] {
+        background: none;
+        border: 1px solid;
+        color: var(--color-1);
+    }
+
+    button[value="publish"] {
+        background: var(--color-1);
+        border: none;
+        color: var(--color-4);
+    }
+}
+
 #new_post_form button[type="submit"],
 #edit_post_form button[type="submit"] {
     background: var(--color-1);
@@ -155,7 +205,6 @@ h6 {
     font-size: inherit;
     font-family: inherit;
     color: var(--color-4);
-    float: right;
     padding: 0.25rem var(--space-1);
 }
 
@@ -219,7 +268,7 @@ textarea#id_title {
 .tag-container {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
 
     > .tag {
         cursor: pointer;

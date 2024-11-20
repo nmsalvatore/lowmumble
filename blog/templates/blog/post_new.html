@@ -16,19 +16,30 @@
         method="post">
         {% csrf_token %}
 
+        <!-- title -->
         {% if form.title.errors %}
             <div class="error">
                 {{ form.title.errors }}
             </div>
         {% endif %}
         {{ form.title }}
+
+        <!-- tags -->
         <div class="tag-container">
             <span class="current-tags"></span>
             {{ form.tags }}
             <input type="hidden" name="tag_data" id="tag_data">
         </div>
+
+        <!-- tiptap editor -->
         <div class="editor"></div>
         <input type="hidden" name="content" id="editor_content">
-        <button type="submit">Publish</button>
+
+        <!-- buttons -->
+        <div>
+            <button type="submit" name="save_draft">Save draft</button>
+            <button type="submit" name="publish">Publish</button>
+            <input type="hidden" name="submit_action" id="submit_action">
+        </div>
     </form>
 {% endblock main %}

@@ -1,7 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-
 {% block page_css %}
     <link rel="stylesheet" href="{% static 'blog/css/tiptap.css' %}">
 {% endblock page_css %}
@@ -16,12 +15,15 @@
     <form id="edit_post_form" method="post">
         {% csrf_token %}
 
+        <!-- title -->
         {% if form.title.errors %}
             <div class="error">
                 {{ form.title.errors }}
             </div>
         {% endif %}
         {{ form.title }}
+
+        <!-- tags -->
         <div class="tag-container">
             <span class="current-tags">
                 {% for tag in post.tags.all %}
@@ -31,8 +33,21 @@
             <input type="text" name="tags" class="form-control" placeholder="Add tag" id="id_tags" autocomplete="off">
             <input type="hidden" name="tag_data" id="tag_data" value="{{ post.tags.all|join:',' }}">
         </div>
+
+        <!-- tiptap editor -->
         <div class="editor"></div>
         <input type="hidden" name="content" id="editor_content">
-        <button type="submit">Update</button>
+
+        <!-- buttons -->
+        <div>
+            {% if not post.published %}
+                <button type="submit" name="update_draft">Update draft</button>
+                <button type="submit" name="publish">Publish</button>
+            {% elif post.published %}
+                <button type="submit" name="revert_to_draft">Revert to draft</button>
+                <button type="submit" name="update">Update</button>
+            {% endif %}
+            <input type="hidden" name="submit_action" id="submit_action">
+        </div>
     </form>
 {% endblock main %}

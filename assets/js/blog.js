@@ -2,16 +2,34 @@
     setTitleInputSize();
     checkForCachedTags();
     setTagListeners();
+    setFormSubmitAction();
 })();
+
+function setFormSubmitAction() {
+    const actionInput = document.getElementById("submit_action");
+    const options = document.querySelectorAll(
+        "main form button[type='submit']",
+    );
+
+    for (const option of options) {
+        option.addEventListener("click", (e) => {
+            const action = e.target.name;
+            actionInput.value = action;
+            const form = option.closest("form");
+        });
+    }
+}
 
 function setTitleInputSize() {
     const title = document.getElementById("id_title");
-    title.style.height = title.scrollHeight + "px";
-    title.style.overflowY = "hidden";
-    title.addEventListener("input", function () {
-        this.style.height = "auto";
-        this.style.height = this.scrollHeight + "px";
-    });
+    if (title) {
+        title.style.height = title.scrollHeight + "px";
+        title.style.overflowY = "hidden";
+        title.addEventListener("input", function () {
+            this.style.height = "auto";
+            this.style.height = this.scrollHeight + "px";
+        });
+    }
 }
 
 function checkForCachedTags() {

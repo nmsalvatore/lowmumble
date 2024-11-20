@@ -20,6 +20,20 @@
     {% endfor %}
 </section>
 
+{% if user.is_superuser %}
+    <details>
+        <summary></summary>
+        <ul class="post-list drafts">
+            {% for draft in drafts %}
+                <li>
+                    <span>Draft</span>
+                    <a href="{% url 'edit_post' slug=draft.slug %}">{{ draft }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </details>
+{% endif %}
+
 {% for year, posts in years_with_posts %}
     <h2>{{ year }}</h2>
     <ul class="post-list">

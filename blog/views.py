@@ -15,7 +15,8 @@ def update_navbar(request):
 
 def post_list(request):
     tag_slug = request.GET.get("tag")
-    posts = Post.objects.all().order_by("-created_on")
+    drafts = Post.objects.filter(published=False).order_by("-created_on")
+    posts = Post.objects.filter(published=True).order_by("-created_on")
 
     current_tag = None
     if tag_slug:
@@ -27,13 +28,15 @@ def post_list(request):
         year = post.created_on.year
         posts_by_year[year].append(post)
 
-    sorted_years = sorted(posts_by_year.items(), reverse=True)
+    years_with_posts = sorted(posts_by_year.items(), reverse=True)
     tags = Tag.objects.filter(posts__in=posts).annotate(
             post_count=Count('posts')
         ).order_by('-post_count', 'name')
 
+
     context = {
-        "years_with_posts": sorted_years,
+        "years_with_posts": years_with_posts,
+        "drafts": drafts,
         "tags": tags,
         "current_tag": current_tag
     }
@@ -56,15 +59,17 @@ def post_detail(request, slug):
 
 @login_required
 def new_post(request):
-    if request.POST:
+    if request.method == "POST":
         form = PostForm(request.POST)
+        submit_action = request.POST.get("submit_action")
+
         if form.is_valid():
             try:
                 post = form.save(commit=False)
                 post.author = request.user
                 post.content = request.POST.get("content")
                 post.slug = slugify(post.title)
-                post.is_published = True
+                post.published = submit_action == "publish"
                 post.save()
                 save_tag_data(request, post)
                 return redirect("post_list")
@@ -80,18 +85,21 @@ def new_post(request):
 @login_required
 def edit_post(request, slug):
     post = Post.objects.get(slug=slug)
-
-    if request.POST:
+    if request.method == "POST":
         form = PostForm(request.POST, instance=post)
+        submit_action = request.POST.get("submit_action")
+        published = submit_action == "publish" or submit_action == "update"
+
         if form.is_valid():
             try:
                 post = form.save(commit=False)
                 post.author = request.user
-                post.content = request.POST.get('content')
+                post.content = request.POST.get("content")
                 post.slug = slugify(post.title)
+                post.published = published
                 post.save()
                 save_tag_data(request, post)
-                return redirect("post_detail", slug=post.slug)
+                return redirect("post_list")
             except IntegrityError:
                 form.add_error("title", "A blog post with this title already exists.")
     else:
@@ -121,3 +129,11 @@ def save_tag_data(request, post):
                     defaults={"slug": slugify(tag_name)}
                 )
                 post.tags.add(tag)
+
+def save_draft(request):
+    print("hello fucker")
+    return redirect("post_list")
+
+def publish(request):
+    print("hello publisher")
+    return redirect("post_list")
