@@ -288,8 +288,8 @@ footer a.github-repo-link img {
 }
 
 footer a.github-repo-link img:hover {
-    filter: invert(28%) sepia(8%) saturate(2361%) hue-rotate(170deg)
-        brightness(89%) contrast(88%);
+    filter: invert(28%) sepia(21%) saturate(823%) hue-rotate(170deg)
+        brightness(92%) contrast(91%);
 }
 
 .buttons {
