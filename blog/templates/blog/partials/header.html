@@ -1,0 +1,27 @@
+{% load static %}
+
+<div>
+    <img src="{% static 'icons/favicon.png' %}" alt="Low Mumble icon">
+    <a
+        href="{% url 'post_list' %}"
+        hx-get="{% url 'post_list' %}"
+        hx-push-url="true"
+        hx-target="main"
+        id="blog_title">
+        low mumble.
+    </a>
+</div>
+
+<div id="back-btn">
+    {% if request.path != "/" %}
+        <a
+            class="back"
+            href="{% url 'post_list' %}"
+            hx-get="{% url 'post_list' %}"
+            hx-swap-oob="delete"
+            hx-target="main"
+            hx-push-url="true">
+            <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">Back
+        </a>
+    {% endif %}
+</div>
