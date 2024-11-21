@@ -15,15 +15,15 @@ header.container {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
 
-    div:has(#blog_title) {
-        display: flex;
-        align-items: center;
+header.container div:has(#blog_title) {
+    display: flex;
+    align-items: center;
+}
 
-        img {
-            height: var(--space-3);
-        }
-    }
+header.container div:has(#blog_title) img {
+    height: var(--space-3);
 }
 
 main {
@@ -83,31 +83,29 @@ a#back_btn {
     padding: var(--space-1);
     text-decoration: none;
     z-index: 1;
+}
 
-    img {
-        height: var(--space-2);
-        position: relative;
-        top: 3px;
-    }
+a#back_btn img {
+    height: var(--space-2);
+    position: relative;
+    top: 3px;
+}
 
-    span {
-        cursor: inherit;
-    }
+a#back_btn span {
+    cursor: inherit;
+}
 
-    span.back-text {
-        &::before {
-            content: "Back to ";
-        }
+a#back_btn span.back-text::before {
+    content: "Back to ";
+}
 
-        &::after {
-            content: " posts";
-        }
-    }
+a#back_btn span.back-text::after {
+    content: " posts";
+}
 
-    span.tag {
-        padding: 2px var(--space-1);
-        font-size: 90%;
-    }
+a#back_btn span.tag {
+    padding: 2px var(--space-1);
+    font-size: 90%;
 }
 
 strong {
@@ -143,27 +141,24 @@ li ul:not(ul.post-list) {
 
 details:has(.drafts) {
     margin-bottom: var(--space-4);
-
-    summary::before {
-        content: "Show drafts";
-    }
-
-    summary {
-        color: var(--color-1);
-        cursor: pointer;
-        font-size: 0.85rem;
-        font-weight: 400;
-    }
-
-    .drafts {
-        margin-top: var(--space-2);
-    }
 }
 
-details:has(.drafts)[open] {
-    summary::before {
-        content: "Hide drafts";
-    }
+details:has(.drafts) summary::before {
+    content: "Show drafts";
+}
+
+details:has(.drafts) summary {
+    color: var(--color-1);
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+details:has(.drafts) .drafts {
+    margin-top: var(--space-2);
+}
+
+details:has(.drafts)[open] summary::before {
+    content: "Hide drafts";
 }
 
 .post-list {
@@ -175,15 +170,15 @@ details:has(.drafts)[open] {
     display: grid;
     grid-template-columns: 9ch 1fr;
     position: relative;
+}
 
-    &::before {
-        content: "•";
-        font-size: 20px;
-        left: -18px;
-        margin-right: var(--space-1);
-        position: absolute;
-        top: -4px;
-    }
+.post-list li::before {
+    content: "•";
+    font-size: 20px;
+    left: -18px;
+    margin-right: var(--space-1);
+    position: absolute;
+    top: -4px;
 }
 
 h1.post-title,
@@ -247,6 +242,14 @@ h6 {
     font-family: inherit;
     color: var(--color-4);
     padding: 0.25rem var(--space-1);
+}
+
+.js-only {
+    display: none;
+}
+
+.js-enabled .js-only {
+    display: block;
 }
 
 nav.superuser-options {
