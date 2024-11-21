@@ -11,9 +11,8 @@
 {% endblock js %}
 
 {% block main %}
-    <form
-        id="new_post_form"
-        method="post">
+    <noscript>Please enable JavaScript.</noscript>
+    <form class="js-only" id="new_post_form" method="post">
         {% csrf_token %}
 
         <!-- title -->
