@@ -103,6 +103,11 @@ a#back_btn {
             content: " posts";
         }
     }
+
+    span.tag {
+        padding: 2px var(--space-1);
+        font-size: 90%;
+    }
 }
 
 strong {
