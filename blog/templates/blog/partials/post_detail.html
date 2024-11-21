@@ -1,26 +1,49 @@
 {% load static %}
 
-<article class="post">
-    <h1 class="post-title">{{ post.title }}</h1>
-    <div class="tag-container">
-        {% for tag in post.tags.all %}
-            <a class="tag" href="{% url 'post_list' %}?tag={{ tag.slug }}">{{ tag }}</a>
-        {% endfor %}
+{% if htmx_req %}
+    <div id="back-btn" hx-swap-oob="true">
+        <a
+            class="back"
+            href="{% url 'post_list' %}"
+            hx-get="{% url 'post_list' %}"
+            hx-swap-oob="delete"
+            hx-target="main"
+            hx-push-url="true">
+            <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">Back
+        </a>
     </div>
-
-    {{ post.content|safe }}
-
-    <div>
-        <p class="created-on">Published on <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time></p>
-        {% if post.updated_on|date:"Y-m-d" != post.created_on|date:"Y-m-d" %}
-            <p class="updated-on">Updated on <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j, Y" }}</time></p>
-        {% endif %}
-    </div>
-</article>
-
-{% if user.is_superuser %}
-    <nav class="superuser-options">
-        <a class="delete" href="{% url 'delete_post' slug=post.slug %}">Delete</a>
-        <a class="edit" href="{% url 'edit_post' slug=post.slug %}">Edit</a>
-    </nav>
 {% endif %}
+
+<div class="content">
+    <article class="post">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <div class="tag-container">
+            {% for tag in post.tags.all %}
+                <a
+                    class="tag"
+                    href="{% url 'post_list' %}?tag={{ tag.slug }}"
+                    hx-get="{% url 'post_list' %}?tag={{ tag.slug }}"
+                    hx-target="main"
+                    hx-push-url="true">
+                    {{ tag }}
+                </a>
+            {% endfor %}
+        </div>
+
+        {{ post.content|safe }}
+
+        <div class="publish-details">
+            <p class="created-on">Published on <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time></p>
+            {% if post.updated_on|date:"Y-m-d" != post.created_on|date:"Y-m-d" %}
+                <p class="updated-on">Updated on <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j, Y" }}</time></p>
+            {% endif %}
+        </div>
+    </article>
+
+    {% if user.is_superuser %}
+        <nav class="superuser-options">
+            <a class="delete" href="{% url 'delete_post' slug=post.slug %}">Delete</a>
+            <a class="edit" href="{% url 'edit_post' slug=post.slug %}">Edit</a>
+        </nav>
+    {% endif %}
+</div>

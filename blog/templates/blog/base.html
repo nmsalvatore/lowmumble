@@ -26,20 +26,14 @@
     {% endif %}
 
     <header class="container">
-        <img src="{% static 'icons/favicon.png' %}" alt="Low Mumble icon">
-        <a
-            href="{% url 'post_list' %}"
-            hx-get="{% url 'post_list' %}"
-            hx-push-url="true"
-            hx-target="main"
-            id="blog_title">
-            low mumble.
-        </a>
+        {% include "blog/partials/header.html" %}
     </header>
+
     <main class="container">
         {% block main %}
         {% endblock main%}
     </main>
+
     <footer class="container">
         <small>© 2024 low mumble.</small>
     </footer>
