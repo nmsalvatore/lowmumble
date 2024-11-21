@@ -33,15 +33,16 @@ def post_list(request):
             post_count=Count('posts')
         ).order_by('-post_count', 'name')
 
-
+    htmx_req = request.headers.get("HX-Request") == "true"
     context = {
         "years_with_posts": years_with_posts,
         "drafts": drafts,
         "tags": tags,
-        "current_tag": current_tag
+        "current_tag": current_tag,
+        "htmx_req": htmx_req,
     }
 
-    if request.headers.get('HX-Request'):
+    if htmx_req:
         return render(request, "blog/partials/post_list.html", context)
 
     return render(request, "blog/post_list.html", context)
@@ -49,9 +50,10 @@ def post_list(request):
 
 def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
-    context = {"post": post}
+    htmx_req = request.headers.get("HX-Request") == "true"
+    context = {"post": post, "htmx_req": htmx_req}
 
-    if request.headers.get("HX-Request"):
+    if htmx_req:
         return render(request, "blog/partials/post_detail.html", context)
 
     return render(request, "blog/post_detail.html", context)
@@ -129,11 +131,3 @@ def save_tag_data(request, post):
                     defaults={"slug": slugify(tag_name)}
                 )
                 post.tags.add(tag)
-
-def save_draft(request):
-    print("hello fucker")
-    return redirect("post_list")
-
-def publish(request):
-    print("hello publisher")
-    return redirect("post_list")
