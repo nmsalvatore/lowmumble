@@ -40,7 +40,7 @@
 </article>
 
 {% if user.is_superuser %}
-    <nav class="superuser-options">
+    <div class="buttons">
         <a
             class="delete"
             href="{% url 'delete_post' slug=post.slug %}"
@@ -50,9 +50,9 @@
             Delete
         </a>
         <a
-            class="edit"
+            class="edit button"
             href="{% url 'edit_post' slug=post.slug %}">
             Edit
         </a>
-    </nav>
+    </div>
 {% endif %}
