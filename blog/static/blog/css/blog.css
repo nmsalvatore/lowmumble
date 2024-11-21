@@ -184,6 +184,7 @@ details:has(.drafts)[open] summary::before {
 h1.post-title,
 h1.home-title,
 #id_title {
+    margin-top: 0;
     margin-bottom: var(--space-2);
     font-size: 1.5rem;
 }
@@ -194,46 +195,25 @@ h3,
 h4,
 h5,
 h6 {
-    &:not(h1.post-title) {
-        &:not(h1.home-title) {
-            margin-top: var(--space-3);
-            margin-bottom: var(--space-2);
-            font-size: 1.25rem;
-        }
-    }
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-2);
+    font-size: 1.25rem;
 }
 
-#new_post_form,
-#edit_post_form {
+form:has(.tiptap) {
     margin-top: var(--space-2);
-
-    button[type="submit"],
-    button[type="submit"] {
-        background: var(--color-1);
-        border-radius: 0.25rem;
-        cursor: pointer;
-        font-size: inherit;
-        font-family: inherit;
-        padding: 0.25rem var(--space-1);
-    }
-
-    button[type="submit"][name="save_draft"],
-    button[type="submit"][name="revert_to_draft"],
-    button[type="submit"][name="update_draft"] {
-        background: none;
-        border: 1px solid;
-        color: var(--color-1);
-    }
-
-    button[value="publish"] {
-        background: var(--color-1);
-        border: none;
-        color: var(--color-4);
-    }
 }
 
-#new_post_form button[type="submit"],
-#edit_post_form button[type="submit"] {
+form:has(.tiptap) button[type="submit"] {
+    background: var(--color-1);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0.25rem var(--space-1);
+}
+
+form:has(.tiptap) button[type="submit"] {
     background: var(--color-1);
     border: none;
     border-radius: 0.25rem;
@@ -244,6 +224,20 @@ h6 {
     padding: 0.25rem var(--space-1);
 }
 
+form:has(.tiptap) button[type="submit"].secondary {
+    background: none;
+    border: 1px solid;
+    color: var(--color-1);
+}
+
+a.button {
+    background: var(--color-1);
+    text-decoration: none;
+    color: var(--color-4);
+    padding: 0.25rem var(--space-1);
+    border-radius: 0.25rem;
+}
+
 .js-only {
     display: none;
 }
@@ -252,41 +246,24 @@ h6 {
     display: block;
 }
 
-nav.superuser-options {
-    display: flex;
-    justify-content: space-between;
-
-    a {
-        border-radius: 0.25rem;
-        padding: 0.25rem 0.5rem;
-        margin-right: var(--space-1);
-        text-decoration: none;
-
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-
-    a.edit {
-        background: var(--color-1);
-        color: var(--color-5);
-    }
-}
-
 footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-footer a.github-repo-link img {
+footer a.github-link img {
     height: 24px;
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
-    flex-direction: row-reverse;
+    flex-direction: row;
+}
+
+#new_post_form .buttons {
+    justify-content: flex-end;
 }
 
 a.delete {
@@ -301,10 +278,10 @@ a.delete {
 article.post {
     margin: var(--space-2) 0 var(--space-4);
     line-height: 1.6;
+}
 
-    .tag-container {
-        margin-bottom: 36px;
-    }
+article.post .tag-container {
+    margin-bottom: 36px;
 }
 
 code,
@@ -318,11 +295,11 @@ pre:has(code) {
     padding: var(--space-3);
     margin: var(--space-3) 0;
     overflow-x: auto;
+}
 
-    code {
-        font-family: inherit;
-        font-size: 0.85rem;
-    }
+pre:has(code) code {
+    font-family: inherit;
+    font-size: 0.85rem;
 }
 
 code:not(pre code) {
@@ -339,20 +316,20 @@ textarea#id_title {
     resize: none;
     overflow-y: hidden;
     line-height: 38.5px;
+}
 
-    &:focus {
-        outline: none;
-    }
+textarea#id_title:focus {
+    outline: none;
 }
 
 .tag-container {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: var(--space-4);
+}
 
-    > .tag {
-        cursor: pointer;
-    }
+.tag-container > .tag {
+    cursor: pointer;
 }
 
 article .tag-container {
@@ -369,10 +346,6 @@ article .tag-container {
     margin-right: var(--space-2);
 }
 
-a.tag {
-    text-decoration: none;
-}
-
 a.tag.selected,
 span.tag,
 article.post a.tag {
@@ -382,6 +355,10 @@ article.post a.tag {
 
 span.tag:focus {
     outline: 2px solid var(--color-1);
+}
+
+a.tag {
+    text-decoration: none;
 }
 
 .tag {
@@ -403,10 +380,10 @@ span.tag:focus {
     font-family: inherit;
     font-size: inherit;
     height: 24px;
+}
 
-    &:focus {
-        outline: none;
-    }
+#id_tags:focus {
+    outline: none;
 }
 
 div.publish-details {
@@ -414,16 +391,7 @@ div.publish-details {
     color: var(--color-2);
     border-top: 1px solid var(--color-4);
     padding-top: var(--space-3);
-
-    .created-on,
-    .updated-on {
-        font-size: 0.85rem;
-        margin: 0;
-
-        > time {
-            font-weight: 400;
-        }
-    }
+    font-size: 0.85rem;
 }
 
 @media only screen and (max-width: 568px) {
@@ -432,13 +400,11 @@ div.publish-details {
         margin: var(--space-4) auto var(--space-3);
     }
 
-    a#back_btn span.back-text {
-        &::before {
-            content: "";
-        }
+    a#back_btn span.back-text::before {
+        content: "";
+    }
 
-        &::after {
-            content: "";
-        }
+    a#back_btn span.back-text::after {
+        content: "";
     }
 }
