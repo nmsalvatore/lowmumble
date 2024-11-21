@@ -41,17 +41,17 @@
 
         <!-- buttons -->
         <div class="buttons">
-            <div class="submit-buttons">
-            {% if not post.published %}
-                <button type="submit" name="update_draft">Update draft</button>
-                <button type="submit" name="publish">Publish</button>
-            {% elif post.published %}
-                <button type="submit" name="revert_to_draft">Revert to draft</button>
-                <button type="submit" name="update">Update</button>
-            {% endif %}
-            </div>
             <a class="delete" href="{% url 'delete_post' slug=post.slug %}">Delete</a>
-            <input type="hidden" name="submit_action" id="submit_action">
+            <div class="submit-buttons">
+                {% if not post.published %}
+                    <button type="submit" class="secondary" name="update_draft">Update draft</button>
+                    <button type="submit" class="primary" name="publish">Publish</button>
+                {% elif post.published %}
+                    <button type="submit" class="secondary" name="revert_to_draft">Revert to draft</button>
+                    <button type="submit" class="primary" name="update">Update</button>
+                {% endif %}
+                <input type="hidden" name="submit_action" id="submit_action">
+            </div>
         </div>
     </form>
 {% endblock main %}
