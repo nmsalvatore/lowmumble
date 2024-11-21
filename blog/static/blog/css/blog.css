@@ -288,16 +288,23 @@ a.delete {
 article.post {
     margin: var(--space-2) 0 var(--space-4);
     line-height: 1.6;
+
+    .tag-container {
+        margin-bottom: 36px;
+    }
 }
 
 code,
 pre:has(code) {
     background: var(--color-4);
+    border-radius: 0.25rem;
 }
 
 pre:has(code) {
+    border-left: 4px solid rgba(0, 0, 0, 0.1);
     padding: var(--space-3);
     margin: var(--space-3) 0;
+    overflow-x: auto;
 
     code {
         font-family: inherit;
@@ -307,7 +314,6 @@ pre:has(code) {
 
 code:not(pre code) {
     padding: 0.25rem;
-    border-radius: 0.25rem;
 }
 
 textarea#id_title {
