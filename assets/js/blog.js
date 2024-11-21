@@ -23,11 +23,11 @@ function setFormSubmitAction() {
 function setTitleInputSize() {
     const title = document.getElementById("id_title");
     if (title) {
-        title.style.height = title.scrollHeight + "px";
-        title.style.overflowY = "hidden";
+        const calculateHeight = (scrollHeight) => (scrollHeight / 31) * 38.5;
+        title.style.height = calculateHeight(title.scrollHeight) + "px";
         title.addEventListener("input", function () {
             this.style.height = "auto";
-            this.style.height = this.scrollHeight + "px";
+            this.style.height = calculateHeight(this.scrollHeight) + "px";
         });
     }
 }
