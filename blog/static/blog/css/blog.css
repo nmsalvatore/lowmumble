@@ -1,6 +1,6 @@
 header.container,
 footer.container {
-    margin: var(--space-5) auto var(--space-3);
+    margin: var(--space-5) auto var(--space-4);
 }
 
 .container {
