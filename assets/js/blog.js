@@ -23,7 +23,8 @@ function setFormSubmitAction() {
 function setTitleInputSize() {
     const title = document.getElementById("id_title");
     if (title) {
-        const calculateHeight = (scrollHeight) => (scrollHeight / 31) * 38.5;
+        const calculateHeight = (scrollHeight) =>
+            Math.floor(scrollHeight / 31) * 38.5;
         title.style.height = calculateHeight(title.scrollHeight) + "px";
         title.addEventListener("input", function () {
             this.style.height = "auto";
