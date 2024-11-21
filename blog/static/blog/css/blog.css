@@ -1,6 +1,6 @@
 header.container,
 footer.container {
-    margin: var(--space-5) auto var(--space-4);
+    margin: var(--space-5) auto var(--space-3);
 }
 
 .container {
@@ -10,14 +10,20 @@ footer.container {
     padding: 0 var(--space-2);
 }
 
-header {
+header.container {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
+    justify-content: space-between;
 
-header img {
-    height: var(--space-3);
+    div:has(#blog_title) {
+        display: flex;
+        align-items: center;
+
+        img {
+            height: var(--space-3);
+        }
+    }
 }
 
 main {
@@ -71,6 +77,19 @@ nav.admin-bar a.new-post {
 
 a {
     color: var(--color-3);
+}
+
+a.back {
+    color: var(--color-1);
+    font-size: 0.85rem;
+    padding: var(--space-1);
+
+    img {
+        height: var(--space-2);
+        margin-right: var(--space-1);
+        position: relative;
+        top: 3px;
+    }
 }
 
 strong {
@@ -246,9 +265,8 @@ a.delete {
     border: 1px solid indianred;
 }
 
-article.post,
-article.intro {
-    margin-bottom: var(--space-5);
+article.post {
+    margin: var(--space-2) 0 var(--space-4);
     line-height: 1.6;
 }
 
@@ -280,7 +298,7 @@ textarea#id_title {
 .tag-container {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-3);
 
     > .tag {
         cursor: pointer;
@@ -341,10 +359,9 @@ span.tag:focus {
     }
 }
 
-div:has(.created-on) {
-    font-style: italic;
+div.publish-details {
     margin-top: var(--space-4);
-    color: var(--color-1);
+    color: var(--color-2);
     border-top: 1px solid var(--color-4);
     padding-top: var(--space-3);
 
@@ -359,22 +376,9 @@ div:has(.created-on) {
     }
 }
 
-a.back {
-    display: flex;
-    align-items: center;
-    color: var(--color-2);
-    font-size: 0.85rem;
-    margin-bottom: var(--space-4);
-
-    img {
-        height: var(--space-2);
-        margin-right: var(--space-1);
-    }
-}
-
 @media only screen and (max-width: 568px) {
     header.container,
     footer.container {
-        margin: var(--space-4) auto;
+        margin: var(--space-4) auto var(--space-3);
     }
 }
