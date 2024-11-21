@@ -54,9 +54,10 @@ def post_list(request):
 
 def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
-    back_info = request.session.get("back_info")
 
-    print(back_info)
+    back_info = request.session.get("back_info")
+    if not back_info:
+        back_info = {"path": "/", "tag": "all"}
 
     hx_request = request.headers.get("HX-Request") == "true"
     context = {"post": post, "hx_request": hx_request, "back_info": back_info}
