@@ -10,7 +10,7 @@ import StarterKit from "@tiptap/starter-kit";
     let postContent;
 
     try {
-        postContent = edittedContent;
+        postContent = editedContent;
     } catch (err) {
         postContent = cachedPost ? JSON.parse(cachedPost).content : "";
     }

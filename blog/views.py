@@ -15,6 +15,11 @@ def update_navbar(request):
 
 def post_list(request):
     tag_slug = request.GET.get("tag")
+    request.session["back_info"] = {
+        "path": request.get_full_path(),
+        "tag": tag_slug or "all",
+    }
+
     drafts = Post.objects.filter(published=False).order_by("-created_on")
     posts = Post.objects.filter(published=True).order_by("-created_on")
 
@@ -33,27 +38,30 @@ def post_list(request):
             post_count=Count('posts')
         ).order_by('-post_count', 'name')
 
-    htmx_req = request.headers.get("HX-Request") == "true"
+    hx_request = request.headers.get("HX-Request") == "true"
     context = {
         "years_with_posts": years_with_posts,
         "drafts": drafts,
         "tags": tags,
         "current_tag": current_tag,
-        "htmx_req": htmx_req,
+        "hx_request": hx_request,
     }
 
-    if htmx_req:
+    if request.headers.get("HX-Request"):
         return render(request, "blog/partials/post_list.html", context)
-
     return render(request, "blog/post_list.html", context)
 
 
 def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
-    htmx_req = request.headers.get("HX-Request") == "true"
-    context = {"post": post, "htmx_req": htmx_req}
+    back_info = request.session.get("back_info")
 
-    if htmx_req:
+    print(back_info)
+
+    hx_request = request.headers.get("HX-Request") == "true"
+    context = {"post": post, "hx_request": hx_request, "back_info": back_info}
+
+    if hx_request:
         return render(request, "blog/partials/post_detail.html", context)
 
     return render(request, "blog/post_detail.html", context)

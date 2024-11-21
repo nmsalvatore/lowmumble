@@ -54,16 +54,14 @@ nav.admin-bar button.logout {
     color: var(--color-4);
     font-family: inherit;
     font-size: 0.85rem;
-    font-weight: 500;
     padding: 0.25rem 0.5rem;
 }
 
 nav.admin-bar a.new-post {
-    background: var(--color-4);
+    background: var(--color-2);
     border-radius: 0.25rem;
-    color: var(--color-1);
+    color: white;
     font-size: 0.85rem;
-    font-weight: 500;
     padding: 0.25rem 0.5rem;
     text-decoration: none;
 }
@@ -79,16 +77,31 @@ a {
     color: var(--color-3);
 }
 
-a.back {
+a#back_btn {
     color: var(--color-1);
     font-size: 0.85rem;
     padding: var(--space-1);
+    text-decoration: none;
+    z-index: 1;
 
     img {
         height: var(--space-2);
-        margin-right: var(--space-1);
         position: relative;
         top: 3px;
+    }
+
+    span {
+        cursor: inherit;
+    }
+
+    span.back-text {
+        &::before {
+            content: "Back to ";
+        }
+
+        &::after {
+            content: " posts";
+        }
     }
 }
 
@@ -134,7 +147,7 @@ details:has(.drafts) {
         color: var(--color-1);
         cursor: pointer;
         font-size: 0.85rem;
-        font-weight: 500;
+        font-weight: 400;
     }
 
     .drafts {
@@ -192,6 +205,8 @@ h6 {
 
 #new_post_form,
 #edit_post_form {
+    margin-top: var(--space-2);
+
     button[type="submit"],
     button[type="submit"] {
         background: var(--color-1);
@@ -270,8 +285,12 @@ article.post {
     line-height: 1.6;
 }
 
+code,
 pre:has(code) {
-    background: var(--color-5);
+    background: var(--color-4);
+}
+
+pre:has(code) {
     padding: var(--space-3);
     margin: var(--space-3) 0;
 
@@ -279,6 +298,11 @@ pre:has(code) {
         font-family: inherit;
         font-size: 0.85rem;
     }
+}
+
+code:not(pre code) {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
 }
 
 textarea#id_title {
@@ -289,6 +313,8 @@ textarea#id_title {
     width: 100%;
     border: none;
     resize: none;
+    overflow-y: hidden;
+    line-height: 38.5px;
 
     &:focus {
         outline: none;
@@ -298,15 +324,15 @@ textarea#id_title {
 .tag-container {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
 
     > .tag {
         cursor: pointer;
     }
+}
 
-    &:has(+ h2) {
-        margin-bottom: var(--space-4);
-    }
+article .tag-container {
+    margin-bottom: var(--space-3);
 }
 
 .tag-container:not(.tag-container:has(.current-tags)) {
@@ -380,5 +406,15 @@ div.publish-details {
     header.container,
     footer.container {
         margin: var(--space-4) auto var(--space-3);
+    }
+
+    a#back_btn span.back-text {
+        &::before {
+            content: "";
+        }
+
+        &::after {
+            content: "";
+        }
     }
 }

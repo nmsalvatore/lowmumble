@@ -1,15 +1,15 @@
 {% load static %}
 
-{% if htmx_req %}
-    <div id="back-btn" hx-swap-oob="true">
+{% if hx_request %}
+    <div hx-swap-oob="beforeend:header">
         <a
-            class="back"
-            href="{% url 'post_list' %}"
-            hx-get="{% url 'post_list' %}"
-            hx-swap-oob="delete"
+            id="back_btn"
+            href="{{ back_info.path }}"
+            hx-get="{{ back_info.path }}"
             hx-target="main"
             hx-push-url="true">
-            <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">Back
+            <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">
+            <span class="back-text"><span class="tag">{{ back_info.tag }}</span></span>
         </a>
     </div>
 {% endif %}
@@ -41,7 +41,18 @@
 
 {% if user.is_superuser %}
     <nav class="superuser-options">
-        <a class="delete" href="{% url 'delete_post' slug=post.slug %}">Delete</a>
-        <a class="edit" href="{% url 'edit_post' slug=post.slug %}">Edit</a>
+        <a
+            class="delete"
+            href="{% url 'delete_post' slug=post.slug %}"
+            hx-get="{% url 'delete_post' slug=post.slug %}"
+            hx-target="main"
+            hx-push-url="true">
+            Delete
+        </a>
+        <a
+            class="edit"
+            href="{% url 'edit_post' slug=post.slug %}">
+            Edit
+        </a>
     </nav>
 {% endif %}

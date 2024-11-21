@@ -1,5 +1,5 @@
-{% if htmx_req %}
-    <div id="back-btn" hx-swap-oob="true"></div>
+{% if hx_request %}
+    <div hx-swap-oob="delete" id="back_btn"></div>
 {% endif %}
 
 <section class="tag-container">
@@ -56,9 +56,9 @@
     </ul>
 {% endfor %}
 
-<script id="clear_cached_post">
+<script id="temp">
     if (localStorage.getItem("cached_post")) {
         localStorage.removeItem("cached_post");
     }
-    document.getElementById("clear_cached_post").remove()
+    document.getElementById("temp").remove()
 </script>

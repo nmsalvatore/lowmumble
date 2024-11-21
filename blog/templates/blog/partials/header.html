@@ -12,15 +12,14 @@
     </a>
 </div>
 
-<div id="back-btn">
-    {% if request.path != "/" %}
-        <a
-            class="back"
-            href="{% url 'post_list' %}"
-            hx-get="{% url 'post_list' %}"
-            hx-target="main"
-            hx-push-url="true">
-            <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">Back
-        </a>
-    {% endif %}
-</div>
+{% if "post" in request.path %}
+    <a
+        id="back_btn"
+        href="{{ back_info.path }}"
+        hx-get="{{ back_info.path }}"
+        hx-target="main"
+        hx-push-url="true">
+        <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">
+        <span class="back-text"><span class="tag">{{ back_info.tag }}</span></span>
+    </a>
+{% endif %}
