@@ -280,16 +280,7 @@ footer {
 }
 
 footer a.github-repo-link img {
-    height: var(--space-3);
-    filter: invert(64%) sepia(5%) saturate(1537%) hue-rotate(169deg)
-        brightness(93%) contrast(86%);
-    transition: filter ease 500ms;
-    transition-delay: 100ms;
-}
-
-footer a.github-repo-link img:hover {
-    filter: invert(28%) sepia(21%) saturate(823%) hue-rotate(170deg)
-        brightness(92%) contrast(91%);
+    height: 24px;
 }
 
 .buttons {
