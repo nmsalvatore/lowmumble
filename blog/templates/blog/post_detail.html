@@ -1,4 +1,9 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+
+{% block js %}
+    <script id="htmx" src="{% static 'blog/js/htmx.bundle.js' %}"></script>
+{% endblock js %}
 
 {% block main %}
     {% include "blog/partials/post_detail.html" %}

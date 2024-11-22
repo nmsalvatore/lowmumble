@@ -1,16 +1,12 @@
 <section class="tag-container" hx-boost="true" hx-target="main">
     <a
         href="{% url 'post_list' %}"
-        class="tag {% if not current_tag %}selected{% endif %}">
-        all
-    </a>
+        class="tag {% if not current_tag %}selected{% endif %}">all</a>
 
     {% for tag in tags %}
         <a
             href="{% url 'post_list' %}?tag={{ tag.slug }}"
-            class="tag {% if current_tag == tag %}selected{% endif %}">
-            {{ tag }}
-        </a>
+            class="tag{% if current_tag == tag %} selected{% endif %}">{{ tag }}</a>
     {% endfor %}
 </section>
 

@@ -1,10 +1,11 @@
 const path = require("path");
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: {
         tiptap: "./assets/js/tiptap.js",
         blog: "./assets/js/blog.js",
+        htmx: "./assets/js/htmx.js",
     },
     output: {
         filename: "[name].bundle.js",

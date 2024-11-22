@@ -1,7 +1,7 @@
 nav.admin-bar {
     height: var(--size-4);
     line-height: var(--size-4);
-    background: var(--color-1);
+    background: var(--color-2);
 }
 
 nav.admin-bar > .container {
@@ -19,14 +19,14 @@ nav.admin-bar button.logout {
     background: none;
     border: none;
     border-radius: var(--size-0);
-    color: var(--color-4);
+    color: var(--color-5);
     font-family: inherit;
     font-size: 0.85rem;
     padding: var(--size-0) var(--size-1);
 }
 
 nav.admin-bar a.new-post {
-    background: var(--color-2);
+    background: var(--color-3);
     border-radius: var(--size-0);
     color: white;
     font-size: 0.85rem;

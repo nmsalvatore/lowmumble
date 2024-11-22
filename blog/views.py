@@ -1,3 +1,4 @@
+import secrets
 from collections import defaultdict
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
@@ -6,6 +7,8 @@ from django.db import IntegrityError
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from csp.decorators import csp_update
+
+from lowmumble import settings
 from .models import Tag, Post
 from .forms import PostForm
 
@@ -13,7 +16,7 @@ from .forms import PostForm
 def update_navbar(request):
     return render(request, "blog/partials/navbar.html")
 
-@csp_update(SCRIPT_SRC=["https://unpkg.com"])
+
 def post_list(request):
     tag_slug = request.GET.get("tag")
     request.session["back_info"] = {
@@ -43,11 +46,15 @@ def post_list(request):
         "years_with_posts": years_with_posts,
         "drafts": drafts,
         "tags": tags,
-        "current_tag": current_tag,
+        "current_tag": current_tag
     }
 
     hx_request = request.headers.get("HX-Request")
-    template = "blog/partials/post_list.html" if hx_request else "blog/post_list.html"
+    if hx_request:
+        template = "blog/partials/post_list.html"
+    else:
+        template = "blog/post_list.html"
+
     response = render(request, template, context)
     response["Vary"] = "HX-Request"
     return response
@@ -56,14 +63,20 @@ def post_list(request):
 def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
     back_info = request.session.get("back_info")
+
     if not back_info:
         back_info = {"path": "/", "tag": "all"}
-    context = {"post": post, "back_info": back_info}
+
+    context = {
+        "post": post,
+        "back_info": back_info,
+    }
+
     return render(request, "blog/post_detail.html", context)
 
 
 @login_required
-@csp_update(SCRIPT_SRC="'unsafe-eval'")
+@csp_update(SCRIPT_SRC=["'unsafe-eval'"])
 def new_post(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -89,7 +102,7 @@ def new_post(request):
 
 
 @login_required
-@csp_update(SCRIPT_SRC="'unsafe-eval'")
+@csp_update(SCRIPT_SRC=["'unsafe-eval'"])
 def edit_post(request, slug):
     post = Post.objects.get(slug=slug)
     if request.method == "POST":
