@@ -30,29 +30,21 @@
     </div>
 
     {{ post.content|safe }}
+</article>
 
+<div class="extras">
     <div class="publish-details">
         <p class="created-on">Published on <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time></p>
         {% if post.updated_on|date:"Y-m-d" != post.created_on|date:"Y-m-d" %}
             <p class="updated-on">Updated on <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j, Y" }}</time></p>
         {% endif %}
     </div>
-</article>
 
-{% if user.is_superuser %}
-    <div class="buttons">
-        <a
-            class="delete"
-            href="{% url 'delete_post' slug=post.slug %}"
-            hx-get="{% url 'delete_post' slug=post.slug %}"
-            hx-target="main"
-            hx-push-url="true">
-            Delete
-        </a>
+    {% if user.is_superuser %}
         <a
             class="edit button"
             href="{% url 'edit_post' slug=post.slug %}">
             Edit
         </a>
-    </div>
-{% endif %}
+    {% endif %}
+</div>
