@@ -10,35 +10,36 @@ main {
 form div {
     display: flex;
     flex-direction: column;
+}
 
-    label {
-        font-size: 0.85rem;
-        margin-bottom: 0.25rem;
-        margin-top: var(--space-1);
-    }
+form div label {
+    font-size: 0.85rem;
+    margin-bottom: var(--size-0);
+    margin-top: var(--size-1);
+}
 
-    input {
-        border-radius: 0.25rem;
-        border: 1px solid var(--color-3);
-        color: var(--color-1);
-        font-family: inherit;
-        font-size: inherit;
-        padding: var(--space-1);
-    }
+form div input {
+    border-radius: var(--size-0);
+    border: 1px solid var(--color-4);
+    color: var(--color-1);
+    font-family: inherit;
+    font-size: inherit;
+    padding: var(--size-1);
+}
 
-    input:focus {
-        outline: none;
-    }
+form div input:focus {
+    outline: none;
 }
 
 form button[type="submit"] {
-    margin-top: var(--space-2);
-    background: var(--color-2);
+    cursor: pointer;
+    margin-top: var(--size-2);
+    background: var(--color-3);
     border: none;
-    border-radius: 0.25rem;
+    border-radius: var(--size-0);
     color: white;
     font-size: inherit;
     font-family: inherit;
-    padding: var(--space-1);
+    padding: var(--size-1);
     width: 100%;
 }

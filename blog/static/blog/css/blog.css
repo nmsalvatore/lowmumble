@@ -1,13 +1,13 @@
 header.container,
 footer.container {
-    margin: var(--space-5) auto var(--space-4);
+    margin: var(--size-5) auto var(--size-4);
 }
 
 .container {
     max-width: 720px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 var(--space-2);
+    padding: 0 var(--size-2);
 }
 
 header.container {
@@ -23,7 +23,7 @@ header.container div:has(#blog_title) {
 }
 
 header.container div:has(#blog_title) img {
-    height: var(--space-3);
+    height: var(--size-3);
 }
 
 main {
@@ -31,8 +31,8 @@ main {
 }
 
 nav.admin-bar {
-    height: var(--space-4);
-    line-height: var(--space-4);
+    height: var(--size-4);
+    line-height: var(--size-4);
     background: var(--color-1);
 }
 
@@ -50,27 +50,27 @@ nav.admin-bar button.logout {
     cursor: pointer;
     background: none;
     border: none;
-    border-radius: 0.25rem;
+    border-radius: var(--size-0);
     color: var(--color-4);
     font-family: inherit;
     font-size: 0.85rem;
-    padding: 0.25rem 0.5rem;
+    padding: var(--size-0) var(--size-1);
 }
 
 nav.admin-bar a.new-post {
     background: var(--color-2);
-    border-radius: 0.25rem;
+    border-radius: var(--size-0);
     color: white;
     font-size: 0.85rem;
-    padding: 0.25rem 0.5rem;
+    padding: var(--size-0) var(--size-1);
     text-decoration: none;
 }
 
 #blog_title {
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
     color: var(--color-1);
-    margin-left: var(--space-2);
+    margin-left: var(--size-2);
 }
 
 a {
@@ -80,13 +80,13 @@ a {
 a#back_btn {
     color: var(--color-1);
     font-size: 0.85rem;
-    padding: var(--space-1);
+    padding: var(--size-1);
     text-decoration: none;
     z-index: 1;
 }
 
 a#back_btn img {
-    height: var(--space-2);
+    height: var(--size-2);
     position: relative;
     top: 3px;
 }
@@ -104,43 +104,79 @@ a#back_btn span.back-text::after {
 }
 
 a#back_btn span.tag {
-    padding: 2px var(--space-1);
+    padding: 2px var(--size-1);
     font-size: 90%;
 }
 
 strong {
-    font-weight: 600;
+    font-weight: bold;
     color: var(--color-1);
 }
 
 p:not(li p) {
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--size-2);
 }
 
 ul.errorlist:not(ul.post-list) {
     background: hsl(0 30% 60%);
-    border-radius: 0.25rem;
+    border-radius: var(--size-0);
     color: white;
     font-size: 0.85rem;
     list-style-type: none;
     margin-left: 0;
-    margin-bottom: var(--space-2);
-    padding: 0.25rem var(--space-1);
+    margin-bottom: var(--size-2);
+    padding: var(--size-0) var(--size-1);
 }
 
-ul:not(ul.post-list) {
-    margin-left: var(--space-3);
-    margin-top: var(--space-2);
-    margin-bottom: var(--space-2);
+.editor ul,
+.editor ol:not(ol:has(ul)),
+.editor ol:not(ol:has(ol)),
+article.post ul,
+article.post ol:not(ol:has(ul)),
+article.post ol:not(ol:has(ol)) {
+    margin-left: var(--size-3);
+    margin-top: var(--size-2);
+    margin-bottom: var(--size-2);
+}
+
+.editor ol,
+article.post ol {
+    margin-left: var(--size-4);
+}
+
+.editor blockquote,
+article.post blockquote {
+    background: var(--color-4);
+    border-left: 4px solid var(--color-0);
+    color: var(--color-2);
+    font-style: italic;
+    margin: var(--size-3) 0;
+    padding: var(--size-3);
+    position: relative;
+}
+
+.editor blockquote::before,
+article.post blockquote::before {
+    content: '"';
+    color: rgba(0, 0, 0, 0.1);
+    font-size: var(--size-3);
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.editor blockquote p,
+article.post blockquote p {
+    margin: 0;
 }
 
 li ul:not(ul.post-list) {
-    margin-top: var(--space-1);
-    margin-bottom: var(--space-1);
+    margin-top: var(--size-1);
+    margin-bottom: var(--size-1);
 }
 
 details:has(.drafts) {
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--size-4);
 }
 
 details:has(.drafts) summary::before {
@@ -154,7 +190,7 @@ details:has(.drafts) summary {
 }
 
 details:has(.drafts) .drafts {
-    margin-top: var(--space-2);
+    margin-top: var(--size-2);
 }
 
 details:has(.drafts)[open] summary::before {
@@ -162,8 +198,8 @@ details:has(.drafts)[open] summary::before {
 }
 
 .post-list {
-    line-height: 1.6;
-    margin-left: var(--space-2);
+    line-height: var(--line-height);
+    margin-left: var(--size-2);
 }
 
 .post-list li {
@@ -176,7 +212,7 @@ details:has(.drafts)[open] summary::before {
     content: "•";
     font-size: 20px;
     left: -18px;
-    margin-right: var(--space-1);
+    margin-right: var(--size-1);
     position: absolute;
     top: -4px;
 }
@@ -185,7 +221,7 @@ h1.post-title,
 h1.home-title,
 #id_title {
     margin-top: 0;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--size-2);
     font-size: 1.5rem;
 }
 
@@ -195,33 +231,33 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top: var(--space-3);
-    margin-bottom: var(--space-2);
+    margin-top: var(--size-3);
+    margin-bottom: var(--size-2);
     font-size: 1.25rem;
 }
 
 form:has(.tiptap) {
-    margin-top: var(--space-2);
+    margin-top: var(--size-2);
 }
 
 form:has(.tiptap) button[type="submit"] {
     background: var(--color-1);
-    border-radius: 0.25rem;
+    border-radius: var(--size-0);
     cursor: pointer;
     font-size: inherit;
     font-family: inherit;
-    padding: 0.25rem var(--space-1);
+    padding: var(--size-0) var(--size-1);
 }
 
 form:has(.tiptap) button[type="submit"] {
     background: var(--color-1);
     border: none;
-    border-radius: 0.25rem;
+    border-radius: var(--size-0);
     cursor: pointer;
     font-size: inherit;
     font-family: inherit;
     color: var(--color-4);
-    padding: 0.25rem var(--space-1);
+    padding: var(--size-0) var(--size-1);
 }
 
 form:has(.tiptap) button[type="submit"].secondary {
@@ -234,8 +270,9 @@ a.button {
     background: var(--color-1);
     text-decoration: none;
     color: var(--color-4);
-    padding: 0.25rem var(--space-1);
-    border-radius: 0.25rem;
+    padding: var(--size-0) var(--size-1);
+    border-radius: var(--size-0);
+    height: 31px;
 }
 
 .js-only {
@@ -256,28 +293,34 @@ footer a.github-link img {
     height: 24px;
 }
 
-.buttons {
+.extras {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    margin-top: var(--size-4);
+    padding-top: var(--size-4);
+    border-top: 1px solid var(--color-0);
 }
 
-#new_post_form .buttons {
+#new_post_form .extras {
     justify-content: flex-end;
 }
 
+#new_post_form .extras button {
+    margin-right: var(--size-1);
+}
+
 a.delete {
-    background: none;
-    color: indianred;
+    background: var(--color-6);
+    color: white;
     text-decoration: none;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    border: 1px solid indianred;
+    padding: var(--size-0) var(--size-1);
+    border-radius: var(--size-0);
 }
 
 article.post {
-    margin: var(--space-2) 0 var(--space-4);
-    line-height: 1.6;
+    margin: var(--size-2) 0 var(--size-4);
+    line-height: var(--line-height);
 }
 
 article.post .tag-container {
@@ -287,13 +330,16 @@ article.post .tag-container {
 code,
 pre:has(code) {
     background: var(--color-4);
-    border-radius: 0.25rem;
+}
+
+pre:has(code),
+code:not(pre code) {
+    border: 1px solid var(--color-0);
 }
 
 pre:has(code) {
-    border-left: 4px solid rgba(0, 0, 0, 0.1);
-    padding: var(--space-3);
-    margin: var(--space-3) 0;
+    padding: var(--size-3);
+    margin: var(--size-3) 0;
     overflow-x: auto;
 }
 
@@ -303,13 +349,13 @@ pre:has(code) code {
 }
 
 code:not(pre code) {
-    padding: 0.25rem;
+    padding: var(--size-0);
 }
 
 textarea#id_title {
     background: none;
     color: var(--color-1);
-    font-weight: 600;
+    font-weight: bold;
     font-family: inherit;
     width: 100%;
     border: none;
@@ -325,7 +371,7 @@ textarea#id_title:focus {
 .tag-container {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--size-4);
 }
 
 .tag-container > .tag {
@@ -333,17 +379,17 @@ textarea#id_title:focus {
 }
 
 article .tag-container {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--size-3);
 }
 
 .tag-container:not(.tag-container:has(.current-tags)) {
-    gap: var(--space-1);
+    gap: var(--size-1);
 }
 
 .current-tags:has(.tag) {
     display: flex;
-    gap: var(--space-1);
-    margin-right: var(--space-2);
+    gap: var(--size-1);
+    margin-right: var(--size-2);
 }
 
 a.tag.selected,
@@ -354,7 +400,7 @@ article.post a.tag {
 }
 
 span.tag:focus {
-    outline: 2px solid var(--color-1);
+    outline: 2px solid var(--color-2);
 }
 
 a.tag {
@@ -363,13 +409,13 @@ a.tag {
 
 .tag {
     background: var(--color-3);
-    border-radius: 0.25rem;
+    border-radius: var(--size-0);
     color: white;
     cursor: default;
     font-size: 0.85rem;
     height: 24px;
     line-height: 24px;
-    padding: 0 var(--space-1);
+    padding: 0 var(--size-1);
     opacity: 0.4;
 }
 
@@ -387,17 +433,18 @@ a.tag {
 }
 
 div.publish-details {
-    margin-top: var(--space-4);
     color: var(--color-2);
-    border-top: 1px solid var(--color-4);
-    padding-top: var(--space-3);
     font-size: 0.85rem;
+}
+
+div.publish-details p {
+    margin: 0;
 }
 
 @media only screen and (max-width: 568px) {
     header.container,
     footer.container {
-        margin: var(--space-4) auto var(--space-3);
+        margin: var(--size-4) auto var(--size-3);
     }
 
     a#back_btn span.back-text::before {
