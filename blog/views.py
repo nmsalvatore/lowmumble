@@ -5,6 +5,7 @@ from django.db.models import Count
 from django.db import IntegrityError
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from csp.decorators import csp_update
 from .models import Tag, Post
 from .forms import PostForm
 
@@ -12,7 +13,7 @@ from .forms import PostForm
 def update_navbar(request):
     return render(request, "blog/partials/navbar.html")
 
-
+@csp_update(SCRIPT_SRC=["https://unpkg.com"])
 def post_list(request):
     tag_slug = request.GET.get("tag")
     request.session["back_info"] = {
@@ -38,37 +39,31 @@ def post_list(request):
             post_count=Count('posts')
         ).order_by('-post_count', 'name')
 
-    hx_request = request.headers.get("HX-Request") == "true"
     context = {
         "years_with_posts": years_with_posts,
         "drafts": drafts,
         "tags": tags,
         "current_tag": current_tag,
-        "hx_request": hx_request,
     }
 
-    if request.headers.get("HX-Request"):
-        return render(request, "blog/partials/post_list.html", context)
-    return render(request, "blog/post_list.html", context)
+    hx_request = request.headers.get("HX-Request")
+    template = "blog/partials/post_list.html" if hx_request else "blog/post_list.html"
+    response = render(request, template, context)
+    response["Vary"] = "HX-Request"
+    return response
 
 
 def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
-
     back_info = request.session.get("back_info")
     if not back_info:
         back_info = {"path": "/", "tag": "all"}
-
-    hx_request = request.headers.get("HX-Request") == "true"
-    context = {"post": post, "hx_request": hx_request, "back_info": back_info}
-
-    if hx_request:
-        return render(request, "blog/partials/post_detail.html", context)
-
+    context = {"post": post, "back_info": back_info}
     return render(request, "blog/post_detail.html", context)
 
 
 @login_required
+@csp_update(SCRIPT_SRC="'unsafe-eval'")
 def new_post(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -94,6 +89,7 @@ def new_post(request):
 
 
 @login_required
+@csp_update(SCRIPT_SRC="'unsafe-eval'")
 def edit_post(request, slug):
     post = Post.objects.get(slug=slug)
     if request.method == "POST":
