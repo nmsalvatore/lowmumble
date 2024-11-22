@@ -1,9 +1,6 @@
-<section class="tag-container">
+<section class="tag-container" hx-boost="true" hx-target="main">
     <a
         href="{% url 'post_list' %}"
-        hx-get="{% url 'post_list' %}"
-        hx-push-url="true"
-        hx-target="main"
         class="tag {% if not current_tag %}selected{% endif %}">
         all
     </a>
@@ -11,9 +8,6 @@
     {% for tag in tags %}
         <a
             href="{% url 'post_list' %}?tag={{ tag.slug }}"
-            hx-get="{% url 'post_list' %}?tag={{ tag.slug }}"
-            hx-push-url="true"
-            hx-target="main"
             class="tag {% if current_tag == tag %}selected{% endif %}">
             {{ tag }}
         </a>
