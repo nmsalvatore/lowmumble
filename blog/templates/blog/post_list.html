@@ -1,5 +1,10 @@
 {% extends "blog/base.html" %}
 
+{% block page_css %}
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+{% endblock page_css %}
+
 {% block main %}
     {% include "blog/partials/post_list.html" %}
 {% endblock main %}

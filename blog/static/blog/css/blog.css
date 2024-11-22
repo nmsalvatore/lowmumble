@@ -48,7 +48,6 @@ a {
 a#back_btn {
     color: var(--color-1);
     font-size: 0.85rem;
-    padding: var(--size-1);
     text-decoration: none;
     z-index: 1;
 }

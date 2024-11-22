@@ -1,29 +1,12 @@
 {% load static %}
 
-{% if hx_request %}
-    <div hx-swap-oob="beforeend:header">
-        <a
-            id="back_btn"
-            href="{{ back_info.path }}"
-            hx-get="{{ back_info.path }}"
-            hx-target="main"
-            hx-push-url="true">
-            <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">
-            <span class="back-text"><span class="tag">{{ back_info.tag }}</span></span>
-        </a>
-    </div>
-{% endif %}
-
 <article class="post">
     <h1 class="post-title">{{ post.title }}</h1>
     <div class="tag-container">
         {% for tag in post.tags.all %}
             <a
                 class="tag"
-                href="{% url 'post_list' %}?tag={{ tag.slug }}"
-                hx-get="{% url 'post_list' %}?tag={{ tag.slug }}"
-                hx-target="main"
-                hx-push-url="true">
+                href="{% url 'post_list' %}?tag={{ tag.slug }}">
                 {{ tag }}
             </a>
         {% endfor %}

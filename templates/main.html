@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="{% static 'icons/lowmumble.png' %}">
+        <link rel="icon" href="{% static 'icons/favicon.png' %}">
         <title>low mumble.</title>
 
         <!-- Preload fonts -->
@@ -105,11 +105,8 @@
         <!-- CSS -->
         <link rel="stylesheet" href="{% static 'core/css/fonts.css' %}">
         {% block css %}{% endblock css%}
-
-        <!-- HTMX -->
-        <script src="https://unpkg.com/htmx.org@2.0.3"></script>
     </head>
-    <body hx-history-elt hx-preserve="true">
+    <body>
         {% block body %}
         {% endblock body%}
 

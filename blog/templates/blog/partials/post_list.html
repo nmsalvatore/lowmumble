@@ -1,7 +1,3 @@
-{% if hx_request %}
-    <div hx-swap-oob="delete" id="back_btn"></div>
-{% endif %}
-
 <section class="tag-container">
     <a
         href="{% url 'post_list' %}"
@@ -45,10 +41,7 @@
             <li>
                 <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j" }}</time>
                 <a
-                    href="{% url 'post_detail' slug=post.slug %}"
-                    hx-get="{% url 'post_detail' slug=post.slug %}"
-                    hx-push-url="true"
-                    hx-target="main">
+                    href="{% url 'post_detail' slug=post.slug %}">
                     {{ post }}
                 </a>
             </li>
