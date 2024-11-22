@@ -1,5 +1,6 @@
 {% load static %}
 
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -12,7 +13,7 @@
         <link rel="preload" href="{% static 'fonts/IBMPlexMono-SemiBold.woff2' %}" as="font" type="font/woff2" crossorigin>
 
         <!-- Critical inline styles -->
-        <style>
+        <style nonce="{{ request.csp_nonce }}">
             :root {
                 --size-0: 0.25rem;
                 --size-1: 0.5rem;
@@ -23,7 +24,7 @@
                 --color-0: rgba(0, 0, 0, 0.05);
                 --color-1: hsl(210 30% 30%);
                 --color-2: hsl(210 20% 45%);
-                --color-3: hsl(210 20% 60%);
+                --color-3: hsl(210 20% 55%);
                 --color-4: hsl(210 30% 94%);
                 --color-5: hsl(210 30% 97%);
                 --color-6: hsl(0 30% 55%);
