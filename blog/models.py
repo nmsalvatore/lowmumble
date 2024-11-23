@@ -18,7 +18,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.TextField()
-    tags = models.ManyToManyField(Tag, related_name="posts")
+    tags = models.ManyToManyField(Tag, related_name="tags")
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)

@@ -38,8 +38,8 @@ def post_list(request):
         posts_by_year[year].append(post)
 
     years_with_posts = sorted(posts_by_year.items(), reverse=True)
-    tags = Tag.objects.filter(posts__in=posts).annotate(
-            post_count=Count('posts')
+    tags = Tag.objects.filter(tags__in=posts).annotate(
+            post_count=Count('tags')
         ).order_by('-post_count', 'name')
 
     context = {
@@ -104,6 +104,7 @@ def new_post(request):
 @csp_update(SCRIPT_SRC=["'unsafe-eval'"])
 def edit_post(request, slug):
     post = Post.objects.get(slug=slug)
+
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         submit_action = request.POST.get("submit_action")
@@ -137,7 +138,6 @@ def delete_post(request, slug):
 
 def save_tag_data(request, post):
     tag_data = request.POST.get("tag_data")
-    post.tags.clear()
     if tag_data:
         tag_names = tag_data.split(",")
         for tag_name in tag_names:
