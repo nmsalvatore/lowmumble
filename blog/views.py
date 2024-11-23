@@ -38,9 +38,8 @@ def post_list(request):
         posts_by_year[year].append(post)
 
     years_with_posts = sorted(posts_by_year.items(), reverse=True)
-    tags = Tag.objects.filter(tags__in=posts).annotate(
-            post_count=Count('tags')
-        ).order_by('-post_count', 'name')
+    tag_counts = Tag.objects.annotate(post_count=Count('post'))
+    tags = tag_counts.filter(post__in=posts).order_by('-post_count', 'name')
 
     context = {
         "years_with_posts": years_with_posts,
