@@ -256,8 +256,22 @@ a.button {
     display: block;
 }
 
-footer a.github-link img {
-    height: 24px;
+footer small {
+    font-size: 12px;
+    color: var(--color-1);
+}
+
+footer a {
+    cursor: pointer; /* Force pointer cursor always */
+}
+
+footer a svg {
+    fill: var(--color-3);
+    transition: fill 1s ease 100ms;
+}
+
+footer a:hover svg {
+    fill: var(--color-1);
 }
 
 .extras {
