@@ -2,13 +2,13 @@ import { Editor } from "@tiptap/core";
 import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
+import { MarkdownLink } from "./markdown_link.js";
 
 (() => {
     const form = document.querySelector("form:has(.editor)");
     const cachedPost = localStorage.getItem("cached_post");
 
     let postContent;
-
     try {
         postContent = editedContent;
     } catch (err) {
@@ -27,6 +27,7 @@ import StarterKit from "@tiptap/starter-kit";
             Placeholder.configure({
                 placeholder: "Write something",
             }),
+            MarkdownLink,
         ],
         content: postContent,
     });
