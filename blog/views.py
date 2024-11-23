@@ -57,6 +57,7 @@ def post_list(request):
 
     response = render(request, template, context)
     response["Vary"] = "HX-Request"
+    response["Link"] = f'<"{request.build_absolute_uri()}">; rel="canonical"'
     return response
 
 
@@ -67,12 +68,10 @@ def post_detail(request, slug):
     if not back_info:
         back_info = {"path": "/", "tag": "all"}
 
-    context = {
-        "post": post,
-        "back_info": back_info,
-    }
-
-    return render(request, "blog/post_detail.html", context)
+    context = {"post": post, "back_info": back_info,}
+    response = render(request, "blog/post_detail.html", context)
+    response["Link"] = f'<"{request.build_absolute_uri()}">; rel="canonical"'
+    return response
 
 
 @login_required
