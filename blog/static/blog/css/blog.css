@@ -271,9 +271,50 @@ footer a.github-link img {
     margin-right: var(--size-1);
 }
 
-a.delete {
+#delete_dialog {
+    margin: auto;
+    background: white;
+    border: none;
+    border-radius: var(--size-0);
+    color: var(--color-2);
+    padding: var(--size-3);
+    box-shadow: 1px 1px 8px -4px;
+}
+
+#delete_dialog:has(button) div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#delete_dialog p {
+    margin-bottom: var(--size-3);
+}
+
+#delete_dialog button,
+#delete_dialog a.button {
     background: var(--color-6);
+    border: none;
+    border-radius: var(--size-0);
     color: white;
+    padding: var(--size-0) var(--size-1);
+    font-size: inherit;
+    font-family: inherit;
+}
+
+#delete_dialog button#delete_cancel {
+    cursor: pointer;
+    background: var(--color-4);
+    color: var(--color-1);
+    margin-left: var(--size-1);
+}
+
+button.delete {
+    background: var(--color-6);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
     text-decoration: none;
     padding: var(--size-0) var(--size-1);
     border-radius: var(--size-0);

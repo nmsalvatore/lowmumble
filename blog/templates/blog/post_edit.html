@@ -41,7 +41,16 @@
 
         <!-- buttons -->
         <div class="extras">
-            <a class="delete button" href="{% url 'delete_post' slug=post.slug %}">Delete</a>
+            <div>
+                <button class="delete">Delete</button>
+                <dialog id="delete_dialog">
+                    <p>Are you sure that you want to delete <strong>{{ post.title }}</strong>?</p>
+                    <div>
+                        <a class="button" href="{% url 'delete_post' slug=post.slug %}">Yes, delete it</a>
+                        <button id="delete_cancel">Cancel</button>
+                    </div>
+                </dialog>
+            </div>
             <div class="submit-buttons">
                 {% if not post.published %}
                     <button type="submit" class="secondary" name="update_draft">Update draft</button>

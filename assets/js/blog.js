@@ -3,7 +3,24 @@
     checkForCachedTags();
     setTagListeners();
     setFormSubmitAction();
+    setDeletePostListener();
 })();
+
+function setDeletePostListener() {
+    const deleteButton = document.querySelector("button.delete");
+    if (deleteButton) {
+        deleteButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            const dialog = document.getElementById("delete_dialog");
+            const cancel = document.getElementById("delete_cancel");
+            dialog.showModal();
+            cancel.addEventListener("click", (e) => {
+                e.preventDefault();
+                dialog.close();
+            });
+        });
+    }
+}
 
 function setFormSubmitAction() {
     const actionInput = document.getElementById("submit_action");
