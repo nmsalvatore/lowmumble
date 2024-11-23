@@ -175,6 +175,12 @@ details:has(.drafts)[open] summary::before {
     position: relative;
 }
 
+.post-list li a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .post-list li::before {
     content: "\2022";
     font-size: 20px;
