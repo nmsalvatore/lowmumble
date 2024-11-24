@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -96,6 +97,12 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    }
+}
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -104,7 +111,7 @@ LOGOUT_REDIRECT_URL = "post_list"
 
 CSP_DEFAULT_SRC = ["'none'"]
 CSP_CONNECT_SRC = ["'self'"]
-CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'"]    # remove unsafe-eval in production / switch webpack mode to production
+CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'"]
 CSP_STYLE_SRC = ["'self'", "'unsafe-inline'"]
 CSP_IMG_SRC = ["'self'"]
 CSP_FONT_SRC = ["'self'"]
