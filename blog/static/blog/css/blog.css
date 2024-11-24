@@ -1,7 +1,7 @@
 nav.admin-bar {
     height: var(--size-4);
     line-height: var(--size-4);
-    background: var(--color-2);
+    background: var(--color-dark);
 }
 
 nav.admin-bar > .container {
@@ -11,7 +11,7 @@ nav.admin-bar > .container {
 }
 
 nav.admin-bar a {
-    color: var(--color-4);
+    color: var(--color-light);
 }
 
 nav.admin-bar button.logout {
@@ -19,14 +19,14 @@ nav.admin-bar button.logout {
     background: none;
     border: none;
     border-radius: var(--size-0);
-    color: var(--color-5);
+    color: var(--color-lightest);
     font-family: inherit;
     font-size: 0.85rem;
     padding: var(--size-0) var(--size-1);
 }
 
 nav.admin-bar a.new-post {
-    background: var(--color-3);
+    background: var(--color-medium);
     border-radius: var(--size-0);
     color: white;
     font-size: 0.85rem;
@@ -37,16 +37,16 @@ nav.admin-bar a.new-post {
 #blog_title {
     text-decoration: none;
     font-weight: bold;
-    color: var(--color-1);
+    color: var(--color-darkest);
     margin-left: var(--size-2);
 }
 
 a {
-    color: var(--color-3);
+    color: var(--color-medium);
 }
 
 a#back_btn {
-    color: var(--color-1);
+    color: var(--color-darkest);
     font-size: 0.85rem;
     text-decoration: none;
     z-index: 1;
@@ -77,7 +77,7 @@ a#back_btn span.tag {
 
 strong {
     font-weight: bold;
-    color: var(--color-1);
+    color: var(--color-darkest);
 }
 
 p:not(li p) {
@@ -113,9 +113,9 @@ article.post ol {
 
 .editor blockquote,
 article.post blockquote {
-    background: var(--color-4);
-    border-left: 4px solid var(--color-0);
-    color: var(--color-2);
+    background: var(--color-light);
+    border-left: 4px solid var(--color-opaque);
+    color: var(--color-dark);
     font-style: italic;
     margin: var(--size-3) 0;
     padding: var(--size-3);
@@ -151,7 +151,7 @@ details:has(.drafts) summary::before {
 }
 
 details:has(.drafts) summary {
-    color: var(--color-1);
+    color: var(--color-darkest);
     cursor: pointer;
     font-size: 0.85rem;
 }
@@ -214,7 +214,7 @@ form:has(.tiptap) {
 }
 
 form:has(.tiptap) button[type="submit"] {
-    background: var(--color-1);
+    background: var(--color-darkest);
     border-radius: var(--size-0);
     cursor: pointer;
     font-size: inherit;
@@ -223,26 +223,26 @@ form:has(.tiptap) button[type="submit"] {
 }
 
 form:has(.tiptap) button[type="submit"] {
-    background: var(--color-1);
+    background: var(--color-darkest);
     border: none;
     border-radius: var(--size-0);
     cursor: pointer;
     font-size: inherit;
     font-family: inherit;
-    color: var(--color-4);
+    color: var(--color-light);
     padding: var(--size-0) var(--size-1);
 }
 
 form:has(.tiptap) button[type="submit"].secondary {
     background: none;
     border: 1px solid;
-    color: var(--color-1);
+    color: var(--color-darkest);
 }
 
 a.button {
-    background: var(--color-1);
+    background: var(--color-darkest);
     text-decoration: none;
-    color: var(--color-4);
+    color: var(--color-light);
     padding: var(--size-0) var(--size-1);
     border-radius: var(--size-0);
     height: 29px;
@@ -258,7 +258,7 @@ a.button {
 
 footer small {
     font-size: 12px;
-    color: var(--color-1);
+    color: var(--color-darkest);
 }
 
 footer a {
@@ -266,12 +266,12 @@ footer a {
 }
 
 footer a svg {
-    fill: var(--color-3);
+    fill: var(--color-medium);
     transition: fill 1s ease 100ms;
 }
 
 footer a:hover svg {
-    fill: var(--color-1);
+    fill: var(--color-darkest);
 }
 
 .extras {
@@ -280,7 +280,7 @@ footer a:hover svg {
     flex-direction: row;
     margin-top: var(--size-4);
     padding-top: var(--size-4);
-    border-top: 1px solid var(--color-0);
+    border-top: 1px solid var(--color-opaque);
 }
 
 #new_post_form .extras {
@@ -293,10 +293,10 @@ footer a:hover svg {
 
 #delete_dialog {
     margin: auto;
-    background: var(--color-5);
+    background: var(--color-lightest);
     border: none;
     border-radius: var(--size-0);
-    color: var(--color-2);
+    color: var(--color-dark);
     padding: var(--size-3);
     box-shadow: 1px 1px 8px -4px;
 }
@@ -316,7 +316,7 @@ footer a:hover svg {
 
 #delete_dialog button,
 #delete_dialog a.button {
-    background: var(--color-6);
+    background: var(--color-alert);
     border: none;
     border-radius: var(--size-0);
     color: white;
@@ -327,14 +327,14 @@ footer a:hover svg {
 
 #delete_dialog button#delete_cancel {
     cursor: pointer;
-    background: var(--color-4);
-    border: 1px solid var(--color-0);
-    color: var(--color-1);
+    background: var(--color-light);
+    border: 1px solid var(--color-opaque);
+    color: var(--color-darkest);
     margin-left: var(--size-2);
 }
 
 button.delete {
-    background: var(--color-6);
+    background: var(--color-alert);
     border: none;
     color: white;
     cursor: pointer;
@@ -356,12 +356,12 @@ article.post .tag-container {
 
 code,
 pre:has(code) {
-    background: var(--color-4);
+    background: var(--color-light);
 }
 
 pre:has(code),
 code:not(pre code) {
-    border: 1px solid var(--color-0);
+    border: 1px solid var(--color-opaque);
 }
 
 pre:has(code) {
@@ -381,7 +381,7 @@ code:not(pre code) {
 
 textarea#id_title {
     background: none;
-    color: var(--color-1);
+    color: var(--color-darkest);
     font-weight: bold;
     font-family: inherit;
     width: 100%;
@@ -422,12 +422,12 @@ article .tag-container {
 a.tag.selected,
 span.tag,
 article.post a.tag {
-    background: var(--color-3);
+    background: var(--color-medium);
     opacity: 1;
 }
 
 span.tag:focus {
-    outline: 2px solid var(--color-2);
+    outline: 2px solid var(--color-dark);
 }
 
 a.tag {
@@ -435,7 +435,7 @@ a.tag {
 }
 
 .tag {
-    background: var(--color-3);
+    background: var(--color-medium);
     border-radius: var(--size-0);
     color: white;
     cursor: default;
@@ -443,7 +443,7 @@ a.tag {
     height: 24px;
     line-height: 24px;
     padding: 0 var(--size-1);
-    opacity: 0.4;
+    opacity: 0.3;
 }
 
 #id_tags {
@@ -460,7 +460,7 @@ a.tag {
 }
 
 div.publish-details {
-    color: var(--color-2);
+    color: var(--color-dark);
     font-size: 0.85rem;
 }
 

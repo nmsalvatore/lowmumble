@@ -5,13 +5,13 @@
     --size-3: 2rem;
     --size-4: 3rem;
     --size-5: 5rem;
-    --color-0: rgba(0, 0, 0, 0.05);
-    --color-1: hsl(210 30% 30%);
-    --color-2: hsl(210 20% 45%);
-    --color-3: hsl(210 20% 60%);
-    --color-4: hsl(210 30% 94%);
-    --color-5: hsl(210 30% 97%);
-    --color-6: hsl(0 30% 55%);
+    --color-opaque: rgba(0, 0, 0, 0.05);
+    --color-darkest: hsl(210 20% 25%);
+    --color-dark: hsl(210 20% 40%);
+    --color-medium: hsl(210 20% 55%);
+    --color-light: hsl(210 30% 94%);
+    --color-lightest: hsl(210 30% 97%);
+    --color-alert: hsl(0 30% 55%);
     --line-height: 1.6;
 }
 
@@ -27,8 +27,8 @@ body {
 }
 
 html {
-    background: var(--color-5);
-    color: var(--color-2);
+    background: var(--color-lightest);
+    color: var(--color-dark);
     font-family: "IBM Plex Mono", monospace;
     font-weight: 400;
 }
@@ -65,7 +65,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--color-1);
+    color: var(--color-darkest);
     font-size: 1.25rem;
     font-weight: bold;
     margin-top: var(--size-3);
