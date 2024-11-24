@@ -1,6 +1,8 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
+{% block subtitle %}Editing "{{ post.title }}"{% endblock subtitle %}
+
 {% block page_css %}
     <link rel="stylesheet" href="{% static 'blog/css/tiptap.css' %}">
 {% endblock page_css %}
