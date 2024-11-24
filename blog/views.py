@@ -103,7 +103,8 @@ def new_post(request):
 @csp_update(SCRIPT_SRC=["'unsafe-eval'"])
 def edit_post(request, slug):
     post = Post.objects.get(slug=slug)
-    initial_tags = Tag.objects.filter(tags=post)
+    tags = [tag for tag in post.tags.all()]
+    initial_tags = Tag.objects.filter(name__in=tags)
 
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
@@ -144,7 +145,7 @@ def update_tags(request, post, initial_tags=None):
         tags_to_remove = initial_tags.exclude(name__in=new_tags)
         for tag in tags_to_remove:
             post.tags.remove(tag)
-            num_uses = tag.tags.count()
+            num_uses = Post.objects.filter(tags__name=tag).count()
             if num_uses < 1:
                 tag.delete()
 
