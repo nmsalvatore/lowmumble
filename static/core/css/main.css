@@ -44,14 +44,11 @@ footer.container {
     align-items: center;
     display: flex;
     justify-content: space-between;
-}
-
-header.container {
-    margin: calc(48px + var(--size-5)) auto var(--size-4);
-}
-
-footer.container {
     margin: var(--size-5) auto var(--size-4);
+}
+
+body:has(.admin-bar) header.container {
+    margin: calc(48px + var(--size-5)) auto var(--size-4);
 }
 
 header div:has(#blog_title) {
@@ -88,10 +85,11 @@ h6 {
 }
 
 @media only screen and (max-width: 568px) {
-    header.container {
+    body:has(.admin-bar) header.container {
         margin: calc(48px + var(--size-3)) auto var(--size-3);
     }
 
+    header.container,
     footer.container {
         margin: var(--size-3) auto;
     }
