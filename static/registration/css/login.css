@@ -19,10 +19,10 @@ form div label {
 }
 
 form div input {
-    background: var(--color-4);
+    background: var(--color-light);
     border-radius: var(--size-0);
-    border: none;
-    color: var(--color-1);
+    border: 1px solid var(--color-opaque);
+    color: var(--color-darkest);
     font-family: inherit;
     font-size: inherit;
     padding: var(--size-1);
@@ -35,7 +35,7 @@ form div input:focus {
 form button[type="submit"] {
     cursor: pointer;
     margin-top: var(--size-2);
-    background: var(--color-3);
+    background: var(--color-accent);
     border: none;
     border-radius: var(--size-0);
     color: white;
