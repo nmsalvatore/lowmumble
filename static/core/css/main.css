@@ -82,6 +82,6 @@ h6 {
 @media only screen and (max-width: 568px) {
     header.container,
     footer.container {
-        margin: var(--size-4) auto var(--size-3);
+        margin: var(--size-3) auto;
     }
 }
