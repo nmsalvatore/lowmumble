@@ -2,6 +2,12 @@
 
 <article class="post">
     <h1 class="post-title">{{ post.title }}</h1>
+    <div class="publish-details">
+        <p class="created-on">Published on <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time></p>
+        {% if post.updated_on|date:"Y-m-d" != post.created_on|date:"Y-m-d" %}
+            <p class="updated-on">Updated on <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j, Y" }}</time></p>
+        {% endif %}
+    </div>
     <div class="tag-container">
         {% for tag in post.tags.all %}
             <a
@@ -16,13 +22,6 @@
 </article>
 
 <div class="extras">
-    <div class="publish-details">
-        <p class="created-on">Published on <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time></p>
-        {% if post.updated_on|date:"Y-m-d" != post.created_on|date:"Y-m-d" %}
-            <p class="updated-on">Updated on <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j, Y" }}</time></p>
-        {% endif %}
-    </div>
-
     {% if user.is_superuser %}
         <a
             class="edit button"
