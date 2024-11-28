@@ -5,14 +5,14 @@
     --size-3: 2rem;
     --size-4: 3rem;
     --size-5: 5rem;
-    --color-opaque: rgba(0, 0, 0, 0.05);
+    --color-opaque: rgba(0, 0, 0, 0.07);
     --color-darkest: hsl(210 20% 25%);
     --color-dark: hsl(210 20% 40%);
     --color-medium: hsl(210 20% 55%);
     --color-light: hsl(210 30% 94%);
     --color-lightest: hsl(210 30% 97%);
     --color-accent: hsl(180 40% 50%);
-    --color-alert: hsl(0 30% 55%);
+    --color-alert: hsl(0 30% 50%);
     --line-height: 1.6;
 }
 
@@ -75,6 +75,16 @@ h6 {
     font-weight: bold;
     margin-top: var(--size-3);
     margin-bottom: var(--size-2);
+}
+
+button {
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    background: inherit;
+    border: 1px solid var(--color-darkest);
+    border-radius: var(--size-0);
+    padding: var(--size-0) var(--size-1);
 }
 
 .container {

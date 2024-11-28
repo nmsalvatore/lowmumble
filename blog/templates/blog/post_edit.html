@@ -43,26 +43,40 @@
 
         <!-- buttons -->
         <div class="extras">
-            <div>
-                <button class="delete">Delete</button>
-                <dialog id="delete_dialog">
-                    <p>Are you sure that you want to delete <strong>{{ post.title }}</strong>?</p>
-                    <div>
-                        <a class="button" href="{% url 'delete_post' slug=post.slug %}">Yes, delete it</a>
-                        <button id="delete_cancel">Cancel</button>
-                    </div>
-                </dialog>
-            </div>
-            <div class="submit-buttons">
-                {% if not post.published %}
-                    <button type="submit" class="secondary" name="update_draft">Update draft</button>
-                    <button type="submit" class="primary" name="publish">Publish</button>
-                {% elif post.published %}
-                    <button type="submit" class="secondary" name="revert_to_draft">Revert to draft</button>
-                    <button type="submit" class="primary" name="update">Update</button>
-                {% endif %}
-                <input type="hidden" name="submit_action" id="submit_action">
-            </div>
+            {% if not post.published %}
+                <button class="primary" type="submit" name="publish">Publish</button>
+            {% elif post.published %}
+                <button class="primary" type="submit" name="update">Update</button>
+            {% endif %}
+
+            <details class="more-options">
+                <summary>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#364c63"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
+                </summary>
+                <menu>
+                    <li>
+                        <button class="delete">Delete</button>
+                        <dialog id="delete_dialog">
+                            <p>Are you sure that you want to delete <strong>{{ post.title }}</strong>?</p>
+                            <div>
+                                <a class="button" href="{% url 'delete_post' slug=post.slug %}">Yes, delete it</a>
+                                <button id="delete_cancel">Cancel</button>
+                            </div>
+                        </dialog>
+                    </li>
+
+                    {% if not post.published %}
+                        <li>
+                            <button type="submit" name="update_draft">Save draft</button>
+                        </li>
+                    {% elif post.published %}
+                        <li>
+                            <button type="submit" name="revert_to_draft">Revert to draft</button>
+                        </li>
+                    {% endif %}
+                    <input type="hidden" name="submit_action" id="submit_action">
+                </menu>
+            </details>
         </div>
     </form>
 {% endblock main %}

@@ -19,12 +19,9 @@ nav.admin-bar > .container {
 }
 
 nav.admin-bar button.logout {
-    color: inherit;
-    cursor: pointer;
-    background: none;
     border: none;
-    font-family: inherit;
     font-weight: inherit;
+    padding: 0;
 }
 
 nav.admin-bar a.new-post {
@@ -210,30 +207,10 @@ form:has(.tiptap) {
     margin-top: var(--size-2);
 }
 
-form:has(.tiptap) button[type="submit"] {
+form:has(.tiptap) button[type="submit"].primary {
     background: var(--color-darkest);
-    border-radius: var(--size-0);
-    cursor: pointer;
-    font-size: inherit;
-    font-family: inherit;
+    color: white;
     padding: var(--size-0) var(--size-1);
-}
-
-form:has(.tiptap) button[type="submit"] {
-    background: var(--color-darkest);
-    border: none;
-    border-radius: var(--size-0);
-    cursor: pointer;
-    font-size: inherit;
-    font-family: inherit;
-    color: var(--color-light);
-    padding: var(--size-0) var(--size-1);
-}
-
-form:has(.tiptap) button[type="submit"].secondary {
-    background: none;
-    border: 1px solid;
-    color: var(--color-darkest);
 }
 
 a.button {
@@ -273,19 +250,10 @@ footer a:hover svg {
 
 .extras {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-top: var(--size-4);
-    padding-top: var(--size-4);
-    border-top: 1px solid var(--color-opaque);
-}
-
-#new_post_form .extras {
     justify-content: flex-end;
-}
-
-#new_post_form .extras button {
-    margin-right: var(--size-1);
+    flex-direction: row;
+    gap: var(--size-1);
+    padding-top: var(--size-4);
 }
 
 #delete_dialog {
@@ -305,6 +273,7 @@ footer a:hover svg {
 #delete_dialog:has(button) div {
     display: flex;
     justify-content: flex-end;
+    gap: var(--size-1);
 }
 
 #delete_dialog p {
@@ -320,6 +289,7 @@ footer a:hover svg {
     padding: var(--size-0) var(--size-1);
     font-size: inherit;
     font-family: inherit;
+    width: max-content;
 }
 
 #delete_dialog button#delete_cancel {
@@ -327,23 +297,14 @@ footer a:hover svg {
     background: var(--color-light);
     border: 1px solid var(--color-opaque);
     color: var(--color-darkest);
-    margin-left: var(--size-2);
 }
 
 button.delete {
-    background: var(--color-alert);
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: inherit;
-    text-decoration: none;
-    padding: var(--size-0) var(--size-1);
-    border-radius: var(--size-0);
+    color: var(--color-alert);
 }
 
 article.post {
-    margin: var(--size-2) 0 var(--size-4);
+    margin: var(--size-2) 0;
     line-height: var(--line-height);
 }
 
@@ -457,8 +418,9 @@ a.tag {
 }
 
 div.publish-details {
-    color: var(--color-dark);
-    font-size: 0.85rem;
+    color: var(--color-darkest);
+    font-size: 12px;
+    margin: var(--size-3) 0;
 }
 
 div.publish-details p {
@@ -468,6 +430,43 @@ div.publish-details p {
 input::placeholder,
 textarea::placeholder {
     color: hsl(210 5% 70%);
+}
+
+details.more-options {
+    position: relative;
+}
+
+details.more-options summary {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    gap: var(--size-1);
+    list-style: none;
+    padding: var(--size-0);
+}
+
+details.more-options menu {
+    background: var(--color-lightest);
+    list-style: none;
+    position: absolute;
+    right: var(--size-1);
+    bottom: var(--size-4);
+    width: max-content;
+    border: 1px solid var(--color-opaque);
+    border-radius: var(--size-0);
+    box-shadow: 1px 0 8px -6px;
+}
+
+details.more-options menu button {
+    border: none;
+    padding: var(--size-1);
+    padding-right: var(--size-3);
+    width: 100%;
+    text-align: left;
+}
+
+details.more-options menu button:hover {
+    background: var(--color-light);
 }
 
 @media only screen and (max-width: 568px) {
