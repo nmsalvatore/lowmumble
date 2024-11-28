@@ -192,17 +192,6 @@ h1.home-title,
     font-size: 1.5rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-top: var(--size-3);
-    margin-bottom: var(--size-2);
-    font-size: 1.25rem;
-}
-
 form:has(.tiptap) {
     margin-top: var(--size-2);
 }
@@ -309,7 +298,7 @@ article.post {
 }
 
 article.post .tag-container {
-    margin-bottom: 36px;
+    margin-bottom: var(--size-4);
 }
 
 code,
@@ -330,7 +319,7 @@ pre:has(code) {
 
 pre:has(code) code {
     font-family: inherit;
-    font-size: 0.85rem;
+    font-size: 12px;
 }
 
 code:not(pre code) {
@@ -420,7 +409,7 @@ a.tag {
 div.publish-details {
     color: var(--color-darkest);
     font-size: 12px;
-    margin: var(--size-3) 0 var(--size-2);
+    margin: var(--size-3) 0;
 }
 
 div.publish-details p {
