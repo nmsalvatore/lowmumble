@@ -298,7 +298,7 @@ article.post {
 }
 
 article.post .tag-container {
-    margin-bottom: var(--size-4);
+    margin-bottom: var(--size-3);
 }
 
 code,
