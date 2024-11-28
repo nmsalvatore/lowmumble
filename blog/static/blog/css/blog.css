@@ -6,6 +6,7 @@ nav.admin-bar {
     line-height: var(--size-4);
     background: var(--color-lightest);
     border-bottom: 1px solid var(--color-opaque);
+    box-shadow: 1px 0 8px -7px;
     position: fixed;
     width: 100%;
     z-index: 1;
