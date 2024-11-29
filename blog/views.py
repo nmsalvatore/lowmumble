@@ -110,8 +110,6 @@ def edit_post(request, slug):
     submit_action = request.POST.get("submit_action")
     published = submit_action == "publish" or submit_action == "update"
 
-    print(published)
-
     if form.is_valid():
         try:
             post = form.save(commit=False)

@@ -50,7 +50,6 @@ function setFormSubmitAction() {
     );
 
     for (const option of options) {
-        console.log(option);
         option.addEventListener("click", (e) => {
             const action = e.target.name;
             actionInput.value = action;
