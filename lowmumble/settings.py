@@ -109,7 +109,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_REDIRECT_URL = "post_list"
 LOGOUT_REDIRECT_URL = "post_list"
 
-CSP_DEFAULT_SRC = ["'none'"]
+CSP_DEFAULT_SRC = ["'self'"]
 CSP_CONNECT_SRC = ["'self'"]
 CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'"]
 CSP_STYLE_SRC = ["'self'", "'unsafe-inline'"]
