@@ -99,8 +99,7 @@ button {
         margin: calc(48px + var(--size-3)) auto var(--size-3);
     }
 
-    header.container,
     footer.container {
-        margin: var(--size-3) auto;
+        margin: var(--size-4) auto var(--size-2);
     }
 }
