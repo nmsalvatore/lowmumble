@@ -245,7 +245,7 @@ footer a:hover svg {
     padding-top: var(--size-4);
 }
 
-#delete_dialog {
+dialog {
     margin: auto;
     background: var(--color-lightest);
     border: none;
@@ -255,23 +255,23 @@ footer a:hover svg {
     box-shadow: 1px 1px 8px -4px;
 }
 
-#delete_dialog::backdrop {
+dialog::backdrop {
     background: rgba(0, 0, 0, 0.4);
 }
 
-#delete_dialog:has(button) div {
+dialog:has(button) div {
     display: flex;
     justify-content: flex-end;
     gap: var(--size-1);
 }
 
-#delete_dialog p {
+dialog > p:last-of-type {
     margin-bottom: var(--size-3);
 }
 
-#delete_dialog button,
-#delete_dialog a.button {
-    background: var(--color-alert);
+dialog button,
+dialog a.button {
+    background: var(--color-darkest);
     border: none;
     border-radius: var(--size-0);
     color: white;
@@ -281,14 +281,14 @@ footer a:hover svg {
     width: max-content;
 }
 
-#delete_dialog button#delete_cancel {
+dialog button.cancel {
     cursor: pointer;
     background: var(--color-light);
     border: 1px solid var(--color-opaque);
     color: var(--color-darkest);
 }
 
-button.delete {
+button#delete_button {
     color: var(--color-alert);
 }
 
@@ -446,7 +446,7 @@ details.more-options menu {
     box-shadow: 1px 0 8px -6px;
 }
 
-details.more-options menu button {
+details.more-options menu > li > button {
     border: none;
     padding: var(--size-1);
     padding-right: var(--size-3);
@@ -454,7 +454,7 @@ details.more-options menu button {
     text-align: left;
 }
 
-details.more-options menu button:hover {
+details.more-options menu > li > button:hover {
     background: var(--color-light);
 }
 

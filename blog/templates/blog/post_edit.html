@@ -13,6 +13,15 @@
     <script src="{% static 'blog/js/blog.bundle.js' %}"></script>
 {% endblock js %}
 
+{% block back_nav %}
+    <a
+        id="back_btn"
+        href="{% url 'post_detail' slug=post.slug %}">
+        <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">
+        <span>Back to post</span>
+    </a>
+{% endblock back_nav %}
+
 {% block main %}
     <noscript>Please enable JavaScript.</noscript>
     <form class="js-only" id="edit_post_form" method="post">
@@ -55,12 +64,23 @@
                 </summary>
                 <menu>
                     <li>
-                        <button class="delete">Delete</button>
+                        <button id="delete_button">Delete</button>
                         <dialog id="delete_dialog">
                             <p>Are you sure that you want to delete <strong>{{ post.title }}</strong>?</p>
                             <div>
                                 <a class="button" href="{% url 'delete_post' slug=post.slug %}">Yes, delete it</a>
-                                <button id="delete_cancel">Cancel</button>
+                                <button class="cancel">Cancel</button>
+                            </div>
+                        </dialog>
+                    </li>
+                    <li>
+                        <button id="change_publish_date_button">Change publish date</button>
+                        <dialog id="change_publish_date_dialog">
+                            <p>Please enter the new publish date in the field below.</p>
+                            <input type="date" name="publish_date" value="{{ post.created_on|date:'Y-m-d' }}">
+                            <div>
+                                <button type="submit" name="change_publish_date">Set new publish date</button>
+                                <button class="cancel">Cancel</button>
                             </div>
                         </dialog>
                     </li>

@@ -1,14 +1,12 @@
-import secrets
 from collections import defaultdict
+from datetime import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
 from django.db.models import Count
 from django.db import IntegrityError
-from django.urls import reverse
+from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from csp.decorators import csp_update
-
-from lowmumble import settings
 from .models import Tag, Post
 from .forms import PostForm
 
@@ -107,10 +105,17 @@ def edit_post(request, slug):
     initial_tags = Tag.objects.filter(name__in=tags)
 
     if request.method == "POST":
+        if request.POST.get("submit_action") == "change_publish_date":
+            publish_date = request.POST.get("publish_date")
+            naive_date = datetime.strptime(publish_date, '%Y-%m-%d')
+            post.created_on = timezone.make_aware(naive_date)
+            post.updated_on = timezone.make_aware(naive_date)
+            post.save()
+            return redirect("edit_post", slug=post.slug)
+
         form = PostForm(request.POST, instance=post)
         submit_action = request.POST.get("submit_action")
         published = submit_action == "publish" or submit_action == "update"
-
         if form.is_valid():
             try:
                 post = form.save(commit=False)
@@ -118,6 +123,7 @@ def edit_post(request, slug):
                 post.content = request.POST.get("content")
                 post.slug = slugify(post.title)
                 post.published = published
+                post.updated_on = timezone.now()
                 post.save()
                 update_tags(request, post, initial_tags)
                 return redirect("post_list")

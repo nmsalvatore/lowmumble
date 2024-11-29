@@ -4,15 +4,36 @@
     setTagListeners();
     setFormSubmitAction();
     setDeletePostListener();
+    setChangePublishDateListener();
 })();
 
+function setChangePublishDateListener() {
+    const changePublishDateButton = document.getElementById(
+        "change_publish_date_button",
+    );
+    if (changePublishDateButton) {
+        changePublishDateButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            const dialog = document.getElementById(
+                "change_publish_date_dialog",
+            );
+            const cancel = dialog.querySelector(".cancel");
+            dialog.showModal();
+            cancel.addEventListener("click", (e) => {
+                e.preventDefault();
+                dialog.close();
+            });
+        });
+    }
+}
+
 function setDeletePostListener() {
-    const deleteButton = document.querySelector("button.delete");
+    const deleteButton = document.getElementById("delete_button");
     if (deleteButton) {
         deleteButton.addEventListener("click", (e) => {
             e.preventDefault();
             const dialog = document.getElementById("delete_dialog");
-            const cancel = document.getElementById("delete_cancel");
+            const cancel = dialog.querySelector(".cancel");
             dialog.showModal();
             cancel.addEventListener("click", (e) => {
                 e.preventDefault();
@@ -29,10 +50,10 @@ function setFormSubmitAction() {
     );
 
     for (const option of options) {
+        console.log(option);
         option.addEventListener("click", (e) => {
             const action = e.target.name;
             actionInput.value = action;
-            const form = option.closest("form");
         });
     }
 }
