@@ -34,13 +34,15 @@
 
         <!-- tiptap editor -->
         <div class="editor"></div>
-        <input type="hidden" name="content" id="editor_content">
 
-        <!-- buttons -->
-        <div class="extras">
-            <button type="submit" class="secondary" name="save_draft">Save draft</button>
-            <button type="submit" class="primary" name="publish">Publish</button>
-            <input type="hidden" name="submit_action" id="submit_action">
-        </div>
+        <!-- hidden inputs -->
+        <input type="hidden" name="content" id="editor_content">
+        <input type="hidden" name="submit_action" id="submit_action">
     </form>
+
+    <!-- admin options -->
+    <div class="admin-options">
+        <button form="new_post_form" type="submit" class="secondary" name="save_draft">Save draft</button>
+        <button form="new_post_form" type="submit" class="primary" name="publish">Publish</button>
+    </div>
 {% endblock main %}

@@ -14,12 +14,21 @@
 {% endblock js %}
 
 {% block back_nav %}
-    <a
-        id="back_btn"
-        href="{% url 'post_detail' slug=post.slug %}">
-        <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">
-        <span>Back to post</span>
-    </a>
+    {% if post.published %}
+        <a
+            id="back_btn"
+            href="{% url 'post_detail' slug=post.slug %}">
+            <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">
+            <span>Back to post</span>
+        </a>
+    {% elif not post.published %}
+        <a
+            id="back_btn"
+            href="{% url 'post_list' %}">
+            <img src="{% static 'icons/arrow_back.png' %}" alt="Back arrow">
+            <span class="back-text"><span class="tag">{{ back_info.tag }}</span></span>
+        </a>
+    {% endif %}
 {% endblock back_nav %}
 
 {% block main %}
@@ -35,6 +44,18 @@
         {% endif %}
         {{ form.title }}
 
+        <!-- publish details -->
+        <div class="publish-details">
+            {% if post.published %}
+                <p class="created-on">Published on <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time></p>
+                {% if post.updated_on|date:"Y-m-d" != post.created_on|date:"Y-m-d" %}
+                    <p class="updated-on">Updated on <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j, Y" }}</time></p>
+                {% endif %}
+            {% elif not post.published%}
+                <p>Draft</p>
+            {% endif %}
+        </div>
+
         <!-- tags -->
         <div class="tag-container">
             <span class="current-tags">
@@ -48,55 +69,59 @@
 
         <!-- tiptap editor -->
         <div class="editor"></div>
+
+        <!-- hidden inputs -->
         <input type="hidden" name="content" id="editor_content">
+        <input type="hidden" name="submit_action" id="submit_action">
+    </form>
 
-        <!-- buttons -->
-        <div class="extras">
-            {% if not post.published %}
-                <button class="primary" type="submit" name="publish">Publish</button>
-            {% elif post.published %}
-                <button class="primary" type="submit" name="update">Update</button>
-            {% endif %}
+    <div class="admin-options">
+        {% if not post.published %}
+            <button form="edit_post_form" class="primary" type="submit" name="publish">Publish</button>
+        {% elif post.published %}
+            <button form="edit_post_form" class="primary" type="submit" name="update">Update</button>
+        {% endif %}
 
-            <details class="more-options">
-                <summary>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#364c63"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
-                </summary>
-                <menu>
+        <details class="more-options">
+            <summary>
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#364c63"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
+            </summary>
+            <menu>
+                <li>
+                    <button id="delete_button">Delete</button>
+                    <dialog id="delete_dialog">
+                        <p>Are you sure that you want to delete <strong>{{ post.title }}</strong>?</p>
+                        <div>
+                            <a class="button" href="{% url 'delete_post' slug=post.slug %}">Yes, delete it</a>
+                            <button class="cancel">Cancel</button>
+                        </div>
+                    </dialog>
+                </li>
+
+                {% if not post.published %}
                     <li>
-                        <button id="delete_button">Delete</button>
-                        <dialog id="delete_dialog">
-                            <p>Are you sure that you want to delete <strong>{{ post.title }}</strong>?</p>
-                            <div>
-                                <a class="button" href="{% url 'delete_post' slug=post.slug %}">Yes, delete it</a>
-                                <button class="cancel">Cancel</button>
-                            </div>
-                        </dialog>
+                        <button form="edit_post_form" type="submit" name="save_draft">Save draft</button>
                     </li>
+                {% elif post.published %}
                     <li>
                         <button id="change_publish_date_button">Change publish date</button>
                         <dialog id="change_publish_date_dialog">
                             <p>Please enter the new publish date in the field below.</p>
-                            <input type="date" name="publish_date" value="{{ post.created_on|date:'Y-m-d' }}">
+                            <form id="change_publish_date" action="{% url 'change_publish_date' slug=post.slug %}" method="POST">
+                                {% csrf_token %}
+                                <input type="date" name="publish_date" value="{{ post.created_on|date:'Y-m-d' }}">
+                            </form>
                             <div>
-                                <button type="submit" name="change_publish_date">Set new publish date</button>
+                                <button form="change_publish_date" type="submit">Set new publish date</button>
                                 <button class="cancel">Cancel</button>
                             </div>
                         </dialog>
                     </li>
-
-                    {% if not post.published %}
-                        <li>
-                            <button type="submit" name="update_draft">Save draft</button>
-                        </li>
-                    {% elif post.published %}
-                        <li>
-                            <button type="submit" name="revert_to_draft">Revert to draft</button>
-                        </li>
-                    {% endif %}
-                    <input type="hidden" name="submit_action" id="submit_action">
-                </menu>
-            </details>
-        </div>
-    </form>
+                    <li>
+                        <button form="edit_post_form" type="submit" name="revert_to_draft">Revert to draft</button>
+                    </li>
+                {% endif %}
+            </menu>
+        </details>
+    </div>
 {% endblock main %}

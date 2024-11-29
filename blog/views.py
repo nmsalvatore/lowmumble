@@ -59,13 +59,12 @@ def post_list(request):
 
 
 def post_detail(request, slug):
-    post = Post.objects.get(slug=slug)
     back_info = request.session.get("back_info")
-
     if not back_info:
         back_info = {"path": "/", "tag": "all"}
 
-    context = {"post": post, "back_info": back_info,}
+    post = Post.objects.get(slug=slug)
+    context = {"post": post, "back_info": back_info}
     response = render(request, "blog/post_detail.html", context)
     response["Link"] = f'<"{request.build_absolute_uri()}">; rel="canonical"'
     return response
@@ -100,47 +99,61 @@ def new_post(request):
 @login_required
 @csp_update(SCRIPT_SRC=["'unsafe-eval'"])
 def edit_post(request, slug):
+    back_info = request.session.get("back_info")
+    if not back_info:
+        back_info = {"path": "/", "tag": "all"}
+
     post = Post.objects.get(slug=slug)
     tags = [tag for tag in post.tags.all()]
     initial_tags = Tag.objects.filter(name__in=tags)
+    form = PostForm(request.POST, instance=post)
+    submit_action = request.POST.get("submit_action")
+    published = submit_action == "publish" or submit_action == "update"
 
-    if request.method == "POST":
-        if request.POST.get("submit_action") == "change_publish_date":
-            publish_date = request.POST.get("publish_date")
-            naive_date = datetime.strptime(publish_date, '%Y-%m-%d')
-            post.created_on = timezone.make_aware(naive_date)
-            post.updated_on = timezone.make_aware(naive_date)
+    if form.is_valid():
+        try:
+            post = form.save(commit=False)
+            post.author = request.user
+            post.content = request.POST.get("content")
+            post.slug = slugify(post.title)
+            post.published = published
+            post.updated_on = timezone.now()
             post.save()
-            return redirect("edit_post", slug=post.slug)
+            update_tags(request, post, initial_tags)
 
-        form = PostForm(request.POST, instance=post)
-        submit_action = request.POST.get("submit_action")
-        published = submit_action == "publish" or submit_action == "update"
-        if form.is_valid():
-            try:
-                post = form.save(commit=False)
-                post.author = request.user
-                post.content = request.POST.get("content")
-                post.slug = slugify(post.title)
-                post.published = published
-                post.updated_on = timezone.now()
-                post.save()
-                update_tags(request, post, initial_tags)
+            if submit_action == "revert_to_draft":
+                return redirect("edit_post", slug=post.slug)
+            elif submit_action == "save_draft":
                 return redirect("post_list")
-            except IntegrityError:
-                form.add_error("title", "A blog post with this title already exists.")
+            else:
+                return redirect("post_detail", slug=post.slug)
+
+        except IntegrityError:
+            form.add_error("title", "A blog post with this title already exists.")
     else:
         form = PostForm(instance=post)
 
-    context = {"post": post, "form": form}
+    context = {"post": post, "form": form, "back_info": back_info}
     return render(request, "blog/post_edit.html", context)
 
 
 @login_required
 def delete_post(request, slug):
-    post = Post.objects.get(slug=slug)
+    post = get_object_or_404(Post, slug=slug)
     post.delete()
     return redirect("post_list")
+
+
+@login_required
+def change_publish_date(request, slug):
+    if request.method == "POST":
+        post = get_object_or_404(Post, slug=slug)
+        publish_date = request.POST.get("publish_date")
+        naive_date = datetime.strptime(publish_date, '%Y-%m-%d')
+        post.created_on = timezone.make_aware(naive_date)
+        post.updated_on = timezone.make_aware(naive_date)
+        post.save()
+    return redirect("edit_post", slug=slug)
 
 
 def update_tags(request, post, initial_tags=None):

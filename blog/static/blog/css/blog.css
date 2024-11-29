@@ -196,7 +196,7 @@ form:has(.tiptap) {
     margin-top: var(--size-2);
 }
 
-form:has(.tiptap) button[type="submit"].primary {
+form:has(.tiptap) + div.admin-options button[type="submit"].primary {
     background: var(--color-darkest);
     color: white;
     padding: var(--size-0) var(--size-1);
@@ -237,7 +237,7 @@ footer a:hover svg {
     fill: var(--color-darkest);
 }
 
-.extras {
+.admin-options {
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
@@ -327,6 +327,7 @@ code:not(pre code) {
 }
 
 textarea#id_title {
+    display: block;
     background: none;
     color: var(--color-darkest);
     font-weight: bold;
@@ -444,6 +445,7 @@ details.more-options menu {
     border: 1px solid var(--color-opaque);
     border-radius: var(--size-0);
     box-shadow: 1px 0 8px -6px;
+    padding: var(--size-0);
 }
 
 details.more-options menu > li > button {

@@ -2,12 +2,20 @@
 
 <article class="post">
     <h1 class="post-title">{{ post.title }}</h1>
+
+    <!-- publish details -->
     <div class="publish-details">
-        <p class="created-on">Published on <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time></p>
-        {% if post.updated_on|date:"Y-m-d" != post.created_on|date:"Y-m-d" %}
-            <p class="updated-on">Updated on <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j, Y" }}</time></p>
+        {% if post.published %}
+            <p class="created-on">Published on <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time></p>
+            {% if post.updated_on|date:"Y-m-d" != post.created_on|date:"Y-m-d" %}
+                <p class="updated-on">Updated on <time datetime="{{ post.updated_on|date:'Y-m-d' }}">{{ post.updated_on|date:"M j, Y" }}</time></p>
+            {% endif %}
+        {% elif not post.published%}
+            <p>Draft</p>
         {% endif %}
     </div>
+
+    <!-- tags -->
     <div class="tag-container">
         {% for tag in post.tags.all %}
             <a
@@ -18,10 +26,11 @@
         {% endfor %}
     </div>
 
+    <!-- blog post -->
     {{ post.content|safe }}
 </article>
 
-<div class="extras">
+<div class="admin-options">
     {% if user.is_superuser %}
         <a
             class="edit button"
