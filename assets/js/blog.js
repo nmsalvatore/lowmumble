@@ -46,7 +46,7 @@ function setDeletePostListener() {
 function setFormSubmitAction() {
     const actionInput = document.getElementById("submit_action");
     const options = document.querySelectorAll(
-        "main form button[type='submit']",
+        "main form + div.admin-options button[type='submit']",
     );
 
     for (const option of options) {
