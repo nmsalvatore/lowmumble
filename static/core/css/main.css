@@ -5,12 +5,12 @@
     --size-3: 2rem;
     --size-4: 3rem;
     --size-5: 5rem;
-    --font-size-1: 0.875rem;
-    --font-size-2: 0.75rem;
+    --font-size-1: 1rem;
+    --font-size-2: 0.875rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
-    --color-darkest: hsl(210 20% 20%);
-    --color-dark: hsl(210 20% 35%);
-    --color-medium: hsl(210 20% 45%);
+    --color-darkest: hsl(210 20% 25%);
+    --color-dark: hsl(210 20% 40%);
+    --color-medium: hsl(210 20% 50%);
     --color-light: hsl(210 40% 95%);
     --color-lightest: hsl(210 30% 98%);
     --color-accent: hsl(180 45% 50%);
@@ -30,7 +30,7 @@ body {
 }
 
 html {
-    background: white;
+    background: var(--color-lightest);
     color: var(--color-dark);
     font-family: "IBM Plex Mono", monospace;
     font-size: 100%;
