@@ -123,10 +123,8 @@ def edit_post(request, slug):
 
             if submit_action == "revert_to_draft":
                 return redirect("edit_post", slug=post.slug)
-            elif submit_action == "save_draft":
-                return redirect("post_list")
-            else:
-                return redirect("post_detail", slug=post.slug)
+
+            return redirect("post_list")
 
         except IntegrityError:
             form.add_error("title", "A blog post with this title already exists.")
