@@ -3,9 +3,10 @@
 
 {% block subtitle %}Home{% endblock subtitle %}
 
-{% block js %}
+{% block page_js %}
     <script id="htmx" src="{% static 'blog/js/htmx.bundle.js' %}"></script>
-{% endblock js %}
+    <script>clearCachedPost()</script>
+{% endblock page_js %}
 
 {% block main %}
     {% include "blog/partials/post_list.html" %}

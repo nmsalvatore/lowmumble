@@ -6,12 +6,18 @@
     {% block page_css %}{% endblock page_css %}
 {% endblock css %}
 
+{% block js %}
+    <script src="{% static 'blog/js/core.bundle.js' %}"></script>
+    {% block page_js %}{% endblock page_js %}
+{% endblock js %}
+
 {% block body %}
     {% if user.is_superuser %}
         <nav class="admin-bar">
             <div class="container">
                 <div>
                     <a
+                        onclick="clearCachedPost()"
                         class="new-post"
                         href="{% url 'new_post' %}">
                         + New Post

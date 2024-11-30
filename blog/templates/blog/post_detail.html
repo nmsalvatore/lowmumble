@@ -3,9 +3,10 @@
 
 {% block subtitle %}{{ post.title }}{% endblock subtitle %}
 
-{% block js %}
+{% block page_js %}
     <script id="htmx" src="{% static 'blog/js/htmx.bundle.js' %}"></script>
-{% endblock js %}
+    <script>clearCachedPost()</script>
+{% endblock page_js %}
 
 {% block back_nav %}
     <a

@@ -6,6 +6,7 @@ module.exports = {
         tiptap: "./assets/js/tiptap.js",
         blog: "./assets/js/blog.js",
         htmx: "./assets/js/htmx.js",
+        core: "./assets/js/core.js",
     },
     output: {
         filename: "[name].bundle.js",

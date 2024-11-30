@@ -82,7 +82,7 @@ ul.errorlist:not(ul.post-list) {
     background: hsl(0 30% 60%);
     border-radius: var(--size-0);
     color: white;
-    font-size: 0.85rem;
+    font-size: 12px;
     list-style-type: none;
     margin-left: 0;
     margin-bottom: var(--size-2);
@@ -391,7 +391,7 @@ a.tag {
     height: 24px;
     line-height: 24px;
     padding: 0 var(--size-1);
-    opacity: 0.3;
+    opacity: 0.35;
 }
 
 #id_tags {
