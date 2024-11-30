@@ -1,6 +1,6 @@
 nav.admin-bar {
     color: var(--color-darkest);
-    font-size: 12px;
+    font-size: var(--font-size-2);
     font-weight: 500;
     height: var(--size-4);
     line-height: var(--size-4);
@@ -42,7 +42,7 @@ a {
 
 a#back_btn {
     color: var(--color-darkest);
-    font-size: 12px;
+    font-size: var(--font-size-2);
     text-decoration: none;
 }
 
@@ -82,7 +82,7 @@ ul.errorlist:not(ul.post-list) {
     background: hsl(0 30% 60%);
     border-radius: var(--size-0);
     color: white;
-    font-size: 12px;
+    font-size: var(--font-size-2);
     list-style-type: none;
     margin-left: 0;
     margin-bottom: var(--size-2);
@@ -147,7 +147,7 @@ details:has(.drafts) summary::before {
 details:has(.drafts) summary {
     color: var(--color-darkest);
     cursor: pointer;
-    font-size: 12px;
+    font-size: var(--font-size-2);
 }
 
 details:has(.drafts) .drafts {
@@ -220,7 +220,7 @@ a.button {
 }
 
 footer small {
-    font-size: 12px;
+    font-size: var(--font-size-2);
     color: var(--color-darkest);
 }
 
@@ -319,7 +319,7 @@ pre:has(code) {
 
 pre:has(code) code {
     font-family: inherit;
-    font-size: 12px;
+    font-size: var(--font-size-2);
 }
 
 code:not(pre code) {
@@ -386,7 +386,7 @@ a.tag {
     border-radius: var(--size-0);
     color: var(--color-dark);
     cursor: default;
-    font-size: 12px;
+    font-size: var(--font-size-2);
     height: 24px;
     line-height: 24px;
     padding: 0 var(--size-1);
@@ -407,7 +407,7 @@ a.tag {
 
 div.publish-details {
     color: var(--color-darkest);
-    font-size: 12px;
+    font-size: var(--font-size-2);
     margin: var(--size-3) 0 var(--size-2);
 }
 
