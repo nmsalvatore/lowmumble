@@ -11,7 +11,7 @@
     --color-darkest: hsl(210 20% 25%);
     --color-dark: hsl(210 20% 40%);
     --color-medium: hsl(210 20% 55%);
-    --color-light: hsl(210 30% 94%);
+    --color-light: hsl(210 30% 95%);
     --color-lightest: hsl(210 30% 97%);
     --color-accent: hsl(180 40% 50%);
     --color-alert: hsl(0 30% 50%);
@@ -75,7 +75,7 @@ h4,
 h5,
 h6 {
     color: var(--color-darkest);
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: bold;
     margin-top: var(--size-3);
     margin-bottom: var(--size-2);
