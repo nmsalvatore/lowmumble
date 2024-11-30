@@ -188,7 +188,7 @@ h1.home-title,
 #id_title {
     margin-top: 0;
     margin-bottom: var(--size-2);
-    font-size: 1.375rem;
+    font-size: 1.5rem;
 }
 
 form:has(.tiptap) {
