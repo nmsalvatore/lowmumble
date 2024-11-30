@@ -1,6 +1,6 @@
 nav.admin-bar {
     color: var(--color-darkest);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     height: var(--size-4);
     line-height: var(--size-4);
@@ -42,7 +42,7 @@ a {
 
 a#back_btn {
     color: var(--color-darkest);
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
 }
 
@@ -147,7 +147,7 @@ details:has(.drafts) summary::before {
 details:has(.drafts) summary {
     color: var(--color-darkest);
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 details:has(.drafts) .drafts {
@@ -383,9 +383,8 @@ a.tag {
 }
 
 .tag {
-    background: rgba(0, 0, 0, 0.12);
     border-radius: var(--size-0);
-    color: white;
+    color: var(--color-dark);
     cursor: default;
     font-size: 12px;
     height: 24px;
