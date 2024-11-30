@@ -100,7 +100,7 @@ button {
     }
 
     header.container {
-        margin: var(--size-3) 0;
+        margin: var(--size-3) 0 var(--size-4);
     }
 
     footer.container {
