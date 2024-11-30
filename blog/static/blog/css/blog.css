@@ -383,11 +383,11 @@ a.tag {
 }
 
 .tag {
-    background: var(--color-light);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: var(--size-0);
-    color: var(--color-medium);
+    color: white;
     cursor: default;
-    font-size: 0.85rem;
+    font-size: 12px;
     height: 24px;
     line-height: 24px;
     padding: 0 var(--size-1);
