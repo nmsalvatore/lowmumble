@@ -8,12 +8,12 @@
     --font-size-1: 0.875rem;
     --font-size-2: 0.75rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
-    --color-darkest: hsl(210 20% 25%);
-    --color-dark: hsl(210 20% 40%);
-    --color-medium: hsl(210 20% 50%);
-    --color-light: hsl(210 30% 95%);
-    --color-lightest: hsl(210 30% 97%);
-    --color-accent: hsl(180 40% 50%);
+    --color-darkest: hsl(210 20% 20%);
+    --color-dark: hsl(210 20% 35%);
+    --color-medium: hsl(210 20% 45%);
+    --color-light: hsl(210 40% 95%);
+    --color-lightest: hsl(210 30% 98%);
+    --color-accent: hsl(180 45% 45%);
     --color-alert: hsl(0 30% 50%);
     --line-height: 2;
 }
