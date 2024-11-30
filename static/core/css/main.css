@@ -13,7 +13,7 @@
     --color-medium: hsl(210 20% 45%);
     --color-light: hsl(210 40% 95%);
     --color-lightest: hsl(210 30% 98%);
-    --color-accent: hsl(180 45% 45%);
+    --color-accent: hsl(180 45% 50%);
     --color-alert: hsl(0 30% 50%);
     --line-height: 2;
 }
