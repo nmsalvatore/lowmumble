@@ -1,6 +1,6 @@
 nav.admin-bar {
     color: var(--color-darkest);
-    font-size: 0.85rem;
+    font-size: 14px;
     font-weight: 500;
     height: var(--size-4);
     line-height: var(--size-4);
@@ -42,7 +42,7 @@ a {
 
 a#back_btn {
     color: var(--color-darkest);
-    font-size: 0.85rem;
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -147,7 +147,7 @@ details:has(.drafts) summary::before {
 details:has(.drafts) summary {
     color: var(--color-darkest);
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 14px;
 }
 
 details:has(.drafts) .drafts {
@@ -383,7 +383,7 @@ a.tag {
 }
 
 .tag {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.12);
     border-radius: var(--size-0);
     color: white;
     cursor: default;
@@ -409,7 +409,7 @@ a.tag {
 div.publish-details {
     color: var(--color-darkest);
     font-size: 12px;
-    margin: var(--size-3) 0;
+    margin: var(--size-3) 0 var(--size-2);
 }
 
 div.publish-details p {
