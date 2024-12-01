@@ -390,7 +390,6 @@ a.tag {
     color: hsl(210 15% 70%);
     cursor: default;
     font-size: var(--font-size-2);
-    font-weight: 500;
     padding: var(--size-0) var(--size-1);
     line-height: 1.2;
 }
