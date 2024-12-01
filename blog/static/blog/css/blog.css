@@ -372,8 +372,7 @@ article .tag-container {
 a.tag.selected,
 span.tag,
 article.post a.tag {
-    opacity: 1;
-    font-weight: bold;
+    color: var(--color-dark);
 }
 
 span.tag:focus {
@@ -387,12 +386,11 @@ a.tag {
 .tag {
     background: var(--color-light);
     border-radius: var(--size-0);
-    color: var(--color-dark);
+    color: hsl(210 15% 70%);
     cursor: default;
     font-size: var(--font-size-2);
     font-weight: 500;
     padding: var(--size-0) var(--size-1);
-    opacity: 0.5;
     line-height: 1.2;
 }
 
