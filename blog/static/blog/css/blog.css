@@ -4,8 +4,8 @@ nav.admin-bar {
     font-weight: 500;
     height: var(--size-4);
     line-height: var(--size-4);
-    background: var(--color-lightest);
-    border-bottom: 1px solid var(--color-opaque);
+    background: var(--color-light);
+    border-bottom: 1px solid var(--color-darkest);
     position: fixed;
     width: 100%;
     z-index: 1;
@@ -36,6 +36,7 @@ nav.admin-bar a.new-post {
 
 a {
     color: var(--color-medium);
+    font-weight: 500;
 }
 
 a#back_btn {
@@ -295,28 +296,22 @@ article.post .tag-container {
 }
 
 code {
-    font-size: var(--font-size-2);
+    font-family: inherit;
 }
 
-code,
+code:not(pre code),
 pre:has(code) {
-    background: var(--color-code-bg);
-    color: var(--color-dark);
-}
-
-pre:has(code),
-code:not(pre code) {
-    border-radius: var(--size-0);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: var(--font-size-2);
+    font-weight: 500;
+    background: var(--color-light);
+    color: var(--color-darkest);
 }
 
 pre:has(code) {
     padding: var(--size-2);
     margin: var(--size-3) 0;
     overflow-x: auto;
-}
-
-pre:has(code) code {
-    font-family: inherit;
 }
 
 code:not(pre code) {
@@ -381,7 +376,7 @@ a.tag {
 
 .tag {
     background: white;
-    color: var(--color-medium);
+    color: var(--color-dark);
     cursor: default;
     font-size: var(--font-size-2);
     padding: var(--size-0);
