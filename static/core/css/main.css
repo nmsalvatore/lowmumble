@@ -6,14 +6,14 @@
     --size-4: 3rem;
     --size-5: 5rem;
     --font-size-1: 1rem;
-    --font-size-2: 0.875rem;
+    --font-size-2: 0.8rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
-    --color-darkest: hsl(210 40% 25%);
-    --color-dark: hsl(210 30% 40%);
-    --color-medium: hsl(210 20% 50%);
-    --color-light: hsl(210 40% 95%);
+    --color-darkest: hsl(210 30% 20%);
+    --color-dark: hsl(210 25% 40%);
+    --color-medium: hsl(210 20% 55%);
+    --color-light: hsl(210 40% 96%);
     --color-lightest: hsl(210 30% 98%);
-    --color-accent: hsl(180 45% 50%);
+    --color-accent: hsl(180 30% 65%);
     --color-alert: hsl(0 30% 50%);
     --line-height: 1.7;
 }
@@ -58,10 +58,6 @@ body:has(.admin-bar) header.container {
 header div:has(#blog_title) {
     display: flex;
     align-items: center;
-}
-
-header img {
-    height: var(--size-3);
 }
 
 main {

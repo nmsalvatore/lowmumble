@@ -33,7 +33,6 @@ nav.admin-bar a.new-post {
     text-decoration: none;
     font-weight: bold;
     color: var(--color-darkest);
-    margin-left: var(--size-2);
 }
 
 a {
@@ -300,6 +299,10 @@ article.post .tag-container {
     margin-bottom: var(--size-4);
 }
 
+code {
+    font-size: var(--font-size-2);
+}
+
 code,
 pre:has(code) {
     background: var(--color-light);
@@ -318,7 +321,6 @@ pre:has(code) {
 
 pre:has(code) code {
     font-family: inherit;
-    font-size: var(--font-size-2);
 }
 
 code:not(pre code) {
@@ -371,6 +373,7 @@ span.tag,
 article.post a.tag {
     background: var(--color-accent);
     color: white;
+    opacity: 1;
 }
 
 span.tag:focus {
@@ -382,13 +385,14 @@ a.tag {
 }
 
 .tag {
+    background: var(--color-medium);
     border-radius: var(--size-0);
-    color: var(--color-dark);
+    color: white;
     cursor: default;
     font-size: var(--font-size-2);
-    height: 24px;
-    line-height: 24px;
-    padding: 0 var(--size-1);
+    padding: var(--size-0) var(--size-1);
+    opacity: 0.25;
+    line-height: 1.2;
 }
 
 #id_tags {
