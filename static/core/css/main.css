@@ -8,12 +8,11 @@
     --font-size-1: 1rem;
     --font-size-2: 0.8rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
-    --color-darkest: hsl(210 30% 20%);
-    --color-dark: hsl(210 25% 35%);
-    --color-medium: hsl(210 20% 60%);
-    --color-light: hsl(210 30% 92%);
-    --color-lightest: hsl(210 30% 98%);
-    --color-code-bg: hsl(210 30% 95%);
+    --color-darkest: hsl(0 30% 20%);
+    --color-dark: hsl(0 25% 35%);
+    --color-medium: hsl(0 20% 60%);
+    --color-light: hsl(0 30% 92%);
+    --color-lightest: hsl(0 10% 96%);
     --color-alert: hsl(0 30% 50%);
     --line-height: 1.7;
 }

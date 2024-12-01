@@ -6,7 +6,6 @@ nav.admin-bar {
     line-height: var(--size-4);
     background: var(--color-lightest);
     border-bottom: 1px solid var(--color-opaque);
-    box-shadow: 1px 0 8px -7px;
     position: fixed;
     width: 100%;
     z-index: 1;
@@ -372,7 +371,7 @@ article .tag-container {
 a.tag.selected,
 span.tag,
 article.post a.tag {
-    background: var(--color-medium);
+    background: var(--color-darkest);
     color: white;
 }
 
@@ -385,12 +384,11 @@ a.tag {
 }
 
 .tag {
-    background: var(--color-light);
-    border-radius: var(--size-0);
-    color: rgba(0, 0, 0, 0.35);
+    background: white;
+    color: var(--color-medium);
     cursor: default;
     font-size: var(--font-size-2);
-    padding: var(--size-0) var(--size-1);
+    padding: var(--size-0);
     line-height: 1.2;
 }
 
@@ -410,7 +408,7 @@ a.tag {
 div.publish-details {
     color: var(--color-darkest);
     font-size: var(--font-size-2);
-    margin: var(--size-3) 0 var(--size-2);
+    margin: var(--size-2) 0;
 }
 
 div.publish-details p {
