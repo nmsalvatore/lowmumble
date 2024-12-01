@@ -62,10 +62,6 @@ a#back_btn span.back-text::after {
     content: " posts";
 }
 
-a#back_btn span.tag {
-    padding: 2px var(--size-1);
-}
-
 strong {
     font-weight: bold;
     color: var(--color-darkest);
