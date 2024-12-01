@@ -35,7 +35,7 @@ form div input:focus {
 form button[type="submit"] {
     cursor: pointer;
     margin-top: var(--size-2);
-    background: var(--color-accent);
+    background: var(--color-medium);
     border: none;
     border-radius: var(--size-0);
     color: white;
