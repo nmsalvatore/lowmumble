@@ -6,10 +6,10 @@
     --size-4: 3rem;
     --size-5: 5rem;
     --font-size-1: 1rem;
-    --font-size-2: 0.8rem;
+    --font-size-2: 0.8125rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
-    --color-darkest: hsl(0 30% 20%);
-    --color-dark: hsl(0 25% 35%);
+    --color-darkest: hsl(0 10% 15%);
+    --color-dark: hsl(0 20% 35%);
     --color-medium: hsl(0 30% 55%);
     --color-light: hsl(0 20% 93%);
     --color-lightest: hsl(0 10% 96%);

@@ -158,7 +158,7 @@ details:has(.drafts)[open] summary::before {
 
 .post-list li {
     display: grid;
-    grid-template-columns: 9ch 1fr;
+    grid-template-columns: 10ch 1fr;
     position: relative;
 }
 
