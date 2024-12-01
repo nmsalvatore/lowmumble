@@ -11,9 +11,9 @@
     --color-darkest: hsl(210 30% 20%);
     --color-dark: hsl(210 25% 35%);
     --color-medium: hsl(210 15% 50%);
-    --color-light: hsl(30 10% 96%);
+    --color-light: hsl(210 30% 96%);
     --color-lightest: hsl(210 30% 98%);
-    --color-accent: hsl(30 30% 62.5%);
+    --color-accent: hsl(30 20% 65%);
     --color-alert: hsl(0 30% 50%);
     --line-height: 1.7;
 }
