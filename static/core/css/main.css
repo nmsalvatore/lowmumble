@@ -14,7 +14,7 @@
     --color-light: hsl(0 20% 93%);
     --color-lightest: hsl(0 10% 96%);
     --color-alert: hsl(0 30% 50%);
-    --line-height: 1.7;
+    --line-height: 1.6;
 }
 
 * {
@@ -74,6 +74,7 @@ h6 {
     font-weight: bold;
     margin-top: var(--size-3);
     margin-bottom: var(--size-2);
+    line-height: normal;
 }
 
 button {
