@@ -79,11 +79,21 @@ h6 {
     line-height: normal;
 }
 
-h1 + * {
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
     margin-top: var(--size-2);
 }
 
-*:has(+ h1) {
+*:has(+ h1),
+*:has(+ h2),
+*:has(+ h3),
+*:has(+ h4),
+*:has(+ h5),
+*:has(+ h6) {
     margin-bottom: var(--size-3) !important;
 }
 
