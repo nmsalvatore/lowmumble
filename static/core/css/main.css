@@ -11,8 +11,8 @@
     --color-darkest: hsl(0 10% 15%);
     --color-dark: hsl(0 20% 35%);
     --color-medium: hsl(0 30% 55%);
-    --color-light: hsl(0 20% 93%);
-    --color-lightest: hsl(0 10% 96%);
+    --color-light: hsl(0 20% 92%);
+    --color-lightest: hsl(0 10% 95%);
     --color-alert: hsl(0 30% 50%);
     --line-height: 1.6;
 }
@@ -77,6 +77,14 @@ h6 {
     margin-top: var(--size-3);
     margin-bottom: var(--size-2);
     line-height: normal;
+}
+
+h1 + * {
+    margin-top: var(--size-2);
+}
+
+*:has(+ h1) {
+    margin-bottom: var(--size-3) !important;
 }
 
 button {
