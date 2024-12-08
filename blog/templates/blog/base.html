@@ -32,8 +32,7 @@
     {% endif %}
 
     <header class="container">
-        {% include "blog/partials/header.html" %}
-
+        <a href="{% url 'post_list' %}" id="blog_title">low mumble.</a>
         {% block back_nav %}
         {% endblock back_nav %}
     </header>
