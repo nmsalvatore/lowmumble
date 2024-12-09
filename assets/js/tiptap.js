@@ -38,13 +38,6 @@ import { MarkdownLink } from "./markdown_link.js";
     });
 
     window.addEventListener("beforeunload", checkForUnsavedChanges);
-    // window.addEventListener("load", () => {
-    //     const error = document.querySelector(".error");
-    //     if (!error) {
-    //         localStorage.removeItem("cached_post");
-    //     }
-    // });
-
     form.addEventListener("input", debounce(savePostToLocalStorage, 1000));
     form.addEventListener("input", () => (hasUnsavedChanges = true));
     form.addEventListener("submit", (e) => {
