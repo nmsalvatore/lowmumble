@@ -144,7 +144,7 @@ function setTagListeners() {
 
     function setCreateTagListener() {
         tagInput.addEventListener("keydown", (e) => {
-            if (e.code === "Enter") {
+            if (e.key === "Enter") {
                 e.preventDefault();
                 createTag();
             }
