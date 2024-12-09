@@ -105,7 +105,35 @@ function createTagElement(text) {
     tagElement.className = "tag";
     tagElement.setAttribute("tabindex", "0");
     tagElement.innerText = text;
+    const deleteTagButton = createDeleteTagButton();
+    tagElement.appendChild(deleteTagButton);
     return tagElement;
+}
+
+function createDeleteTagButton() {
+    const button = document.createElement("button");
+    button.className = "delete-tag-button";
+    button.setAttribute("tabindex", "-1");
+    const icon = createDeleteTagIcon();
+    button.appendChild(icon);
+    return button;
+}
+
+function createDeleteTagIcon() {
+    const namespace = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(namespace, "svg");
+    svg.setAttribute("xmlns", namespace);
+    svg.setAttribute("height", "1rem");
+    svg.setAttribute("width", "1rem");
+    svg.setAttribute("viewBox", "0 -960 960 960");
+    svg.setAttribute("fill", "#efe7e7");
+    const path = document.createElementNS(namespace, "path");
+    path.setAttribute(
+        "d",
+        "m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z",
+    );
+    svg.appendChild(path);
+    return svg;
 }
 
 function setTagListeners() {
@@ -126,7 +154,8 @@ function setTagListeners() {
             tagDataElement.value = tags.join(",");
             currentTags.appendChild(tagElement);
             tagInput.value = "";
-            setTagDeleteListener(tagElement);
+            setDeleteByBackspaceListener(tagElement);
+            setDeleteByClickListener(tagElement);
         }
     }
 
@@ -144,7 +173,7 @@ function setTagListeners() {
 
     function setCreateTagListener() {
         tagInput.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
+            if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
                 createTag();
             }
@@ -154,39 +183,52 @@ function setTagListeners() {
     function setTagDeleteListeners() {
         const tags = document.querySelectorAll(".tag");
         for (const tag of tags) {
-            setTagDeleteListener(tag);
+            setDeleteByBackspaceListener(tag);
+            setDeleteByClickListener(tag);
         }
     }
 
-    function setTagDeleteListener(tagElement) {
+    function setDeleteByClickListener(tagElement) {
+        const deleteButton = tagElement.querySelector(".delete-tag-button");
+        deleteButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            deleteTag(tagElement);
+        });
+    }
+
+    function setDeleteByBackspaceListener(tagElement) {
         tagElement.addEventListener("keydown", (e) => {
             if (e.code === "Backspace") {
                 e.preventDefault();
-                const tag = tagElement.textContent;
-                tagElement.remove();
-                removeTagFromData(tag);
-                setTagFocus();
+                deleteTag(tagElement);
             }
         });
+    }
 
-        function removeTagFromData(tag) {
-            const tagDataElement = document.getElementById("tag_data");
-            if (tagDataElement) {
-                const tags = tagDataElement.value.split(",");
-                const index = tags.indexOf(tag);
-                tags.splice(index, 1);
-                tagDataElement.value = tags.join(",");
-            }
+    function deleteTag(tagElement) {
+        const tagText = tagElement.textContent;
+        tagElement.remove();
+        removeTagFromData(tagText);
+        setTagFocus(tagElement);
+    }
+
+    function removeTagFromData(tag) {
+        const tagDataElement = document.getElementById("tag_data");
+        if (tagDataElement) {
+            const tags = tagDataElement.value.split(",");
+            const index = tags.indexOf(tag);
+            tags.splice(index, 1);
+            tagDataElement.value = tags.join(",");
         }
+    }
 
-        function setTagFocus() {
-            const nextTagElement = tagElement.previousElementSibling;
-            if (nextTagElement) {
-                nextTagElement.focus();
-            } else {
-                const tagInput = document.getElementById("id_tags");
-                tagInput.focus();
-            }
+    function setTagFocus(tagElement) {
+        const nextTagElement = tagElement.previousElementSibling;
+        if (nextTagElement) {
+            nextTagElement.focus();
+        } else {
+            const tagInput = document.getElementById("id_tags");
+            tagInput.focus();
         }
     }
 }

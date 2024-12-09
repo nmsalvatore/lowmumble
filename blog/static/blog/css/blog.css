@@ -380,7 +380,25 @@ article.post a.tag {
 }
 
 span.tag:focus {
-    outline: 2px solid var(--color-dark);
+    background: var(--color-medium);
+    outline: none;
+}
+
+span.tag:has(.delete-tag-button) {
+    display: flex;
+    align-items: center;
+    gap: var(--size-1);
+}
+
+span.tag .delete-tag-button {
+    border: none;
+    padding: 0;
+    line-height: 0;
+}
+
+span.tag button svg {
+    height: var(--size-2);
+    width: var(--size-2);
 }
 
 a.tag {

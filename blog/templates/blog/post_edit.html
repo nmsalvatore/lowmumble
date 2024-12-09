@@ -57,7 +57,12 @@
         <div class="tag-container">
             <span class="current-tags">
                 {% for tag in post.tags.all %}
-                    <span class="tag" tabindex="0">{{ tag }}</span>
+                    <span class="tag" tabindex="0">
+                        {{ tag }}
+                        <button tabindex="-1" class="delete-tag-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#efe7e7"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                        </button>
+                    </span>
                 {% endfor %}
             </span>
             <input type="text" name="tags" class="form-control" placeholder="Add tag" id="id_tags" autocomplete="off">
