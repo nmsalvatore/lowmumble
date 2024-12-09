@@ -48,7 +48,7 @@ a#back_btn {
     text-decoration: none;
 }
 
-a#back_btn img {
+a#back_btn svg {
     height: var(--size-2);
     position: relative;
     top: 3px;
@@ -197,7 +197,7 @@ form:has(.tiptap) + div.admin-options button[type="submit"].primary {
 a.button {
     background: var(--color-darkest);
     text-decoration: none;
-    color: var(--color-light);
+    color: white;
     padding: var(--size-0) var(--size-1);
     border-radius: var(--size-0);
     height: 29px;
