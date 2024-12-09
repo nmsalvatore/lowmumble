@@ -173,7 +173,7 @@ function setTagListeners() {
 
     function setCreateTagListener() {
         tagInput.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
+            if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
                 e.preventDefault();
                 createTag();
             }
