@@ -178,6 +178,13 @@ function setTagListeners() {
                 createTag();
             }
         });
+
+        tagInput.addEventListener("dblclick", (e) => {
+            e.preventDefault();
+            if (tagInput.value !== "") {
+                createTag();
+            }
+        });
     }
 
     function setTagDeleteListeners() {
