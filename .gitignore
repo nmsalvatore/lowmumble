@@ -5,3 +5,4 @@ __pycache__
 node_modules/
 *.bundle.js
 .DS_Store
+.ropeproject
