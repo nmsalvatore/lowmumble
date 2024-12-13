@@ -17,6 +17,7 @@ def update_navbar(request):
 
 def post_list(request):
     tag_slug = request.GET.get("tag")
+
     request.session["back_info"] = {
         "path": request.get_full_path(),
         "tag": tag_slug or "all",
@@ -34,15 +35,20 @@ def post_list(request):
     for post in posts:
         year = post.created_on.year
         posts_by_year[year].append(post)
-
     years_with_posts = sorted(posts_by_year.items(), reverse=True)
+
     tag_counts = Tag.objects.annotate(post_count=Count('post'))
     tags = tag_counts.filter(post__in=posts).order_by('-post_count', 'name')
+    more_tags = isinstance(request.GET.get("more-tags"), str)
+
+    if not more_tags:
+        tags = tags[:10]
 
     context = {
         "years_with_posts": years_with_posts,
         "drafts": drafts,
         "tags": tags,
+        "more_tags": more_tags,
         "current_tag": current_tag
     }
 

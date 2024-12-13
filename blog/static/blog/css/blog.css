@@ -415,6 +415,14 @@ a.tag {
     line-height: normal;
 }
 
+.tag.more,
+.tag.less {
+    align-items: center;
+    background: var(--color-light);
+    color: var(--color-medium);
+    display: flex;
+}
+
 #id_tags {
     background: inherit;
     border: none;
