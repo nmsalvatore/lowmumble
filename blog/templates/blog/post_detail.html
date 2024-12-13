@@ -4,8 +4,6 @@
 {% block subtitle %}{{ post.title }}{% endblock subtitle %}
 
 {% block page_js %}
-    <script id="htmx" src="{% static 'blog/js/htmx.bundle.js' %}"></script>
-
     {% if user.is_superuser %}
         <script>clearCachedPost()</script>
     {% endif %}
