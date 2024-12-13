@@ -274,7 +274,7 @@ dialog:has(button) input[type="date"]:focus {
 
 dialog button,
 dialog a.button {
-    background: var(--color-darkest);
+    background: var(--color-medium);
     border: none;
     border-radius: var(--size-0);
     color: white;
