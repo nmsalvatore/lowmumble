@@ -10,21 +10,18 @@
         <link rel="icon" href="{% static 'icons/favicon.png' %}">
         <title>{% block subtitle %}{% endblock subtitle %} | low mumble.</title>
 
-        <!-- preloads -->
         <link rel="preload" href="{% static 'fonts/IBMPlexMono-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="{% static 'fonts/IBMPlexMono-SemiBold.woff2' %}" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="{% static 'core/css/main.css' %}" as="style">
 
-        <!-- CSS -->
         <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
         <link rel="stylesheet" href="{% static 'core/css/fonts.css' %}">
         {% block css %}{% endblock css%}
     </head>
-    <body hx-history-elt>
+    <body>
         {% block body %}
         {% endblock body%}
 
-        <!-- scripts -->
         <script>document.body.classList.add("js-enabled")</script>
         {% block js %}{% endblock js%}
     </body>
