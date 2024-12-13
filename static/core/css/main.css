@@ -9,9 +9,9 @@
     --font-size-2: 0.875rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
     --color-darkest: hsl(0 10% 15%);
-    --color-dark: hsl(0 20% 35%);
-    --color-medium: hsl(0 30% 55%);
-    --color-light: hsl(0 20% 92%);
+    --color-dark: hsl(0 25% 35%);
+    --color-medium: hsl(0 40% 55%);
+    --color-light: hsl(0 25% 92%);
     --color-lightest: hsl(0 10% 95%);
     --color-alert: hsl(0 30% 50%);
     --line-height: 1.6;
@@ -42,15 +42,25 @@ body {
     font-size: var(--font-size-1);
 }
 
-header.container,
-footer.container {
+header,
+main,
+footer,
+.container {
+    max-width: 720px;
+    margin: auto;
+    width: 100%;
+    padding: 0 var(--size-2);
+}
+
+header,
+footer {
     align-items: center;
     display: flex;
     justify-content: space-between;
     margin: var(--size-5) auto var(--size-4);
 }
 
-body:has(.admin-bar) header.container {
+body:has(.admin-bar) header {
     margin: calc(48px + var(--size-5)) auto var(--size-4);
 }
 
@@ -107,23 +117,16 @@ button {
     padding: var(--size-0) var(--size-1);
 }
 
-.container {
-    max-width: 720px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 0 var(--size-2);
-}
-
 @media only screen and (max-width: 568px) {
-    body:has(.admin-bar) header.container {
+    body:has(.admin-bar) header {
         margin: calc(48px + var(--size-3)) auto var(--size-3);
     }
 
-    header.container {
+    header {
         margin: var(--size-3) 0 var(--size-4);
     }
 
-    footer.container {
+    footer {
         margin: var(--size-4) auto var(--size-2);
     }
 }
