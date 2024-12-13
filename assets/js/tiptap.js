@@ -45,7 +45,11 @@ import { MarkdownLink } from "./markdown_link.js";
         hasUnsavedChanges = false;
         savePostToLocalStorage();
         const contentInput = document.getElementById("editor_content");
-        contentInput.value = editor.getHTML();
+        const content = editor.getHTML();
+        const contentWithUpdatedHeadings = content
+            .replace(/<h[1-6]/g, "<h2")
+            .replace(/<\/h[1-6]>/g, "</h2>");
+        contentInput.value = contentWithUpdatedHeadings;
         form.submit();
     });
 
