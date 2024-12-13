@@ -4,7 +4,7 @@
 {% block subtitle %}Home{% endblock subtitle %}
 
 {% block page_js %}
-    <script id="htmx" src="{% static 'blog/js/htmx.bundle.js' %}"></script>
+    <script src="{% static 'blog/js/htmx.bundle.js' %}"></script>
 
     {% if user.is_superuser %}
         <script>clearCachedPost()</script>
