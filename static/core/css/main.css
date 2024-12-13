@@ -13,6 +13,7 @@
     --color-medium: hsl(0 40% 55%);
     --color-light: hsl(0 25% 92%);
     --color-lightest: hsl(0 10% 95%);
+    --color-whitish: hsl(0 40% 99%);
     --color-alert: hsl(0 30% 50%);
     --line-height: 1.6;
 }
@@ -79,7 +80,7 @@ h3,
 h4,
 h5,
 h6 {
-    background: hsl(0 40% 99%);
+    background: var(--color-whitish);
     color: var(--color-darkest);
     display: inline;
     font-size: 1.125rem;
@@ -105,6 +106,19 @@ h6 + * {
 *:has(+ h5),
 *:has(+ h6) {
     margin-bottom: var(--size-3) !important;
+}
+
+a {
+    color: var(--color-medium);
+}
+
+strong,
+em {
+    color: var(--color-darkest);
+}
+
+p:not(li p) {
+    margin-bottom: var(--size-2);
 }
 
 button {

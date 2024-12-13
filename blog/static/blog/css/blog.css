@@ -1,3 +1,8 @@
+input::placeholder,
+textarea::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+}
+
 nav.admin-bar {
     color: var(--color-darkest);
     font-size: var(--font-size-2);
@@ -33,15 +38,6 @@ nav.admin-bar a.new-post {
     color: var(--color-darkest);
 }
 
-a {
-    color: var(--color-medium);
-}
-
-strong,
-em {
-    color: var(--color-darkest);
-}
-
 a#back_btn {
     color: var(--color-darkest);
     font-size: var(--font-size-2);
@@ -66,12 +62,8 @@ a#back_btn span.back-text::after {
     content: " posts";
 }
 
-p:not(li p) {
-    margin-bottom: var(--size-2);
-}
-
 ul.errorlist:not(ul.post-list) {
-    background: hsl(0 30% 60%);
+    background: var(--color-medium);
     border-radius: var(--size-0);
     color: white;
     font-size: var(--font-size-2);
@@ -259,7 +251,7 @@ dialog div:has(button) {
 }
 
 dialog:has(button) input[type="date"] {
-    background: hsl(0 40% 99%);
+    background: var(--color-whitish);
     border: 2px solid var(--color-medium);
     border-radius: var(--size-0);
     font-size: inherit;
@@ -329,6 +321,21 @@ code:not(pre code) {
     padding: 0 var(--size-0);
     position: relative;
     top: -2px;
+}
+
+h1 code:not(pre code),
+h2 code:not(pre code),
+h3 code:not(pre code),
+h4 code:not(pre code),
+h5 code:not(pre code),
+h6 code:not(pre code) {
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-size: inherit;
+    top: 0;
+    padding: 0;
+    color: var(--color-medium);
 }
 
 textarea#id_title {
@@ -406,11 +413,10 @@ a.tag {
 }
 
 .tag {
-    background: hsl(0 40% 99%);
+    background: var(--color-whitish);
     color: var(--color-dark);
     cursor: default;
     font-size: var(--font-size-2);
-    font-weight: 400;
     padding: var(--size-0);
     line-height: normal;
 }
@@ -444,11 +450,6 @@ div.publish-details {
 
 div.publish-details p {
     margin: 0;
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: hsl(210 5% 70%);
 }
 
 details.more-options {
