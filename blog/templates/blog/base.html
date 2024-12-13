@@ -30,19 +30,16 @@
             </div>
         </nav>
     {% endif %}
-
-    <header class="container">
+    <header>
         <a href="{% url 'post_list' %}" id="blog_title">low mumble.</a>
         {% block back_nav %}
         {% endblock back_nav %}
     </header>
-
-    <main class="container">
+    <main>
         {% block main %}
         {% endblock main%}
     </main>
-
-    <footer class="container">
+    <footer>
         <small>© 2024 low mumble.</small>
         <a aria-label="View project on Github" target="_blank" rel="noopener noreferrer" class="github-link" href="https://github.com/nmsalvatore/lowmumble">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 -960 960 960" fill="#af6a6a"><path d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z"/></svg>
