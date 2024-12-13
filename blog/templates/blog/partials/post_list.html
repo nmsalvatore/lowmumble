@@ -11,7 +11,7 @@
 
     {% if not more_tags and tags|length == 10 %}
         <a
-            href="{% url 'post_list' %}?more-tags"
+            href="{% url 'post_list' %}?{% if current_tag %}tag={{ current_tag }}&{% endif %}more-tags"
             class="tag more">
             more
             <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#ba5e5e"><path d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z"/></svg>
@@ -20,7 +20,7 @@
 
     {% if more_tags %}
         <a
-            href="{% url 'post_list' %}"
+            href="{% url 'post_list' %}{% if current_tag %}?tag={{ current_tag }}{% endif %}"
             class="tag less">
             <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#ba5e5e"><path d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z"/></svg>
             less
