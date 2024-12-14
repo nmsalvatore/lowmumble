@@ -197,6 +197,10 @@ function setTagListeners() {
 
     function setDeleteByClickListener(tagElement) {
         const deleteButton = tagElement.querySelector(".delete-tag-button");
+        if (!deleteButton) {
+            return;
+        }
+
         deleteButton.addEventListener("click", (e) => {
             e.preventDefault();
             deleteTag(tagElement);
