@@ -6,10 +6,10 @@ textarea::placeholder {
 nav.admin-bar {
     color: var(--color-darkest);
     font-size: var(--font-size-2);
-    font-weight: 500;
     height: var(--size-4);
     line-height: var(--size-4);
-    background: var(--color-light);
+    background: var(--color-whitish);
+    border-bottom: 1px solid var(--color-opaque);
     position: fixed;
     width: 100%;
     z-index: 1;
@@ -34,7 +34,7 @@ nav.admin-bar a.new-post {
 
 #blog_title {
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
     color: var(--color-darkest);
 }
 
@@ -149,8 +149,9 @@ details:has(.drafts)[open] summary::before {
 
 .post-list li {
     display: grid;
-    grid-template-columns: 10ch 1fr;
+    grid-template-columns: 9ch 1fr;
     position: relative;
+    align-items: center;
 }
 
 .post-list li a {
@@ -161,11 +162,10 @@ details:has(.drafts)[open] summary::before {
 
 .post-list li::before {
     content: "\2022";
-    font-size: 20px;
-    left: -18px;
+    left: calc(-1 * var(--font-size-1));
     margin-right: var(--size-1);
     position: absolute;
-    top: -4px;
+    top: -2px;
 }
 
 h1.post-title,
@@ -181,17 +181,18 @@ form:has(.tiptap) {
 }
 
 form:has(.tiptap) + div.admin-options button[type="submit"].primary {
-    background: var(--color-darkest);
+    background: var(--color-dark);
+    box-shadow: 1px 1px var(--color-medium);
     color: white;
     padding: var(--size-0) var(--size-1);
 }
 
 a.button {
-    background: var(--color-darkest);
+    background: var(--color-dark);
     text-decoration: none;
     color: white;
     padding: var(--size-0) var(--size-1);
-    border-radius: var(--size-0);
+    box-shadow: 1px 1px var(--color-medium);
     height: 29px;
 }
 
@@ -229,12 +230,14 @@ footer a:hover svg {
     padding-top: var(--size-4);
 }
 
+button.secondary {
+    border: 1px solid var(--color-medium);
+}
+
 dialog {
     margin: auto;
-    background: var(--color-lightest);
+    background: var(--color-light);
     border: none;
-    border-radius: var(--size-0);
-    color: var(--color-dark);
     padding: var(--size-3);
     box-shadow: 1px 1px 8px -4px;
 }
@@ -264,23 +267,16 @@ dialog:has(button) input[type="date"]:focus {
     outline: none;
 }
 
-dialog button,
-dialog a.button {
-    background: var(--color-medium);
-    border: none;
-    border-radius: var(--size-0);
-    color: white;
-    padding: var(--size-0) var(--size-1);
-    font-size: inherit;
-    font-family: inherit;
-    width: max-content;
-}
-
 dialog button.cancel {
     cursor: pointer;
-    background: var(--color-light);
-    border: 1px solid var(--color-opaque);
+    border: 1px solid var(--color-medium);
     color: var(--color-darkest);
+}
+
+dialog button[form="change_publish_date"] {
+    background: var(--color-dark);
+    color: white;
+    box-shadow: 1px 1px var(--color-medium);
 }
 
 button#delete_button {
@@ -306,8 +302,8 @@ pre:has(code) {
     font-size: var(--font-size-2);
     background: var(--color-light);
     color: var(--color-darkest);
-    border: 1px solid var(--color-opaque);
-    box-shadow: 2px 2px var(--color-medium);
+    border: 1px solid var(--color-medium);
+    box-shadow: 1px 1px var(--color-lightest);
     line-height: normal;
 }
 
@@ -335,14 +331,14 @@ h6 code:not(pre code) {
     font-size: inherit;
     top: 0;
     padding: 0;
-    color: var(--color-medium);
+    color: var(--color-dark);
 }
 
 textarea#id_title {
     display: block;
     background: none;
     color: var(--color-darkest);
-    font-weight: bold;
+    font-weight: normal;
     font-family: inherit;
     width: 100%;
     border: none;
@@ -382,8 +378,9 @@ article .tag-container {
 a.tag.selected,
 span.tag,
 article.post a.tag {
-    background: var(--color-darkest);
+    background: var(--color-dark);
     color: white;
+    box-shadow: 1px 1px var(--color-medium);
 }
 
 span.tag:focus {
@@ -413,20 +410,19 @@ a.tag {
 }
 
 .tag {
-    background: var(--color-whitish);
+    background: var(--color-light);
     color: var(--color-dark);
     cursor: default;
     font-size: var(--font-size-2);
     padding: var(--size-0);
     line-height: normal;
+    box-shadow: 1px 1px var(--color-medium);
 }
 
-.tag.more,
-.tag.less {
-    align-items: center;
-    background: var(--color-light);
-    color: var(--color-medium);
-    display: flex;
+.tag.more img,
+.tag.less img {
+    position: relative;
+    top: 2px;
 }
 
 #id_tags {
@@ -466,13 +462,13 @@ details.more-options summary {
 }
 
 details.more-options menu {
-    background: var(--color-lightest);
+    background: var(--color-light);
     list-style: none;
     position: absolute;
     right: var(--size-1);
     bottom: var(--size-4);
     width: max-content;
-    border: 1px solid var(--color-opaque);
+    border: 1px solid var(--color-medium);
     border-radius: var(--size-0);
     box-shadow: 1px 0 8px -6px;
     padding: var(--size-0);
@@ -488,6 +484,21 @@ details.more-options menu > li > button {
 
 details.more-options menu > li > button:hover {
     background: var(--color-light);
+}
+
+time,
+li > span,
+.created-on {
+    text-transform: uppercase;
+}
+
+time:not(.created-on time),
+li > span {
+    font-size: var(--font-size-2);
+}
+
+.created-on {
+    font-size: 0.75rem;
 }
 
 @media only screen and (max-width: 568px) {
