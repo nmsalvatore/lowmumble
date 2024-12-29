@@ -87,6 +87,9 @@ h6 {
     margin-top: var(--size-3);
     margin-bottom: var(--size-2);
     line-height: normal;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
 }
 
 h1 + *,
