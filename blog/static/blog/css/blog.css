@@ -378,9 +378,9 @@ article .tag-container {
 a.tag.selected,
 span.tag,
 article.post a.tag {
-    background: var(--color-dark);
+    background: hsl(30 30% 60%);
     color: white;
-    box-shadow: 1px 1px var(--color-medium);
+    box-shadow: 1px 1px hsl(30 50% 80%);
 }
 
 span.tag:focus {
