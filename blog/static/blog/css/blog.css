@@ -293,7 +293,7 @@ code {
 
 code:not(pre code),
 pre:has(code) {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Fira Code", monospace;
     font-size: var(--font-size-2);
     background: var(--color-light);
     color: var(--color-darkest);

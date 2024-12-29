@@ -11,7 +11,7 @@
     --color-darkest: hsl(210 25% 15%);
     --color-dark: hsl(210 25% 45%);
     --color-medium: hsl(210 25% 85%);
-    --color-light: hsl(210 25% 95%);
+    --color-light: hsl(210 25% 93%);
     --color-lightest: hsl(210 10% 95%);
     --color-whitish: hsl(0 0% 98%);
     --color-alert: hsl(0 30% 50%);
@@ -32,7 +32,7 @@ body {
 html {
     background: var(--color-whitish);
     color: var(--color-darkest);
-    font-family: "Space Grotesk", monospace;
+    font-family: "Fira Code", monospace;
     font-size: 100%;
     font-weight: 400;
 }
