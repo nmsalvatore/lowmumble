@@ -411,7 +411,6 @@ a.tag {
 
 .tag {
     background: var(--color-light);
-    border-radius: 2px;
     color: var(--color-dark);
     cursor: default;
     font-size: var(--font-size-2);
