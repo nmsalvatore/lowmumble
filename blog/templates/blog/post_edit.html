@@ -92,7 +92,7 @@
                 <li>
                     <button id="delete_button">Delete</button>
                     <dialog id="delete_dialog">
-                        <p>Are you sure that you want to delete <strong>{{ post.title }}</strong>?</p>
+                        <p>Are you sure that you want to delete "{{ post.title }}"?</p>
                         <div>
                             <a class="button" href="{% url 'delete_post' slug=post.slug %}">Yes, delete it</a>
                             <button class="cancel">Cancel</button>

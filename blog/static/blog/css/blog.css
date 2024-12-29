@@ -177,7 +177,7 @@ form:has(.tiptap) {
 
 form:has(.tiptap) + div.admin-options button[type="submit"].primary {
     background: var(--color-dark);
-    box-shadow: 1px 1px var(--color-medium);
+    box-shadow: 2px 2px var(--color-medium);
     color: white;
     padding: var(--size-0) var(--size-1);
 }
@@ -187,7 +187,7 @@ a.button {
     text-decoration: none;
     color: white;
     padding: var(--size-0) var(--size-1);
-    box-shadow: 1px 1px var(--color-medium);
+    box-shadow: 2px 2px var(--color-medium);
     height: 29px;
 }
 
@@ -234,7 +234,7 @@ dialog {
     background: var(--color-light);
     border: none;
     padding: var(--size-3);
-    box-shadow: 1px 1px 8px -4px;
+    box-shadow: 2px 2px 8px -4px;
 }
 
 dialog::backdrop {
@@ -271,7 +271,7 @@ dialog button.cancel {
 dialog button[form="change_publish_date"] {
     background: var(--color-dark);
     color: white;
-    box-shadow: 1px 1px var(--color-medium);
+    box-shadow: 2px 2px var(--color-medium);
 }
 
 button#delete_button {
@@ -298,7 +298,7 @@ pre:has(code) {
     background: var(--color-light);
     color: var(--color-darkest);
     border: 1px solid var(--color-medium);
-    box-shadow: 1px 1px var(--color-lightest);
+    box-shadow: 2px 2px var(--color-lightest);
     line-height: normal;
 }
 
@@ -354,6 +354,11 @@ textarea#id_title:focus {
 
 .tag-container > .tag {
     cursor: pointer;
+}
+
+form .tag,
+article .tag {
+    font-size: var(--font-size-2);
 }
 
 article .tag-container {
@@ -439,7 +444,7 @@ a.tag {
 div.publish-details {
     color: var(--color-darkest);
     font-size: var(--font-size-2);
-    margin: var(--size-2) 0;
+    margin: var(--size-3) 0 var(--size-2);
 }
 
 div.publish-details p {
@@ -460,7 +465,7 @@ details.more-options summary {
 }
 
 details.more-options menu {
-    background: var(--color-light);
+    background: var(--color-whitish);
     list-style: none;
     position: absolute;
     right: var(--size-1);
