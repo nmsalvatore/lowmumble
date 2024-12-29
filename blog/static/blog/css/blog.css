@@ -120,10 +120,6 @@ li ul:not(ul.post-list) {
     margin-bottom: var(--size-1);
 }
 
-details:has(.drafts) {
-    margin-bottom: var(--size-4);
-}
-
 details:has(.drafts) summary::before {
     content: "Show drafts";
 }
@@ -131,7 +127,6 @@ details:has(.drafts) summary::before {
 details:has(.drafts) summary {
     color: var(--color-darkest);
     cursor: pointer;
-    font-size: var(--font-size-2);
 }
 
 details:has(.drafts) .drafts {
@@ -380,7 +375,6 @@ span.tag,
 article.post a.tag {
     background: var(--color-dark);
     color: white;
-    box-shadow: 1px 1px var(--color-medium);
 }
 
 span.tag:focus {
@@ -411,12 +405,11 @@ a.tag {
 
 .tag {
     background: var(--color-light);
-    color: var(--color-dark);
+    color: var(--color-darkest);
     cursor: default;
-    font-size: var(--font-size-2);
+    /* font-size: var(--font-size-2); */
     padding: var(--size-0);
     line-height: normal;
-    box-shadow: 1px 1px var(--color-medium);
 }
 
 .tag.more img,
@@ -424,6 +417,10 @@ a.tag {
     position: relative;
     top: 2px;
     height: var(--font-size-2);
+}
+
+.drafts + h2 {
+    margin-top: var(--size-3);
 }
 
 #id_tags {
@@ -487,19 +484,12 @@ details.more-options menu > li > button:hover {
     background: var(--color-light);
 }
 
-time,
-li > span,
 .created-on {
     text-transform: uppercase;
 }
 
-time:not(.created-on time),
-li > span {
-    font-size: var(--font-size-2);
-}
-
 .created-on {
-    font-size: 0.75rem;
+    font-size: var(--font-size-2);
 }
 
 @media only screen and (max-width: 568px) {

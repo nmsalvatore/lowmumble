@@ -29,7 +29,7 @@
 </section>
 
 {% if user.is_superuser and drafts %}
-    <details>
+    <details class="drafts">
         <summary></summary>
         <ul class="post-list drafts">
             {% for draft in drafts %}
