@@ -143,10 +143,11 @@ details:has(.drafts)[open] summary::before {
 }
 
 .post-list li {
-    display: grid;
-    grid-template-columns: 9ch 1fr;
+    display: flex;
     position: relative;
     align-items: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .post-list li a {
@@ -412,7 +413,6 @@ a.tag {
     background: var(--color-light);
     color: var(--color-darkest);
     cursor: default;
-    /* font-size: var(--font-size-2); */
     padding: var(--size-0);
     line-height: normal;
 }

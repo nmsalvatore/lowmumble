@@ -34,7 +34,6 @@
         <ul class="post-list drafts">
             {% for draft in drafts %}
                 <li>
-                    <span>Draft</span>
                     <a href="{% url 'edit_post' slug=draft.slug %}">{{ draft }}</a>
                 </li>
             {% endfor %}
@@ -47,7 +46,6 @@
     <ul class="post-list">
         {% for post in posts %}
             <li>
-                <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j" }}</time>
                 <a
                     href="{% url 'post_detail' slug=post.slug %}">
                     {{ post }}
