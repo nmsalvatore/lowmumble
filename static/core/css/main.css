@@ -88,7 +88,7 @@ h6 {
     font-family: "Space Grotesk", Inter, sans-serif;
     font-size: 1.25rem;
     font-weight: 500;
-    margin-top: var(--size-4);
+    margin-top: var(--size-3);
     margin-bottom: var(--size-2);
     line-height: normal;
 }
