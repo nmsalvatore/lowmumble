@@ -11,7 +11,7 @@
             class="tag{% if current_tag == tag %} selected{% endif %}">{{ tag }}</a>
     {% endfor %}
 
-    {% if not more_tags and total_tags|length > 12 %}
+    {% if not more_tags and total_tags|length > 10 %}
         <a
             href="{% url 'post_list' %}?{% if current_tag %}tag={{ current_tag }}&{% endif %}more-tags"
             class="tag more">

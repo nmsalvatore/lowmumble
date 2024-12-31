@@ -41,7 +41,7 @@ def post_list(request):
     total_tags = tag_counts.filter(post__in=posts).order_by('-post_count', 'name')
     more_tags = isinstance(request.GET.get("more-tags"), str)
 
-    tags = total_tags[:12] if not more_tags else total_tags
+    tags = total_tags[:10] if not more_tags else total_tags
 
     context = {
         "years_with_posts": years_with_posts,
