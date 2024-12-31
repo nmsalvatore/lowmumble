@@ -46,6 +46,7 @@
     <ul class="post-list">
         {% for post in posts %}
             <li>
+                <time datetime="">{{ post.created_on|date:"m/y" }}</time>
                 <a
                     href="{% url 'post_detail' slug=post.slug %}">
                     {{ post }}

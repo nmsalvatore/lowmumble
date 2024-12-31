@@ -34,6 +34,7 @@ nav.admin-bar a.new-post {
 
 #blog_title {
     text-decoration: none;
+    font-family: "Space Grotesk", Inter, sans-serif;
     font-weight: 500;
     color: var(--color-darkest);
     display: flex;
@@ -148,11 +149,11 @@ details:has(.drafts)[open] summary::before {
 
 .post-list {
     line-height: var(--line-height);
-    margin-left: var(--size-2);
 }
 
 .post-list li {
-    display: flex;
+    display: grid;
+    grid-template-columns: 6ch 1fr;
     position: relative;
     align-items: center;
     white-space: nowrap;
@@ -164,14 +165,6 @@ details:has(.drafts)[open] summary::before {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.post-list li::before {
-    content: "\2022";
-    left: calc(-1 * var(--font-size-1));
-    margin-right: var(--size-1);
-    position: absolute;
-    top: -2px;
 }
 
 h1.post-title,
@@ -417,8 +410,9 @@ a.tag {
 }
 
 .tag {
+    font-family: "IBM Plex Mono", monospace;
     background: var(--color-light);
-    color: var(--color-darkest);
+    color: var(--color-dark);
     cursor: default;
     padding: var(--size-0);
     line-height: normal;

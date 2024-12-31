@@ -9,7 +9,7 @@
     --font-size-2: 0.875rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
     --color-darkest: hsl(210 25% 10%);
-    --color-dark: hsl(210 25% 45%);
+    --color-dark: hsl(210 25% 43%);
     --color-medium: hsl(210 25% 85%);
     --color-light: hsl(210 20% 94%);
     --color-lightest: hsl(210 10% 95%);
@@ -85,6 +85,7 @@ h4,
 h5,
 h6 {
     color: var(--color-darkest);
+    font-family: "Space Grotesk", Inter, sans-serif;
     font-size: 1.25rem;
     font-weight: 500;
     margin-top: var(--size-4);

@@ -47,7 +47,7 @@
         <!-- publish details -->
         <div class="publish-details">
             {% if post.published %}
-                <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time>
+                <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"F j, Y" }}</time>
             {% elif not post.published%}
                 <p>Draft</p>
             {% endif %}
