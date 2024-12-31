@@ -296,10 +296,8 @@ code:not(pre code),
 pre:has(code) {
     font-family: "IBM Plex Mono", monospace;
     font-size: var(--font-size-2);
-    background: var(--color-light);
+    background: var(--color-lightest);
     color: var(--color-darkest);
-    border: 1px solid var(--color-medium);
-    box-shadow: 2px 2px var(--color-lightest);
     line-height: normal;
 }
 
@@ -368,7 +366,7 @@ article .tag-container {
 }
 
 .tag-container:not(.tag-container:has(.current-tags)) {
-    gap: var(--size-1);
+    gap: var(--size-1) var(--size-2);
 }
 
 .current-tags:has(.tag) {

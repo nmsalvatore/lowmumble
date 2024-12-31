@@ -9,10 +9,10 @@
     --font-size-2: 0.875rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
     --color-darkest: hsl(170 100% 15%);
-    --color-dark: hsl(170 50% 25%);
+    --color-dark: hsl(170 75% 25%);
     --color-medium: hsl(170 50% 85%);
-    --color-light: hsl(200 10% 90%);
-    --color-lightest: hsl(210 10% 95%);
+    --color-light: hsl(185 10% 90%);
+    --color-lightest: hsl(185 10% 95%);
     --color-whitish: hsl(0 0% 98%);
     --color-alert: hsl(0 30% 50%);
     --line-height: 1.7;
@@ -94,7 +94,7 @@ h6 {
 }
 
 a {
-    color: var(--color-dark);
+    color: var(--color-darkest);
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
 }
