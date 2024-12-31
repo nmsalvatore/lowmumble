@@ -34,8 +34,16 @@ nav.admin-bar a.new-post {
 
 #blog_title {
     text-decoration: none;
-    font-weight: normal;
+    font-weight: 500;
     color: var(--color-darkest);
+    display: flex;
+    align-items: center;
+    gap: var(--size-2);
+}
+
+#blog_title img {
+    height: var(--size-3);
+    width: var(--size-3);
 }
 
 a#back_btn {
@@ -148,6 +156,7 @@ details:has(.drafts)[open] summary::before {
     align-items: center;
     white-space: nowrap;
     text-overflow: ellipsis;
+    margin-bottom: var(--size-0);
 }
 
 .post-list li a {
@@ -282,10 +291,6 @@ button#delete_button {
 article.post {
     margin: var(--size-2) 0;
     line-height: var(--line-height);
-}
-
-article.post .tag-container {
-    margin-bottom: var(--size-4);
 }
 
 code {

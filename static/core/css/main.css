@@ -8,7 +8,7 @@
     --font-size-1: 1rem;
     --font-size-2: 0.875rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
-    --color-darkest: hsl(210 25% 15%);
+    --color-darkest: hsl(210 25% 10%);
     --color-dark: hsl(210 25% 45%);
     --color-medium: hsl(210 25% 85%);
     --color-light: hsl(210 20% 94%);
@@ -32,7 +32,7 @@ body {
 html {
     background: var(--color-whitish);
     color: var(--color-darkest);
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Inter", sans-serif;
     font-size: 100%;
     font-weight: 400;
 }
@@ -82,7 +82,7 @@ h5,
 h6 {
     color: var(--color-darkest);
     font-size: 1.25rem;
-    font-weight: normal;
+    font-weight: 500;
     margin-top: var(--size-4);
     margin-bottom: var(--size-2);
     line-height: normal;
@@ -92,11 +92,6 @@ a {
     color: var(--color-dark);
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
-}
-
-strong {
-    background: var(--color-light);
-    font-weight: normal;
 }
 
 p:not(li p) {

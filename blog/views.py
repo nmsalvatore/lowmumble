@@ -42,7 +42,7 @@ def post_list(request):
     more_tags = isinstance(request.GET.get("more-tags"), str)
 
     if not more_tags:
-        tags = tags[:10]
+        tags = tags[:12]
 
     context = {
         "years_with_posts": years_with_posts,
