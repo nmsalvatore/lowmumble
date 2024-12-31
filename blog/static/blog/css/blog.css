@@ -34,8 +34,8 @@ nav.admin-bar a.new-post {
 
 #blog_title {
     text-decoration: none;
-    font-family: "Space Grotesk", Inter, sans-serif;
-    font-weight: 500;
+    font-size: 1.125rem;
+    font-weight: 600;
     color: var(--color-darkest);
     display: flex;
     align-items: center;
@@ -43,6 +43,7 @@ nav.admin-bar a.new-post {
 }
 
 #blog_title img {
+    display: none;
     height: var(--size-3);
     width: var(--size-3);
 }
@@ -172,7 +173,7 @@ h1.home-title,
 #id_title {
     margin-top: 0;
     margin-bottom: var(--size-2);
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 form:has(.tiptap) {
@@ -379,8 +380,8 @@ article .tag-container {
 a.tag.selected,
 span.tag,
 article.post a.tag {
-    background: var(--color-dark);
-    color: white;
+    color: var(--color-dark);
+    text-decoration: underline;
 }
 
 span.tag:focus {
@@ -410,12 +411,14 @@ a.tag {
 }
 
 .tag {
-    font-family: "IBM Plex Mono", monospace;
-    background: var(--color-light);
+    display: inline-flex;
     color: var(--color-dark);
     cursor: default;
-    padding: var(--size-0);
     line-height: normal;
+}
+
+.tag::before {
+    content: "#";
 }
 
 .tag.more img,

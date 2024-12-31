@@ -8,10 +8,10 @@
     --font-size-1: 1rem;
     --font-size-2: 0.875rem;
     --color-opaque: rgba(0, 0, 0, 0.07);
-    --color-darkest: hsl(210 25% 10%);
-    --color-dark: hsl(210 25% 43%);
-    --color-medium: hsl(210 25% 85%);
-    --color-light: hsl(210 20% 94%);
+    --color-darkest: hsl(170 100% 15%);
+    --color-dark: hsl(170 50% 25%);
+    --color-medium: hsl(170 50% 85%);
+    --color-light: hsl(200 10% 90%);
     --color-lightest: hsl(210 10% 95%);
     --color-whitish: hsl(0 0% 98%);
     --color-alert: hsl(0 30% 50%);
@@ -30,9 +30,9 @@ body {
 }
 
 html {
-    background: var(--color-whitish);
+    background: var(--color-light);
     color: var(--color-darkest);
-    font-family: "Inter", sans-serif;
+    font-family: "IBM Plex Mono", monospace;
     font-size: 100%;
     font-weight: 400;
 }
@@ -41,6 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     font-size: var(--font-size-1);
+    letter-spacing: -0.05rem;
 }
 
 header,
@@ -62,7 +63,7 @@ footer {
 }
 
 strong {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 body:has(.admin-bar) header {
@@ -85,9 +86,8 @@ h4,
 h5,
 h6 {
     color: var(--color-darkest);
-    font-family: "Space Grotesk", Inter, sans-serif;
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
     margin-top: var(--size-3);
     margin-bottom: var(--size-2);
     line-height: normal;
