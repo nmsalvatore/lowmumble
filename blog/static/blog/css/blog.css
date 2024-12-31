@@ -135,6 +135,7 @@ details:has(.drafts) summary::before {
 details:has(.drafts) summary {
     color: var(--color-darkest);
     cursor: pointer;
+    font-size: var(--font-size-2);
 }
 
 details:has(.drafts) .drafts {
