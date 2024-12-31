@@ -38,16 +38,16 @@ def post_list(request):
     years_with_posts = sorted(posts_by_year.items(), reverse=True)
 
     tag_counts = Tag.objects.annotate(post_count=Count('post'))
-    tags = tag_counts.filter(post__in=posts).order_by('-post_count', 'name')
+    total_tags = tag_counts.filter(post__in=posts).order_by('-post_count', 'name')
     more_tags = isinstance(request.GET.get("more-tags"), str)
 
-    if not more_tags:
-        tags = tags[:12]
+    tags = total_tags[:12] if not more_tags else total_tags
 
     context = {
         "years_with_posts": years_with_posts,
         "drafts": drafts,
         "tags": tags,
+        "total_tags": total_tags,
         "more_tags": more_tags,
         "current_tag": current_tag
     }
