@@ -366,7 +366,7 @@ article .tag-container {
 }
 
 .tag-container:not(.tag-container:has(.current-tags)) {
-    gap: var(--size-1) var(--size-2);
+    gap: var(--size-1);
 }
 
 .current-tags:has(.tag) {
