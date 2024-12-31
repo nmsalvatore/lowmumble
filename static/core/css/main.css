@@ -15,7 +15,7 @@
     --color-lightest: hsl(210 10% 95%);
     --color-whitish: hsl(0 0% 98%);
     --color-alert: hsl(0 30% 50%);
-    --line-height: 1.6;
+    --line-height: 1.7;
 }
 
 * {
@@ -59,6 +59,10 @@ footer {
     display: flex;
     justify-content: space-between;
     margin: var(--size-5) auto var(--size-4);
+}
+
+strong {
+    font-weight: 500;
 }
 
 body:has(.admin-bar) header {
