@@ -5,18 +5,45 @@
     --size-3: 2rem;
     --size-4: 3rem;
     --size-5: 5rem;
-    --font-size-1: 1rem;
-    --font-size-2: 0.875rem;
-    --color-opaque: rgba(0, 0, 0, 0.07);
-    --color-darkest: hsl(170 100% 15%);
-    --color-dark: hsl(170 75% 25%);
-    --color-medium: hsl(170 50% 85%);
-    --color-light: hsl(185 10% 90%);
-    --color-lightest: hsl(185 10% 95%);
-    --color-whitish: hsl(0 0% 98%);
-    --color-alert: hsl(0 30% 50%);
-    --line-height: 1.7;
+    --font-size-base: 15px;
+    --font-family: "IBM Plex Mono", Courier, mono;
+    --color-darkest: hsl(150 45% 20%);
+    --color-dark: hsl(150 25% 35%);
+    --color-medium: hsl(150 15% 50%);
+    --color-light: hsl(90 15% 88%);
+    --color-lightest: hsl(90 15% 91%);
+    --line-height: 1.6;
 }
+
+/* green settings
+
+--color-darkest: hsl(150 45% 20%);
+--color-dark: hsl(150 25% 35%);
+--color-medium: hsl(150 15% 50%);
+--color-light: hsl(90 15% 88%);
+--color-lightest: hsl(90 15% 91%);
+
+*/
+
+/* blue settings
+
+--color-darkest: hsl(200 45% 25%);
+--color-dark: hsl(200 45% 35%);
+--color-medium: hsl(200 15% 50%);
+--color-light: hsl(200 25% 90%);
+--color-lightest: hsl(200 25% 94%);
+
+*/
+
+/* red settings
+
+--color-darkest: hsl(0 60% 30%);
+--color-dark: hsl(0 45% 60%);
+--color-medium: hsl(0 30% 60%);
+--color-light: hsl(180 45% 89%);
+--color-lightest: hsl(180 45% 94%);
+
+*/
 
 * {
     padding: 0;
@@ -30,11 +57,10 @@ body {
 }
 
 html {
-    background: var(--color-light);
+    background: var(--color-lightest);
     color: var(--color-darkest);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 100%;
-    font-weight: 400;
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
 }
 
 body {
@@ -48,10 +74,9 @@ header,
 main,
 footer,
 .container {
-    max-width: 720px;
+    max-width: 640px;
     margin: auto;
     width: 100%;
-    padding: 0 var(--size-2);
 }
 
 header,
@@ -59,15 +84,24 @@ footer {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin: var(--size-5) auto var(--size-4);
+}
+
+header {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+body:has(.admin-bar) header {
+    margin-top: calc(45px + 5rem);
+}
+
+footer {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 strong {
     font-weight: 600;
-}
-
-body:has(.admin-bar) header {
-    margin: calc(48px + var(--size-5)) auto var(--size-4);
 }
 
 header div:has(#blog_title) {
@@ -85,11 +119,9 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--color-darkest);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: var(--size-3);
-    margin-bottom: var(--size-2);
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
     line-height: normal;
 }
 
@@ -100,7 +132,7 @@ a {
 }
 
 p:not(li p) {
-    margin-bottom: var(--size-2);
+    margin-bottom: 1.5rem;
 }
 
 button {
@@ -114,14 +146,22 @@ button {
 
 @media only screen and (max-width: 568px) {
     body:has(.admin-bar) header {
-        margin: calc(48px + var(--size-3)) auto var(--size-3);
+        margin-top: calc(45px + 2rem);
+    }
+
+    header,
+    main,
+    footer,
+    .container {
+        padding: 0 1rem;
     }
 
     header {
-        margin: var(--size-3) 0 var(--size-4);
+        margin-top: 2rem;
     }
 
     footer {
-        margin: var(--size-4) auto var(--size-2);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 }

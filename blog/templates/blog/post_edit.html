@@ -47,7 +47,7 @@
         <!-- publish details -->
         <div class="publish-details">
             {% if post.published %}
-                <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"F j, Y" }}</time>
+                <time datetime="{{ post.created_on|date:'Y-m-d' }}">{{ post.created_on|date:"M j, Y" }}</time>
             {% elif not post.published%}
                 <p>Draft</p>
             {% endif %}
@@ -60,7 +60,7 @@
                     <span class="tag" tabindex="0">
                         {{ tag }}
                         <button tabindex="-1" class="delete-tag-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#efe7e7"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                            <img src="{% static 'icons/close.svg' %}" alt="A green X icon">
                         </button>
                     </span>
                 {% endfor %}
@@ -86,7 +86,7 @@
 
         <details class="more-options">
             <summary>
-                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#2a2222"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
+                <img src="{% static 'icons/more_vert.svg' %}" alt="Three green dots aligned vertically">
             </summary>
             <menu>
                 <li>
@@ -94,7 +94,7 @@
                     <dialog id="delete_dialog">
                         <p>Are you sure that you want to delete "{{ post.title }}"?</p>
                         <div>
-                            <a class="button" href="{% url 'delete_post' slug=post.slug %}">Yes, delete it</a>
+                            <a class="button" href="{% url 'delete_post' slug=post.slug %}" class="primary">Yes, delete it</a>
                             <button class="cancel">Cancel</button>
                         </div>
                     </dialog>
@@ -114,7 +114,7 @@
                                 <input type="date" name="publish_date" value="{{ post.created_on|date:'Y-m-d' }}">
                             </form>
                             <div>
-                                <button form="change_publish_date" type="submit">Set new publish date</button>
+                                <button form="change_publish_date" type="submit" class="primary">Set new publish date</button>
                                 <button class="cancel">Cancel</button>
                             </div>
                         </dialog>

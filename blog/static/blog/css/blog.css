@@ -5,11 +5,11 @@ textarea::placeholder {
 
 nav.admin-bar {
     color: var(--color-darkest);
-    font-size: var(--font-size-2);
-    height: var(--size-4);
-    line-height: var(--size-4);
-    background: var(--color-whitish);
-    border-bottom: 1px solid var(--color-opaque);
+    font-size: 0.9rem;
+    height: 3rem;
+    line-height: 3rem;
+    background: var(--color-lightest);
+    box-shadow: 4px 4px 8px -8px;
     position: fixed;
     width: 100%;
     z-index: 1;
@@ -23,6 +23,7 @@ nav.admin-bar > .container {
 
 nav.admin-bar button.logout {
     border: none;
+    color: inherit;
     font-weight: inherit;
     padding: 0;
 }
@@ -36,7 +37,6 @@ nav.admin-bar a.new-post {
     text-decoration: none;
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--color-darkest);
     display: flex;
     align-items: center;
     gap: var(--size-2);
@@ -50,7 +50,7 @@ nav.admin-bar a.new-post {
 
 a#back_btn {
     color: var(--color-darkest);
-    font-size: var(--font-size-2);
+    font-size: 0.9rem;
     text-decoration: none;
 }
 
@@ -137,7 +137,7 @@ details:has(.drafts) summary::before {
 details:has(.drafts) summary {
     color: var(--color-darkest);
     cursor: pointer;
-    font-size: var(--font-size-2);
+    font-size: 0.9rem;
 }
 
 details:has(.drafts) .drafts {
@@ -150,11 +150,12 @@ details:has(.drafts)[open] summary::before {
 
 .post-list {
     line-height: var(--line-height);
+    padding-right: var(--size-1);
 }
 
 .post-list li {
     display: grid;
-    grid-template-columns: 6ch 1fr;
+    grid-template-columns: 7ch 1fr;
     position: relative;
     align-items: center;
     white-space: nowrap;
@@ -168,32 +169,28 @@ details:has(.drafts)[open] summary::before {
     text-overflow: ellipsis;
 }
 
+.post-list li time,
+.post-list li .draft {
+    color: var(--color-medium);
+}
+
 h1.post-title,
 h1.home-title,
 #id_title {
     margin-top: 0;
-    margin-bottom: var(--size-2);
+    margin-bottom: 1.5rem;
     font-size: 2rem;
 }
 
-form:has(.tiptap) {
-    margin-top: var(--size-2);
-}
-
-form:has(.tiptap) + div.admin-options button[type="submit"].primary {
-    background: var(--color-dark);
-    box-shadow: 2px 2px var(--color-medium);
+a.button,
+button.primary {
+    background: var(--color-medium);
     color: white;
     padding: var(--size-0) var(--size-1);
 }
 
 a.button {
-    background: var(--color-dark);
     text-decoration: none;
-    color: white;
-    padding: var(--size-0) var(--size-1);
-    box-shadow: 2px 2px var(--color-medium);
-    height: 29px;
 }
 
 .js-only {
@@ -205,8 +202,8 @@ a.button {
 }
 
 footer small {
-    font-size: var(--font-size-2);
-    color: var(--color-darkest);
+    font-size: 0.9rem;
+    color: var(--color-medium);
 }
 
 footer a {
@@ -226,8 +223,8 @@ footer a:hover svg {
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
-    gap: var(--size-1);
-    padding-top: var(--size-4);
+    gap: 0.5rem;
+    padding-top: 3rem;
 }
 
 button.secondary {
@@ -236,9 +233,9 @@ button.secondary {
 
 dialog {
     margin: auto;
-    background: var(--color-whitish);
+    background: var(--color-lightest);
     border: none;
-    padding: var(--size-3);
+    padding: 2rem;
     box-shadow: 2px 2px 8px -4px;
 }
 
@@ -254,7 +251,7 @@ dialog div:has(button) {
 }
 
 dialog:has(button) input[type="date"] {
-    background: var(--color-whitish);
+    background: var(--color-light);
     border: 2px solid var(--color-medium);
     border-radius: var(--size-0);
     font-size: inherit;
@@ -273,18 +270,13 @@ dialog button.cancel {
     color: var(--color-darkest);
 }
 
-dialog button[form="change_publish_date"] {
-    background: var(--color-dark);
-    color: white;
-    box-shadow: 2px 2px var(--color-medium);
-}
-
 button#delete_button {
-    color: var(--color-alert);
+    color: var(--color-dark);
 }
 
-article.post {
-    margin: var(--size-1) 0;
+article.post,
+form:has(.tiptap) {
+    margin: var(--size-3) 0;
     line-height: var(--line-height);
 }
 
@@ -294,10 +286,10 @@ code {
 
 code:not(pre code),
 pre:has(code) {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: var(--font-size-2);
-    background: var(--color-lightest);
-    color: var(--color-darkest);
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: var(--color-light);
+    color: inherit;
     line-height: normal;
 }
 
@@ -332,13 +324,14 @@ textarea#id_title {
     display: block;
     background: none;
     color: var(--color-darkest);
-    font-weight: normal;
+    font-weight: bold;
     font-family: inherit;
     width: 100%;
     border: none;
     resize: none;
     overflow-y: hidden;
     line-height: 38.5px;
+    letter-spacing: inherit;
 }
 
 textarea#id_title:focus {
@@ -346,10 +339,11 @@ textarea#id_title:focus {
 }
 
 .tag-container {
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
-    font-size: var(--font-size-2);
-    margin-bottom: var(--size-4);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
 }
 
 .tag-container > .tag {
@@ -371,32 +365,33 @@ article .tag-container {
 
 .current-tags:has(.tag) {
     display: flex;
-    gap: var(--size-1);
-    margin-right: var(--size-2);
+    gap: 1rem;
+    margin-right: 1rem;
 }
 
 a.tag.selected,
 span.tag,
 article.post a.tag {
-    color: var(--color-dark);
     text-decoration: underline;
 }
 
 span.tag:focus {
-    background: var(--color-medium);
+    background: var(--color-light);
+    color: var(--color-medium);
     outline: none;
 }
 
 span.tag:has(.delete-tag-button) {
     display: flex;
     align-items: center;
-    gap: var(--size-1);
 }
 
 span.tag .delete-tag-button {
     border: none;
     padding: 0;
     line-height: 0;
+    background: var(--color-light);
+    margin-left: 0.25rem;
 }
 
 span.tag button svg {
@@ -444,9 +439,9 @@ a.tag {
 }
 
 div.publish-details {
-    color: var(--color-darkest);
+    color: var(--color-medium);
     font-size: var(--font-size-2);
-    margin: var(--size-2) 0;
+    margin: var(--size-1) 0;
 }
 
 div.publish-details p {

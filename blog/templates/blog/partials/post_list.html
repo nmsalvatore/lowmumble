@@ -34,6 +34,7 @@
         <ul class="post-list drafts">
             {% for draft in drafts %}
                 <li>
+                    <span class="draft">Draft</span>
                     <a href="{% url 'edit_post' slug=draft.slug %}">{{ draft }}</a>
                 </li>
             {% endfor %}
