@@ -481,10 +481,4 @@ details.more-options menu > li > button:hover {
     a#back_btn span.back-text::after {
         content: "";
     }
-
-    article.post,
-    form:has(.tiptap) {
-        margin: 1rem 0;
-        line-height: var(--line-height);
-    }
 }
