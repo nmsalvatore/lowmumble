@@ -39,25 +39,22 @@ nav.admin-bar a.new-post {
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: var(--size-2);
+    gap: 1rem;
 }
 
 #blog_title img {
     display: none;
-    height: var(--size-3);
-    width: var(--size-3);
+    height: 2rem;
+    width: 2rem;
 }
 
 a#back_btn {
+    display: flex;
+    align-items: center;
     color: var(--color-darkest);
     font-size: 0.9rem;
+    gap: 0.25rem;
     text-decoration: none;
-}
-
-a#back_btn svg {
-    height: var(--size-2);
-    position: relative;
-    top: 3px;
 }
 
 a#back_btn span {
@@ -74,13 +71,13 @@ a#back_btn span.back-text::after {
 
 ul.errorlist:not(ul.post-list) {
     background: var(--color-medium);
-    border-radius: var(--size-0);
+    border-radius: 0.25rem;
     color: white;
-    font-size: var(--font-size-2);
+    font-size: 0.9rem;
     list-style-type: none;
     margin-left: 0;
-    margin-bottom: var(--size-2);
-    padding: var(--size-0) var(--size-1);
+    margin-bottom: 1rem;
+    padding: 0.25rem 0.5rem;
 }
 
 .editor ul,
@@ -89,14 +86,14 @@ ul.errorlist:not(ul.post-list) {
 article.post ul,
 article.post ol:not(ol:has(ul)),
 article.post ol:not(ol:has(ol)) {
-    margin-left: var(--size-3);
-    margin-top: var(--size-2);
-    margin-bottom: var(--size-2);
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .editor ol,
 article.post ol {
-    margin-left: var(--size-4);
+    margin-left: 3rem;
 }
 
 .editor blockquote,
@@ -105,8 +102,8 @@ article.post blockquote {
     border-left: 4px solid var(--color-opaque);
     color: var(--color-dark);
     font-style: italic;
-    margin: var(--size-3) 0;
-    padding: var(--size-3);
+    margin: 2rem 0;
+    padding: 2rem;
     position: relative;
 }
 
@@ -114,7 +111,7 @@ article.post blockquote {
 article.post blockquote::before {
     content: '"';
     color: rgba(0, 0, 0, 0.1);
-    font-size: var(--size-3);
+    font-size: 2rem;
     left: 0;
     position: absolute;
     top: 0;
@@ -126,8 +123,8 @@ article.post blockquote p {
 }
 
 li ul:not(ul.post-list) {
-    margin-top: var(--size-1);
-    margin-bottom: var(--size-1);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 details:has(.drafts) summary::before {
@@ -141,7 +138,7 @@ details:has(.drafts) summary {
 }
 
 details:has(.drafts) .drafts {
-    margin-top: var(--size-2);
+    margin-top: 1rem;
 }
 
 details:has(.drafts)[open] summary::before {
@@ -150,7 +147,7 @@ details:has(.drafts)[open] summary::before {
 
 .post-list {
     line-height: var(--line-height);
-    padding-right: var(--size-1);
+    padding-right: 0.5rem;
 }
 
 .post-list li {
@@ -160,7 +157,7 @@ details:has(.drafts)[open] summary::before {
     align-items: center;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin-bottom: var(--size-0);
+    margin-bottom: 0.25rem;
 }
 
 .post-list li a {
@@ -186,7 +183,7 @@ a.button,
 button.primary {
     background: var(--color-medium);
     color: white;
-    padding: var(--size-0) var(--size-1);
+    padding: 0.25rem 0.5rem;
 }
 
 a.button {
@@ -204,19 +201,6 @@ a.button {
 footer small {
     font-size: 0.9rem;
     color: var(--color-medium);
-}
-
-footer a {
-    cursor: pointer; /* Force pointer cursor always */
-}
-
-footer a svg {
-    fill: var(--color-medium);
-    transition: fill 1s ease 100ms;
-}
-
-footer a:hover svg {
-    fill: var(--color-darkest);
 }
 
 .admin-options {
@@ -246,18 +230,18 @@ dialog::backdrop {
 dialog div:has(button) {
     display: flex;
     justify-content: flex-end;
-    gap: var(--size-1);
-    margin-top: var(--size-3);
+    gap: 0.5rem;
+    margin-top: 2rem;
 }
 
 dialog:has(button) input[type="date"] {
     background: var(--color-light);
     border: 2px solid var(--color-medium);
-    border-radius: var(--size-0);
+    border-radius: 0.25rem;
     font-size: inherit;
     font-family: inherit;
-    padding: var(--size-0);
-    margin-top: var(--size-2);
+    padding: 0.25rem;
+    margin-top: 1rem;
 }
 
 dialog:has(button) input[type="date"]:focus {
@@ -276,7 +260,7 @@ button#delete_button {
 
 article.post,
 form:has(.tiptap) {
-    margin: var(--size-3) 0;
+    margin: 2rem 0;
     line-height: var(--line-height);
 }
 
@@ -294,13 +278,13 @@ pre:has(code) {
 }
 
 pre:has(code) {
-    padding: var(--size-2);
-    margin: var(--size-3) 0;
+    padding: 1rem;
+    margin: 2rem 0;
     overflow-x: auto;
 }
 
 code:not(pre code) {
-    padding: 0 var(--size-0);
+    padding: 0 0.25rem;
     position: relative;
     top: -2px;
 }
@@ -352,15 +336,15 @@ textarea#id_title:focus {
 
 form .tag,
 article .tag {
-    font-size: var(--font-size-2);
+    font-size: 0.9rem;
 }
 
 article .tag-container {
-    margin-bottom: var(--size-3);
+    margin-bottom: 2rem;
 }
 
 .tag-container:not(.tag-container:has(.current-tags)) {
-    gap: var(--size-1);
+    gap: 0.5rem;
 }
 
 .current-tags:has(.tag) {
@@ -394,11 +378,6 @@ span.tag .delete-tag-button {
     margin-left: 0.25rem;
 }
 
-span.tag button svg {
-    height: var(--size-2);
-    width: var(--size-2);
-}
-
 a.tag {
     text-decoration: none;
 }
@@ -418,11 +397,11 @@ a.tag {
 .tag.less img {
     position: relative;
     top: 2px;
-    height: var(--font-size-2);
+    height: 0.9rem;
 }
 
 .drafts + h2 {
-    margin-top: var(--size-3);
+    margin-top: 2rem;
 }
 
 #id_tags {
@@ -440,8 +419,8 @@ a.tag {
 
 div.publish-details {
     color: var(--color-medium);
-    font-size: var(--font-size-2);
-    margin: var(--size-1) 0;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
 }
 
 div.publish-details p {
@@ -456,28 +435,28 @@ details.more-options summary {
     align-items: center;
     cursor: pointer;
     display: flex;
-    gap: var(--size-1);
+    gap: 0.5rem;
     list-style: none;
-    padding: var(--size-0);
+    padding: 0.25rem;
 }
 
 details.more-options menu {
-    background: var(--color-whitish);
+    background: var(--color-lightest);
     list-style: none;
     position: absolute;
-    right: var(--size-1);
-    bottom: var(--size-4);
+    right: 0.5rem;
+    bottom: 3rem;
     width: max-content;
     border: 1px solid var(--color-medium);
-    border-radius: var(--size-0);
+    border-radius: 0.25rem;
     box-shadow: 1px 0 8px -6px;
-    padding: var(--size-0);
+    padding: 0.25rem;
 }
 
 details.more-options menu > li > button {
     border: none;
-    padding: var(--size-1);
-    padding-right: var(--size-3);
+    padding: 0.5rem;
+    padding-right: 2rem;
     width: 100%;
     text-align: left;
 }
@@ -491,7 +470,7 @@ details.more-options menu > li > button:hover {
 }
 
 .created-on {
-    font-size: var(--font-size-2);
+    font-size: 0.9rem;
 }
 
 @media only screen and (max-width: 568px) {
@@ -501,5 +480,11 @@ details.more-options menu > li > button:hover {
 
     a#back_btn span.back-text::after {
         content: "";
+    }
+
+    article.post,
+    form:has(.tiptap) {
+        margin: 1rem 0;
+        line-height: var(--line-height);
     }
 }

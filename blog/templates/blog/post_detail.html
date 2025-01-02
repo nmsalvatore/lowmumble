@@ -13,7 +13,7 @@
     <a
         id="back_btn"
         href="{{ back_info.path }}">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2a2222"><path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"/></svg>
+        <img src="{% static 'icons/arrow_back.svg' %}" alt="A lined arrow pointing to the left">
         <span class="back-text"><span class="tag">{{ back_info.tag }}</span></span>
     </a>
 {% endblock back_nav %}
