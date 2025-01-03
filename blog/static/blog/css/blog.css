@@ -35,7 +35,7 @@ nav.admin-bar a.new-post {
 
 #blog_title {
     text-decoration: none;
-    font-size: 1.125rem;
+    font-size: 1.2rem;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -111,7 +111,7 @@ article.post blockquote {
 article.post blockquote::before {
     content: '"';
     color: rgba(0, 0, 0, 0.1);
-    font-size: 2rem;
+    font-size: 1.8rem;
     left: 0;
     position: absolute;
     top: 0;
@@ -176,7 +176,7 @@ h1.home-title,
 #id_title {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 a.button,
