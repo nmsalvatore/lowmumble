@@ -120,20 +120,16 @@ function createDeleteTagButton() {
 }
 
 function createDeleteTagIcon() {
-    const namespace = "http://www.w3.org/2000/svg";
-    const svg = document.createElementNS(namespace, "svg");
-    svg.setAttribute("xmlns", namespace);
-    svg.setAttribute("height", "1rem");
-    svg.setAttribute("width", "1rem");
-    svg.setAttribute("viewBox", "0 -960 960 960");
-    svg.setAttribute("fill", "#efe7e7");
-    const path = document.createElementNS(namespace, "path");
-    path.setAttribute(
-        "d",
-        "m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z",
-    );
-    svg.appendChild(path);
-    return svg;
+    const icon = document.createElement("img");
+
+    try {
+        icon.src = closeIconPath;
+        icon.alt = "A green X icon";
+    } catch (error) {
+        console.error(error);
+    }
+
+    return icon;
 }
 
 function setTagListeners() {
