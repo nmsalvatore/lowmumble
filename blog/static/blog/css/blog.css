@@ -299,9 +299,11 @@ h6 code:not(pre code) {
     border: none;
     box-shadow: none;
     font-size: inherit;
+    font-weight: normal;
     top: 0;
     padding: 0;
-    color: var(--color-dark);
+    color: var(--color-darkest);
+    background: var(--color-light);
 }
 
 textarea#id_title {
