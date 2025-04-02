@@ -9,7 +9,7 @@ nav.admin-bar {
     height: 3rem;
     line-height: 3rem;
     background: var(--color-lightest);
-    box-shadow: 4px 4px 8px -8px;
+    border-bottom: 4px solid var(--color-light);
     position: fixed;
     width: 100%;
     z-index: 1;

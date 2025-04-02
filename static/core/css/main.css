@@ -10,8 +10,9 @@
     --color-darkest: hsl(150 45% 20%);
     --color-dark: hsl(150 25% 35%);
     --color-medium: hsl(150 15% 50%);
-    --color-light: hsl(90 15% 88%);
-    --color-lightest: hsl(90 15% 91%);
+    --color-light: hsl(150 15% 86%);
+    --color-lightest: hsl(150 15% 90%);
+    --color-highlight: hsl(15 35% 85%);
     --line-height: 1.6;
 }
 
@@ -49,6 +50,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+::selection {
+    background: var(--color-highlight);
 }
 
 html,
