@@ -8,11 +8,11 @@
     --font-size-base: 15px;
     --font-family: "IBM Plex Mono", Courier, mono;
     --color-darkest: hsl(150 45% 20%);
-    --color-dark: hsl(150 25% 35%);
-    --color-medium: hsl(150 15% 50%);
-    --color-light: hsl(150 15% 86%);
-    --color-lightest: hsl(150 15% 90%);
-    --color-highlight: hsl(15 35% 85%);
+    --color-dark: hsl(150 35% 35%);
+    --color-medium: hsl(150 25% 50%);
+    --color-light: hsl(90 15% 87%);
+    --color-lightest: hsl(90 15% 91%);
+    --color-highlight: hsl(30 50% 80%);
     --line-height: 1.6;
 }
 
