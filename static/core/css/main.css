@@ -7,12 +7,12 @@
     --size-5: 5rem;
     --font-size-base: 15px;
     --font-family: "IBM Plex Mono", Courier, mono;
-    --color-darkest: hsl(150 45% 15%);
-    --color-dark: hsl(150 35% 35%);
-    --color-medium: hsl(150 25% 50%);
-    --color-light: hsl(30 15% 89%);
-    --color-lightest: hsl(30 15% 92%);
-    --color-highlight: hsl(30 25% 82%);
+    --color-1: hsl(0 40% 55%);
+    --color-2: hsl(0 30% 25%);
+    --color-3: hsl(0 20% 60%);
+    --color-4: hsl(30 15% 91%);
+    --color-5: hsl(30 15% 94%);
+    --color-6: hsl(30 20% 85%);
     --line-height: 1.6;
 }
 
@@ -53,7 +53,7 @@
 }
 
 ::selection {
-    background: var(--color-highlight);
+    background: var(--color-6);
 }
 
 html,
@@ -62,8 +62,8 @@ body {
 }
 
 html {
-    background: var(--color-lightest);
-    color: var(--color-darkest);
+    background: var(--color-5);
+    color: var(--color-2);
     font-family: var(--font-family);
     font-size: var(--font-size-base);
 }
@@ -124,6 +124,7 @@ h3,
 h4,
 h5,
 h6 {
+    color: var(--color-1);
     font-size: 1.4rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -131,7 +132,7 @@ h6 {
 }
 
 a {
-    color: var(--color-darkest);
+    color: var(--color-2);
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
 }
