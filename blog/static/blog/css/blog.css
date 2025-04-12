@@ -365,8 +365,8 @@ article.post a.tag {
 }
 
 span.tag:focus {
-    background: var(--color-4);
-    color: var(--color-3);
+    background: var(--color-2);
+    color: var(--color-4);
     outline: none;
 }
 
@@ -379,7 +379,6 @@ span.tag .delete-tag-button {
     border: none;
     padding: 0;
     line-height: 0;
-    background: var(--color-4);
     margin-left: 0.25rem;
 }
 
