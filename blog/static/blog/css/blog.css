@@ -309,9 +309,8 @@ h6 code:not(pre code) {
 
 textarea#id_title {
     display: block;
-    background: none;
+    background: var(--color-4);
     color: var(--color-1);
-    font-weight: bold;
     font-family: inherit;
     width: 100%;
     border: none;
@@ -353,7 +352,7 @@ article .tag-container {
 
 .current-tags:has(.tag) {
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
     margin-right: 1rem;
 }
 
