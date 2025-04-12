@@ -330,7 +330,8 @@ textarea#id_title:focus {
     display: flex;
     flex-wrap: wrap;
     font-size: 0.9rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
 }
 
 .tag-container > .tag {
@@ -424,7 +425,7 @@ a.tag {
 div.publish-details {
     color: var(--color-3);
     font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    margin: 1rem 0;
 }
 
 div.publish-details p {
