@@ -115,3 +115,5 @@ CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'"]
 CSP_STYLE_SRC = ["'self'", "'unsafe-inline'"]
 CSP_IMG_SRC = ["'self'"]
 CSP_FONT_SRC = ["'self'"]
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
